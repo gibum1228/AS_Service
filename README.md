@@ -13,4 +13,4 @@
 
 # :open_file_folder: Project
 - [Server](https://github.com/gibum1228/AS_Service/projects/1)
-- [Front](https://github.com/gibum1228/AS_Service/projects/2)
+- [Front](https://github.com/gibum1228/AS_Service/projects/3)
