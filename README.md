@@ -12,5 +12,6 @@
 <br>
 
 # :open_file_folder: Project
-- [Server](https://github.com/gibum1228/AS_Service/projects/1)
-- [Front](https://github.com/gibum1228/AS_Service/projects/3)
+- [학생 관련](https://github.com/gibum1228/AS_Service/projects/1)
+- [관리자 관련](https://github.com/gibum1228/AS_Service/projects/4)
+- [화면 관련](https://github.com/gibum1228/AS_Service/projects/3)
