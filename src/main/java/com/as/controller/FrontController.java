@@ -10,7 +10,6 @@ public class FrontController {
 	@RequestMapping("/")
 	public String index(Model model) {
 
-
 		return "index";
 	}
 }
