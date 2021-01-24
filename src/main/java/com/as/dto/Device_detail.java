@@ -2,27 +2,27 @@ package com.as.dto;
 
 public class Device_detail {
 // ===== Data =====
-	int device_no;
-	int device_detail_no;
-	int device_detail_state;
+	private String device_code;
+	private int detail_no;
+	private int state;
 
-// ===== get & set =====
-	public int getDevice_no() {
-		return device_no;
+// ===== getter & setter =====
+	public String getDevice_code() {
+		return device_code;
 	}
-	public void setDevice_no(int device_no) {
-		this.device_no = device_no;
+	public void setDevice_code(String device_code) {
+		this.device_code = device_code;
 	}
-	public int getDevice_detail_no() {
-		return device_detail_no;
+	public int getDetail_no() {
+		return detail_no;
 	}
-	public void setDevice_detail_no(int device_detail_no) {
-		this.device_detail_no = device_detail_no;
+	public void setDetail_no(int detail_no) {
+		this.detail_no = detail_no;
 	}
-	public int getDevice_detail_state() {
-		return device_detail_state;
+	public int getState() {
+		return state;
 	}
-	public void setDevice_detail_state(int device_detail_state) {
-		this.device_detail_state = device_detail_state;
+	public void setState(int state) {
+		this.state = state;
 	}
 }

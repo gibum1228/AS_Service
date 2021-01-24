@@ -4,78 +4,85 @@ import java.sql.Date;
 
 public class Lend {
 // ===== Data =====
-	int lend_no;
-	int student_snum;
-	int device_no;
-	int device_detail_no;
-	int lend_type;
-	Date lend_start;
-	Date lend_end;
-	Date lend_return;
-	int lend_extend_state;
-	int lend_state;
-	int arrear;
+	private int no;
+	private String snum;
+	private String device_code;
+	private int detail_no;
+	private int type;
+	private Date wait_date;
+	private int state;
+	private Date start_date;
+	private Date end_date;
+	private Date return_date;
+	private int extend;
+	private int arrear;
 
-// ===== get & set =====
-	public int getLend_no() {
-		return lend_no;
+// ===== getter & setter =====
+	public int getNo() {
+		return no;
 	}
-	public void setLend_no(int lend_no) {
-		this.lend_no = lend_no;
+	public void setNo(int no) {
+		this.no = no;
 	}
-	public int getStudent_snum() {
-		return student_snum;
+	public String getSnum() {
+		return snum;
 	}
-	public void setStudent_snum(int student_snum) {
-		this.student_snum = student_snum;
+	public void setSnum(String snum) {
+		this.snum = snum;
 	}
-	public int getDevice_no() {
-		return device_no;
+	public String getDevice_code() {
+		return device_code;
 	}
-	public void setDevice_no(int device_no) {
-		this.device_no = device_no;
+	public void setDevice_code(String device_code) {
+		this.device_code = device_code;
 	}
-	public int getDevice_detail_no() {
-		return device_detail_no;
+	public int getDetail_no() {
+		return detail_no;
 	}
-	public void setDevice_detail_no(int device_detail_no) {
-		this.device_detail_no = device_detail_no;
+	public void setDetail_no(int detail_no) {
+		this.detail_no = detail_no;
 	}
-	public int getLend_type() {
-		return lend_type;
+	public int getType() {
+		return type;
 	}
-	public void setLend_type(int lend_type) {
-		this.lend_type = lend_type;
+	public void setType(int type) {
+		this.type = type;
 	}
-	public Date getLend_start() {
-		return lend_start;
+	public Date getWait_date() {
+		return wait_date;
 	}
-	public void setLend_start(Date lend_start) {
-		this.lend_start = lend_start;
+	public void setWait_date(Date wait_date) {
+		this.wait_date = wait_date;
 	}
-	public Date getLend_end() {
-		return lend_end;
+	public int getState() {
+		return state;
 	}
-	public void setLend_end(Date lend_end) {
-		this.lend_end = lend_end;
+	public void setState(int state) {
+		this.state = state;
 	}
-	public Date getLend_return() {
-		return lend_return;
+	public Date getStart_date() {
+		return start_date;
 	}
-	public void setLend_return(Date lend_return) {
-		this.lend_return = lend_return;
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
 	}
-	public int getLend_extend_state() {
-		return lend_extend_state;
+	public Date getEnd_date() {
+		return end_date;
 	}
-	public void setLend_extend_state(int lend_extend_state) {
-		this.lend_extend_state = lend_extend_state;
+	public void setEnd_date(Date end_date) {
+		this.end_date = end_date;
 	}
-	public int getLend_state() {
-		return lend_state;
+	public Date getReturn_date() {
+		return return_date;
 	}
-	public void setLend_state(int lend_state) {
-		this.lend_state = lend_state;
+	public void setReturn_date(Date return_date) {
+		this.return_date = return_date;
+	}
+	public int getExtend() {
+		return extend;
+	}
+	public void setExtend(int extend) {
+		this.extend = extend;
 	}
 	public int getArrear() {
 		return arrear;
@@ -83,4 +90,5 @@ public class Lend {
 	public void setArrear(int arrear) {
 		this.arrear = arrear;
 	}
+
 }

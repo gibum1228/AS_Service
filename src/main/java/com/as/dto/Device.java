@@ -4,49 +4,40 @@ import java.sql.Date;
 
 public class Device {
 // ===== Data =====
-	int device_no;
-	String device_name;
-	int device_type;
-	Date device_buy_date;
-	int major_id;
+	private String code;
+	private String name;
+	private int type;
+	private Date buy_date;
+	private int major_id;
 
-// ===== get & set =====
-	public int getDevice_no() {
-		return device_no;
+// ===== getter & setter =====
+	public String getCode() {
+		return code;
 	}
-
-	public void setDevice_no(int device_no) {
-		this.device_no = device_no;
+	public void setCode(String code) {
+		this.code = code;
 	}
-
-	public String getDevice_name() {
-		return device_name;
+	public String getName() {
+		return name;
 	}
-
-	public void setDevice_name(String device_name) {
-		this.device_name = device_name;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public int getDevice_type() {
-		return device_type;
+	public int getType() {
+		return type;
 	}
-
-	public void setDevice_type(int device_type) {
-		this.device_type = device_type;
+	public void setType(int type) {
+		this.type = type;
 	}
-
-	public Date getDevice_buy_date() {
-		return device_buy_date;
+	public Date getBuy_date() {
+		return buy_date;
 	}
-
-	public void setDevice_buy_date(Date device_buy_date) {
-		this.device_buy_date = device_buy_date;
+	public void setBuy_date(Date buy_date) {
+		this.buy_date = buy_date;
 	}
-
 	public int getMajor_id() {
 		return major_id;
 	}
-
 	public void setMajor_id(int major_id) {
 		this.major_id = major_id;
 	}

@@ -2,7 +2,7 @@ package com.as.dto;
 
 import java.sql.Date;
 
-public class Notice {
+public class Inquiry {
 // ===== Data =====
 	private int no;
 	private String snum;
@@ -10,6 +10,9 @@ public class Notice {
 	private String body;
 	private int views;
 	private Date write_date;
+	private int type;
+	private int state;
+	private String answer;
 
 // ===== getter & setter =====
 	public int getNo() {
@@ -48,5 +51,22 @@ public class Notice {
 	public void setWrite_date(Date write_date) {
 		this.write_date = write_date;
 	}
-
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 }
