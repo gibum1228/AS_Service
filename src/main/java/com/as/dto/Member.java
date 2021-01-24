@@ -20,7 +20,7 @@ public class Member implements UserDetails {
 	private int first_major_id;
 	private int sec_major_id;
 	private Date signup_date;
-	private int position_id;
+	private int role_id;
 	private int access;
 
 	private boolean isAccountNonExpired;
@@ -102,11 +102,11 @@ public class Member implements UserDetails {
 	public void setSignup_date(Date signup_date) {
 		this.signup_date = signup_date;
 	}
-	public int getPosition_id() {
-		return position_id;
+	public int getRole_id() {
+		return role_id;
 	}
-	public void setPosition_id(int position_id) {
-		this.position_id = position_id;
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
 	}
 	public int getAccess() {
 		return access;
@@ -132,5 +132,4 @@ public class Member implements UserDetails {
 	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
-
 }
