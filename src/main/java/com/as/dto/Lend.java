@@ -1,6 +1,7 @@
 package com.as.dto;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Lend {
 // ===== Data =====
@@ -9,7 +10,7 @@ public class Lend {
 	private String device_code;
 	private int detail_no;
 	private int type;
-	private Date wait_date;
+	private Timestamp wait_date;
 	private int state;
 	private Date start_date;
 	private Date end_date;
@@ -48,10 +49,10 @@ public class Lend {
 	public void setType(int type) {
 		this.type = type;
 	}
-	public Date getWait_date() {
+	public Timestamp getWait_date() {
 		return wait_date;
 	}
-	public void setWait_date(Date wait_date) {
+	public void setWait_date(Timestamp wait_date) {
 		this.wait_date = wait_date;
 	}
 	public int getState() {

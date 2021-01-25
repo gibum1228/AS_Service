@@ -1,6 +1,6 @@
 package com.as.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Notice {
 // ===== Data =====
@@ -9,7 +9,7 @@ public class Notice {
 	private String title;
 	private String body;
 	private int views;
-	private Date write_date;
+	private Timestamp write_date;
 
 // ===== getter & setter =====
 	public int getNo() {
@@ -42,10 +42,10 @@ public class Notice {
 	public void setViews(int views) {
 		this.views = views;
 	}
-	public Date getWrite_date() {
+	public Timestamp getWrite_date() {
 		return write_date;
 	}
-	public void setWrite_date(Date write_date) {
+	public void setWrite_date(Timestamp write_date) {
 		this.write_date = write_date;
 	}
 
