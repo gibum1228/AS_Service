@@ -16,6 +16,7 @@ public class Member implements UserDetails {
 	private String snum;
 	private String password;
 	private String name;
+	private String phone;
 	private String email;
 	private int first_major_id;
 	private int sec_major_id;
@@ -131,6 +132,12 @@ public class Member implements UserDetails {
 	}
 	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 }
