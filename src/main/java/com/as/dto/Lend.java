@@ -11,6 +11,7 @@ public class Lend {
 	private int detail_no;
 	private int type;
 	private Timestamp wait_date;
+	private Date visit_date;
 	private int state;
 	private Date start_date;
 	private Date end_date;
@@ -90,6 +91,12 @@ public class Lend {
 	}
 	public void setArrear(int arrear) {
 		this.arrear = arrear;
+	}
+	public Date getVisit_date() {
+		return visit_date;
+	}
+	public void setVisit_date(Date visit_date) {
+		this.visit_date = visit_date;
 	}
 
 }
