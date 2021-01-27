@@ -25,6 +25,7 @@ public class MemberService implements UserDetailsService {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
+	// 로그인 과정
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -35,6 +36,7 @@ public class MemberService implements UserDetailsService {
 		return member;
 	}
 
+	// 회원 정보 저장
 	public Member save(Member member) {
 
 		member.setPassword(passwordEncoder.encode(member.getPassword()));
@@ -42,6 +44,7 @@ public class MemberService implements UserDetailsService {
 		return memberRepository.save(member);
 	}
 
+	// 위에 말한 로그인 과정에 필요한 회원 정보 가져오기
 	public Collection<GrantedAuthority> getAuthority(String username){
 
 		List<String> string_authorities = memberRepository.findAuthorityById(username);

@@ -1,15 +1,14 @@
 package com.as.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.as.dto.Member;
 import com.as.mapper.MemberMapper;
 import com.as.service.MemberService;
 
-@RestController
+@Controller
 public class FrontController {
 
 	@Autowired
@@ -18,31 +17,28 @@ public class FrontController {
 	@Autowired
 	MemberMapper memberMapper;
 
-	@RequestMapping("/")
-	public String index(Model model) {
+	@RequestMapping("/index")
+	public String idex(Model model) {
 
-		return "index";
+		return "front/index";
 	}
 
-	@RequestMapping("/createA")
-	public Member createA() {
+	@RequestMapping({"/", "/login"})
+	public String login(Model model) {
 
-		Member member = new Member();
-
-		member.setSnum("adminTest");
-		member.setPassword("1234567890");
-		member.setName("관리자");
-		member.setEmail("SKHUAS@skhu.ac.kr");
-		member.setFirst_major_id(1);
-		member.setRole_id(10);
-
-		memberService.save(member);
-
-		return member;
+		return "front/login";
 	}
 
+	@RequestMapping("/signup")
+	public String signup(Model model) {
+
+		return "front/signup";
+	}
+
+	// 어드민 페이지 기본 테스트
 	@RequestMapping("/admin/hello")
-	public String hello() {
-		return "hello Spring";
+	public String hello(Model model) {
+
+		return "admin/hello";
 	}
 }

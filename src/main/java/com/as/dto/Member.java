@@ -1,6 +1,6 @@
 package com.as.dto;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -20,7 +20,7 @@ public class Member implements UserDetails {
 	private String email;
 	private int first_major_id;
 	private int sec_major_id;
-	private Timestamp signup_date;
+	private Date signup_date;
 	private int role_id;
 	private int access;
 
@@ -97,10 +97,10 @@ public class Member implements UserDetails {
 	public void setSec_major_id(int sec_major_id) {
 		this.sec_major_id = sec_major_id;
 	}
-	public Timestamp getSignup_date() {
+	public Date getSignup_date() {
 		return signup_date;
 	}
-	public void setSignup_date(Timestamp signup_date) {
+	public void setSignup_date(Date signup_date) {
 		this.signup_date = signup_date;
 	}
 	public int getRole_id() {

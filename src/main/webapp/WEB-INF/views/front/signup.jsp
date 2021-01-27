@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>테스트</title>
+<title>성공회대학교 A/S실</title>
 </head>
 <body>
-	테스트 전용
+	회원가입
 </body>
 </html>
