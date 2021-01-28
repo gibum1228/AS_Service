@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import com.as.dto.Major;
 import com.as.dto.Member;
 
 @Mapper
@@ -32,4 +33,8 @@ public interface MemberMapper {
     // 모든 회원 정보 검색
     @Select("SELECT * FROM member")
     List<Member> findAllMember();
+
+    // 모든 전공명 찾기
+    @Select("SELECT * FROM major")
+    List<Major> findAllMajor();
 }
