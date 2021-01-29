@@ -1,7 +1,9 @@
 package com.as.dto;
 
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Lend {
 // ===== Data =====
@@ -65,8 +67,8 @@ public class Lend {
 	public Date getStart_date() {
 		return start_date;
 	}
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
+	public void setStart_date(Date visit_date2) {
+		this.start_date = visit_date2;
 	}
 	public Date getEnd_date() {
 		return end_date;
@@ -92,9 +94,11 @@ public class Lend {
 	public void setArrear(int arrear) {
 		this.arrear = arrear;
 	}
+
 	public Date getVisit_date() {
 		return visit_date;
 	}
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public void setVisit_date(Date visit_date) {
 		this.visit_date = visit_date;
 	}

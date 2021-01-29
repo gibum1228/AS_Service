@@ -1,6 +1,6 @@
 package com.as.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Device {
 // ===== Data =====
@@ -9,6 +9,7 @@ public class Device {
 	private int type;
 	private Date buy_date;
 	private int major_id;
+
 
 // ===== getter & setter =====
 	public String getCode() {
@@ -41,4 +42,6 @@ public class Device {
 	public void setMajor_id(int major_id) {
 		this.major_id = major_id;
 	}
+
+
 }

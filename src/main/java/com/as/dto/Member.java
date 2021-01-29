@@ -1,7 +1,7 @@
 package com.as.dto;
 
-import java.sql.Date;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -38,6 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout_processing"))
 			.logoutSuccessUrl("/login")
 			.invalidateHttpSession(true); // 로그아웃할 때, 세션에 들어있는 데이터를 전부 삭제
+
+		// /lend/** 경로 csrf 비활성화
+		http.cors().and().csrf().ignoringAntMatchers("/front/lend/**");
 	}
 
 	@Override
