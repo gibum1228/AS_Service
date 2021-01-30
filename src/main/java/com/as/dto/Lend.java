@@ -20,6 +20,8 @@ public class Lend {
 	private Date return_date;
 	private int extend;
 	private int arrear;
+	//Device에서 장비명 불러오기
+	private String device_name;
 
 // ===== getter & setter =====
 	public int getNo() {
@@ -102,5 +104,13 @@ public class Lend {
 	public void setVisit_date(Date visit_date) {
 		this.visit_date = visit_date;
 	}
+	//Device에서 장비명 불러오기
+		public String getDevice_name() {
+			return device_name;
+		}
+		public void setDevice_name(String device_name) {
+			this.device_name = device_name;
+		}
+
 
 }

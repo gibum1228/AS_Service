@@ -20,10 +20,12 @@ import com.as.mapper.LendMapper;
 
 @Controller
 @RequestMapping("/front/lend")
-public class LendController {
+public class LendFrontController {
 
 	@Autowired
 	LendMapper lendMapper;
+
+
 
 	//장비대여하기 페이지
 	@GetMapping("select")
@@ -91,5 +93,7 @@ public class LendController {
 
 		return "/front/lend/save";
 	}
+
+
 
 }

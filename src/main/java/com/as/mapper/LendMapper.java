@@ -1,5 +1,6 @@
 package com.as.mapper;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
@@ -8,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.as.dto.Device;
+import com.as.dto.Device_detail;
 import com.as.dto.Lend;
 import com.as.dto.Major;
 import com.as.dto.Member;
@@ -33,9 +35,23 @@ public interface LendMapper {
 
 
 
+	// ====Device_detail 데이터베이스====
+    @Select("SELECT * FROM Device_detail          ")
+    List<Device_detail> Device_detailfindAll();
+
+
 	// ====Lend 데이터베이스====
 
-	// >> Lend 데이터 삽입 <<
+	// >> 날짜별로 lend 데이터 +device 장비명 가져오기 <<
+    @Select("SELECT l.*, d.name device_name         " +
+            "FROM lend l LEFT JOIN device d " +
+            " ON l.device_code = d.code "+
+            " WHERE visit_date = #{visit_date}")
+    List<Lend> LendfindAllByVisit_date(Date visit_date);
+
+
+
+    // >> Lend 데이터 삽입 <<
 	@Insert("INSERT Lend (snum,device_code,detail_no,type,wait_date,visit_date,state,start_date,end_date,return_date,extend,arrear)     "
 			+ "VALUES (#{snum},#{device_code},#{detail_no},#{type},#{wait_date},#{visit_date},#{state},#{start_date},#{end_date},#{return_date},#{extend},#{arrear})")
 	void LendInsert(Lend lend);
