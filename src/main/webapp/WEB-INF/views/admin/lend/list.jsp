@@ -22,13 +22,23 @@ td:nth-child(1), td:nth-child(5) {
 }
 </style>
 <script language="javascript">
-	function popup(frm) {
+	function popup1(frm) {
 		var url = "testpop.asp";
 		var title = "testpop";
 		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width=700, height=800, top=0,left=20";
 		window.open("", title, status);
 		frm.target = title;
 		frm.action = "/admin/lend/rent";
+		frm.method = "post";
+		frm.submit();
+	}
+	function popup2(frm) {
+		var url = "testpop.asp";
+		var title = "testpop";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width=700, height=800, top=0,left=20";
+		window.open("", title, status);
+		frm.target = title;
+		frm.action = "/admin/lend/return";
 		frm.method = "post";
 		frm.submit();
 	}
@@ -42,7 +52,7 @@ td:nth-child(1), td:nth-child(5) {
 			방문날짜:
 			<fmt:formatDate pattern="yyyy-MM-dd" value="${ visit_date }" var="b" />
 			<input type="date" name="visit_date" value="${ b }" />
-			<button type="submit">확인</button>
+			<button type="submit">확인</button> 
 		</form>
 		<br>
 		<table class="list">
@@ -55,7 +65,10 @@ td:nth-child(1), td:nth-child(5) {
 					<!-- <th>예약신청날짜</th> -->
 					<th>대여일</th>
 					<th>반납예정일</th>
+					<th>반납일</th>
+					<th>연체료</th>
 					<th>대여</th>
+					<th>반납</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -71,10 +84,15 @@ td:nth-child(1), td:nth-child(5) {
 								value="${ lend.start_date }" /></td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd"
 								value="${ lend.end_date }" /></td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd"
+								value="${ lend.return_date }" /></td>
+						<td>${ lend.arrear}</td>
 						<td><form method="post">
 							  <input type="hidden" name=lend_no value="${lend.no}">   
 								<input type="button" name="rent" value="대여"
-									onclick="javascript:popup(this.form);">
+									onclick="javascript:popup1(this.form);"></td>
+								<td>	<input type="button" name="return" value="반납"
+									onclick="javascript:popup2(this.form);">
 							</form></td>
 					</tr>
 				</c:forEach>

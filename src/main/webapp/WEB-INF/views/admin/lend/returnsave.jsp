@@ -35,7 +35,7 @@ td {
 }
 
 td:nth-child(1) {
-	text-align: right;
+	text-align: left;
 }
 
 input {
@@ -57,8 +57,8 @@ div.message {
 </style>
 <script language="javascript">
 	function closewin() {
-		window.opener.name = "rent"; // 부모창의 이름 설정
-		document.myForm.target = "rent"; // 타켓을 부모창으로 설정
+		window.opener.name = "return"; // 부모창의 이름 설정
+		document.myForm.target = "return"; // 타켓을 부모창으로 설정
 		document.myForm.action = "/admin/lend/list";
 		document.myForm.submit();
 		self.close();
@@ -71,26 +71,17 @@ div.message {
 			<div class="title">예약완료</div>
 			<table>
 			<tr>
-				<td>예약장비코드: </td>
-				<td>${selectedLend.device_code} </td></tr>
-				<tr><td>예약장비디테일넘버: </td>
-				<td>${selectedLend.detail_no} </td>	</tr>
-			<tr>	<td>대여일: </td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd"
-								value="${ selectedLend.start_date }" /></td>
-				</tr>
-				<tr>
-				<td>반납예정일: </td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd"
-								value="${ selectedLend.end_date }" /></td>		
-							
-					</tr>		
-				<tr>			
+				<td>반납일: 
+				<fmt:formatDate pattern="yyyy-MM-dd"
+								value="${ selectedLend.return_date }" /></td></tr>
+								<tr><td>반납되었습니다.</td></tr>
+								<tr>
 				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ visit_date }" var="b" />
 				<input type="hidden" type="date" name="visit_date" value="${ b }" /></td> 
 				
 				<td><input type="button" value="확인"
 					onclick="javascript:closewin()"></td>
+					    
 			</tr>
 			</table>
 		</form>

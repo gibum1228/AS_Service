@@ -59,28 +59,14 @@ div.message {
 <body>
 
 	<div class="container">
-		<form method="post" action="rentsave">
-			<div class="title">장비선택하기</div>
+		<form method="post" action="returnsave">
+			<div class="title">장비반납하기</div>
 			<table>
-				<tr>
-					<td>장비넘버: <select name="detail_no">
-							<c:forEach var="device_detail" items="${ device_details }">
-								<option value=${ device_detail.detail_no }>${ device_detail.detail_no }</option>
-							</c:forEach>
-					</select></td>
-					<!-- 선택된 lend의 no 넘겨주기 -->
-					<td><input type="hidden" name=lend_no value="${ lend_no }"></td>
-				</tr>
-				<tr>
-					<td>대여일: <fmt:formatDate pattern="yyyy-MM-dd"
-							value="${ currenttime }" /></td>
-				</tr>
-				<tr>
-					<td>반납예정일: <fmt:formatDate pattern="yyyy-MM-dd"
-							value="${ end_date }" var="b" /> 
-							<input type="date" name="end_date" value="${ b }" /></td>
-				</tr>
-				<tr>
+					<tr>
+					<td>반납일: <fmt:formatDate pattern="yyyy-MM-dd"
+							value="${ return_date }" var="b" /> 
+							<input type="date" name="return_date" value="${ b }" /></td>
+				<td><input type="hidden" name=lend_no value="${lend_no}"/></td>
 					<td>
 						<button type="submit" class="button">저장</button>
 					</td>
