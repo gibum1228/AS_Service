@@ -35,7 +35,7 @@ td {
 }
 
 td:nth-child(1) {
-	text-align: right;
+	text-align: left;
 }
 
 input {
@@ -58,15 +58,19 @@ div.message {
 </head>
 <body>
 	<div class="container">
-		<form>
+		<form action="/index">
 			<div class="title">예약완료</div>
 			<table>
-				<td>${selecteddevice.name}가 
-				<fmt:formatDate
-						pattern="yyyy년MM월dd일" value="${device_lend.visit_date}" />로
-					예약되었습니다.
-				</td>
-
+				 <tr>
+					<td>${selecteddevice.name}가 <fmt:formatDate
+							pattern="yyyy년MM월dd일" value="${device_lend.visit_date}" />에
+						예약되었습니다.
+					</td>
+					</tr><tr>
+					<td>
+						<button type="submit" class="button">확인</button>
+					</td>
+				</tr>
 			</table>
 
 		</form>
