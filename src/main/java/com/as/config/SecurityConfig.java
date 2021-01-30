@@ -41,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// /lend/** 경로 csrf 비활성화
 		http.cors().and().csrf().ignoringAntMatchers("/front/lend/**");
+		// /lend/** 경로 csrf 비활성화
+		http.cors().and().csrf().ignoringAntMatchers("/admin/lend/**");
 	}
 
 	@Override

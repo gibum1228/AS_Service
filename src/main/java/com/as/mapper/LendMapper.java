@@ -36,8 +36,8 @@ public interface LendMapper {
 
 
 	// ====Device_detail 데이터베이스====
-    @Select("SELECT * FROM Device_detail          ")
-    List<Device_detail> Device_detailfindAll();
+    @Select("SELECT * FROM Device_detail" + " WHERE device_code = #{device_code}")
+    List<Device_detail> Device_detailfindByDevice_code(String device_code);
 
 
 	// ====Lend 데이터베이스====
@@ -49,6 +49,8 @@ public interface LendMapper {
             " WHERE visit_date = #{visit_date}")
     List<Lend> LendfindAllByVisit_date(Date visit_date);
 
+    @Select("SELECT *FROM lend  WHERE no = #{no}")
+    Lend LendfindAllByNo(int no);
 
 
     // >> Lend 데이터 삽입 <<
@@ -62,7 +64,7 @@ public interface LendMapper {
 			+ "  detail_no = #{detail_no},   " + "  type = #{type},   " + "  wait_date = #{wait_date},   "
 			+ "  visit_date = #{visit_date},   " + "  state = #{state},   " + "  start_date = #{start_date},   "
 			+ "  end_date = #{end_date},   " + "  return_date = #{return_date},   " + "  extend = #{extend},   "
-			+ "  arrear = #{arrear},   " + "WHERE snum = #{snum}                    ")
+			+ "  arrear = #{arrear}   " + " WHERE snum = #{snum}                    ")
 	void LendUpdate(Lend lend);
 
 	// ====Member 데이터베이스====
