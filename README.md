@@ -4,7 +4,8 @@
 - 양재용
 
 # :books: Wiki
--
+- [HOME](https://github.com/gibum1228/AS_Service/wiki)
+- [STATES](https://github.com/gibum1228/AS_Service/wiki/TINYINT--AND--STATES)
 
 # :open_file_folder: Project
 - [Student](https://github.com/gibum1228/AS_Service/projects/1)
