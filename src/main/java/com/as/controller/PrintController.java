@@ -1,43 +1,42 @@
 package com.as.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.as.dto.Member;
+import com.as.mapper.MemberMapper;
 import com.as.mapper.TestMapper;
+import com.as.service.MemberService;
+
 
 @Controller
+@RequestMapping("admin")
+
 public class PrintController {
 
-	@Autowired TestMapper testMapper;
+	@Autowired
+	TestMapper testMapper;
+	@Autowired
+	MemberMapper memberMapper;
+	@Autowired
+	MemberService memberService;
 
 
 	@RequestMapping("print")
-	public String print(Model model, HttpSession session, String snum, String name, String first_major_id, String email) {
+	public String print(Model model, String snum) {
 
-		Member user = (Member)session.getAttribute("user");
-
-		model.addAttribute("user",user);
+		model.addAttribute("member",testMapper.findByPrint(snum));
 
 
-		return "print";
+		return "admin/print";
 	}
 
 	@RequestMapping("test")
-	public String test(Model model, HttpSession session) {
+	public String test(Model model) {
 
-		Member mb = new Member();
-		mb.setName("양재용");
-		mb.setSnum("201734017");
-		mb.setEmail("yjy8501@naver.com");
-		mb.setFirst_major_id(1);
 
-		session.setAttribute("user", mb);
 
-		return "test";
+		return "admin/test";
 	}
 }

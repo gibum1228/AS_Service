@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.as.dto.Member;
+import com.as.dto.Print;
 
 @Mapper
 public interface TestMapper {
@@ -26,6 +27,13 @@ public interface TestMapper {
 
     @Select("SELECT * FROM member")
     List<Member> findAllMember();
-    
-    @Select("SELECT ")
+
+    @Select("select me.snum snum, me.name name, me.phone phone, me.first_major_id first_major_id, de.name device_name"
+    		+" from member me left join lend le on me.snum = le.snum"
+    	    +" left join device_detail dd on le.detail_no = dd.detail_no"
+    	    +" left join device de on dd.device_code = de.code"
+    		+ " where me.snum = #{snum} ")
+    Print findByPrint(String snum);
+
+
 }

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <head>
 <title></title>
 <meta http_quiv="content-type" content="text/html; charset=utf-8">
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/print_css.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/print_css.css">
 </head>
 <body style="width:100%;">
 
@@ -119,7 +120,11 @@
 									<div class="hls ps19"
 										style="line-height: 3.43mm; white-space: nowrap; left: 0mm; top: -0.21mm; height: 4.23mm; width: 67.34mm;">
 										<span class="hrt cs9">(인문 / 사회 / 미컨 / IT)&nbsp;</span><span
-											class="hrt cs11">${user.first_major_id}</span>
+											class="hrt cs8"><c:if test = "${ member.first_major_id == 1 }">&nbsp&nbspIT</c:if>
+															<c:if test = "${ member.first_major_id == 2 }">&nbsp&nbsp미컨</c:if>
+															<c:if test = "${ member.first_major_id == 3 }">&nbsp&nbspIT</c:if>
+															<c:if test = "${ member.first_major_id == 4 }">&nbsp&nbspIT</c:if>
+										</span>
 									</div>
 								</div>
 							</div>
@@ -141,7 +146,7 @@
 								<div class="hcI" style="top: 2.17mm;">
 									<div class="hls ps16"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: -0.16mm; height: 3.17mm; width: 58.38mm;">
-										<span class="hrt cs8">${user.snum}</span>
+										<span class="hrt cs8">${member.snum}</span>
 										</div>
 								</div>
 							</div>
@@ -163,7 +168,7 @@
 								<div class="hcI" style="top: 2.17mm;">
 									<div class="hls ps0"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: -0.16mm; height: 3.17mm; width: 67.34mm;">
-										<span class="hrt cs8">${user.name}</span>
+										<span class="hrt cs8">${member.name}</span>
 										</div>
 								</div>
 							</div>
@@ -185,7 +190,7 @@
 								<div class="hcI" style="top: 2.17mm;">
 									<div class="hls ps0"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: -0.16mm; height: 3.17mm; width: 58.38mm;">
-										<span class="hrt cs8">${user.email}</span>
+										<span class="hrt cs8">${member.phone}</span>
 										</div>
 								</div>
 							</div>
@@ -207,6 +212,7 @@
 								<div class="hcI" style="top: 2.17mm;">
 									<div class="hls ps0"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: -0.16mm; height: 3.17mm; width: 26.92mm;"></div>
+										<span class="hrt cs8">&nbsp&nbsp&nbsp&nbsp${member.device_name}</span>
 								</div>
 							</div>
 						</div>
@@ -637,9 +643,9 @@
 									<div class="hls ps17"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: 118.56mm; height: 3.17mm; width: 183.60mm;">
 										<span class="hrt cs9">신청일 :
-											<jsp:useBean id="now" class="java.util.Date" /><fmt:formatDate pattern="yyyy" value="${ now }" />년 
-											<fmt:formatDate pattern="MM" value="${ now }" />월
-											<fmt:formatDate pattern="dd" value="${ now }" />일</span>
+											<jsp:useBean id="now" class="java.util.Date" /><fmt:formatDate pattern="yyyy" value="${ now }" /> 년 
+											<fmt:formatDate pattern="MM" value="${ now }" /> 월
+											<fmt:formatDate pattern="dd" value="${ now }" /> 일</span>
 									</div>
 									<div class="hls ps17"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: 123.64mm; height: 3.17mm; width: 183.60mm;">
@@ -647,7 +653,7 @@
 									</div>
 									<div class="hls ps17"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: 128.72mm; height: 3.17mm; width: 183.60mm;">
-										<span class="hrt cs9">신청자 : &nbsp;&nbsp; ${user.name}
+										<span class="hrt cs9">신청자 : &nbsp;&nbsp; ${member.name}
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(인)</span>
 									</div>
 									<div class="hls ps17"

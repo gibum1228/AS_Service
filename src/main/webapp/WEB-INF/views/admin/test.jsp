@@ -12,11 +12,11 @@
 <body>
 
 	<button onclick="onClick()">다음</button>
-
+	
 	<script type="text/javascript">
 	
 	function onClick(){
-		const html = window.open('http://localhost:8088/print');
+		const html = window.open('http://localhost:8088/admin/print?snum=201734017');
 		html.print();
 	}
 	

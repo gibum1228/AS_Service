@@ -16,9 +16,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
+//		http.cors().and().csrf().ignoringAntMatchers("/admin/**");
+
 		// 각 경로에 따른 권한을 지정
 		http.authorizeRequests()
-			.antMatchers("/login", "/signup").permitAll() // 누구나
+			.antMatchers("/login", "/signup", "/createP").permitAll() // 누구나
 			.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/member/**").access("hasRole('ROLE_MEMBER')")
 			.antMatchers("/user/**").access("hasRole('ROLE_USER')")
