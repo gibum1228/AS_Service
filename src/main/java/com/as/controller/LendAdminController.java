@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.as.dto.Device_detail;
 import com.as.dto.Lend;
+import com.as.mapper.Device_detailMapper;
 import com.as.mapper.LendMapper;
 
 @Controller
@@ -22,6 +23,8 @@ public class LendAdminController {
 
 	@Autowired
 	LendMapper lendMapper;
+	@Autowired
+	Device_detailMapper device_detailMapper;
 
 	//장비대여예약목록 볼 날짜선택하기
 	@GetMapping("list")
@@ -33,7 +36,7 @@ public class LendAdminController {
 	@PostMapping("list")
 	public String List(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date visit_date) {
 
-		List<Lend> lends = lendMapper.LendfindAllByVisit_date(visit_date);
+		List<Lend> lends = lendMapper.findAllByVisit_date(visit_date);
 		model.addAttribute("lends", lends);
 		model.addAttribute("visit_date", visit_date);
 		return "/admin/lend/list";
@@ -44,10 +47,10 @@ public class LendAdminController {
 	public String Rent(Model model, String lend_no) {
 		//선택한 lend 정보 가져오기
 		int no = Integer.parseInt(lend_no);
-		Lend selectedLend = lendMapper.LendfindAllByNo(no);
+		Lend selectedLend = lendMapper.findByNo(no);
 
 		//선택한 lend.device_code에 맞는 detail_no 리스트 가져오기
-		List<Device_detail> device_details = lendMapper.Device_detailfindByDevice_codeAndStateOne(selectedLend.getDevice_code());
+		List<Device_detail> device_details = device_detailMapper.findAllByDevice_codeAndStateOne(selectedLend.getDevice_code());
 		model.addAttribute("lend_no", lend_no);
 		model.addAttribute("device_details", device_details);
 		model.addAttribute("selectedLend", selectedLend);
@@ -66,7 +69,7 @@ public class LendAdminController {
 
 		//lend에서 no로 정보가져오기
 		int lend_No = Integer.parseInt(lend_no);
-		Lend selectedLend = lendMapper.LendfindAllByNo(lend_No);
+		Lend selectedLend = lendMapper.findByNo(lend_No);
 		//선택된 detail_no를 lend에서 no로 정보를 가져와서 detail_no(예약장비디테일넘버) 삽입
 		int detail_No = Integer.parseInt(detail_no);
 		selectedLend.setDetail_no(detail_No);
@@ -74,9 +77,9 @@ public class LendAdminController {
 		int type = Integer.parseInt(lend_type);
 		selectedLend.setType(type);
 
-		Device_detail device_detail= lendMapper.Device_detailfindByDevice_code(selectedLend.getDevice_code(), detail_No);
+		Device_detail device_detail= device_detailMapper.findByDevice_code(selectedLend.getDevice_code(), detail_No);
 		device_detail.setState(0);
-		lendMapper.Device_detailUpdate(device_detail);
+		device_detailMapper.UpdateDevice_detail(device_detail);
 
 
 		//오늘 날짜를 start_date(대여일)에 삽입
@@ -86,7 +89,7 @@ public class LendAdminController {
 		selectedLend.setEnd_date(end_date);
 
 		//선택된 lend 업데이트하기!
-		lendMapper.LendUpdate(selectedLend);
+		lendMapper.UpdateLend(selectedLend);
 
 		model.addAttribute("visit_date", selectedLend.getVisit_date());//팝업창 닫은 후에 list에 visit_date 넘겨주기
 		model.addAttribute("selectedLend", selectedLend);
@@ -109,18 +112,18 @@ public class LendAdminController {
 
 		//lend에서 no로 정보가져오기
 		int lend_No = Integer.parseInt(lend_no);
-		Lend selectedLend = lendMapper.LendfindAllByNo(lend_No);
+		Lend selectedLend = lendMapper.findByNo(lend_No);
 ;
 		//선택된 return_date를 return_date(반납일)에 삽입
 		selectedLend.setReturn_date(return_date);
 
-		Device_detail device_detail= lendMapper.Device_detailfindByDevice_code(selectedLend.getDevice_code(), selectedLend.getDetail_no());
+		Device_detail device_detail= device_detailMapper.findByDevice_code(selectedLend.getDevice_code(), selectedLend.getDetail_no());
 		device_detail.setState(1);
-		lendMapper.Device_detailUpdate(device_detail);
+		device_detailMapper.UpdateDevice_detail(device_detail);
 
 
 		//선택된 lend 업데이트하기!
-		lendMapper.LendUpdate(selectedLend);
+		lendMapper.UpdateLend(selectedLend);
 
 		model.addAttribute("visit_date", selectedLend.getVisit_date());//팝업창 닫은 후에 list에 visit_date 넘겨주기
 		model.addAttribute("selectedLend", selectedLend);
