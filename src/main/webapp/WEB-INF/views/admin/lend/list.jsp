@@ -62,10 +62,12 @@ td:nth-child(1), td:nth-child(5) {
 					<th>예약장비코드</th>
 					<th>예약장비이름</th>
 					<th>예약장비디테일넘버</th>
-					<!-- <th>예약신청날짜</th> -->
+					<th>예약신청날짜</th> 
+					<th>방문일</th>
 					<th>대여일</th>
 					<th>반납예정일</th>
 					<th>반납일</th>
+					
 					<th>연체료</th>
 					<th>대여</th>
 					<th>반납</th>
@@ -78,8 +80,10 @@ td:nth-child(1), td:nth-child(5) {
 						<td>${ lend.device_code }</td>
 						<td>${ lend.device_name }</td>
 						<td>${ lend.detail_no}</td>
-						<%-- <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
-								value="${ lend.wait_date }" /></td> --%>
+						<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
+								value="${ lend.wait_date }" /></td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd"
+								value="${ lend.visit_date }" /></td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd"
 								value="${ lend.start_date }" /></td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd"

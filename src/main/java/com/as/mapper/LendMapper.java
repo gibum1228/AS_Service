@@ -22,11 +22,13 @@ public interface LendMapper {
 	@Select("SELECT * FROM device " + " WHERE  code = #{code} ")
 	Device DevicefindByDevice_Code(String code);
 
-	// >> 원하는 학과의 장비만 불러오기 <<
-	@Select("SELECT * FROM Device" + " WHERE major_id = #{major_id}" + " ORDER BY buy_date DESC") // 구입날짜 최신순으로 정렬
-	List<Device> DevicefindByMajorId(int major_id);
+	// >> major_id 로 원하는 학과의 원하는 type 장비 불러오기 <<
+	@Select("SELECT * FROM Device" + " WHERE major_id = #{major_id} AND type = #{type}" + " ORDER BY buy_date DESC") // 구입날짜 최신순으로 정렬
+	List<Device> DevicefindByMajorIdAndType(int major_id, int type);
 
-
+	// >> major_id 로 원하는 학과의 type 정보 불러오기 <<
+		@Select("SELECT type FROM Device" + " WHERE major_id = #{major_id}" + " ORDER BY buy_date DESC") // 구입날짜 최신순으로 정렬
+		List<Integer> DevicefindByMajorId(int major_id);
 
 	////////////====Major 데이터베이스====////////////
 	// >> id로 major정보 가져오기 <<
@@ -37,9 +39,18 @@ public interface LendMapper {
 
 
 	////////////====Device_detail 데이터베이스====////////////
+	// >> device_code에 해당되고 State=1인 device_detail 정보 리스트 가져오기 <<
+	@Select("SELECT * FROM Device_detail" + " WHERE device_code = #{device_code} AND state = 1 ")
+	List<Device_detail> Device_detailfindByDevice_codeAndStateOne(String device_code);
+
 	// >> device_code에 해당되는 device_detail 정보 리스트 가져오기 <<
-	@Select("SELECT * FROM Device_detail" + " WHERE device_code = #{device_code}")
-	List<Device_detail> Device_detailfindByDevice_code(String device_code);
+	@Select("SELECT * FROM Device_detail" + " WHERE device_code = #{device_code} AND detail_no = #{detail_no}")
+	Device_detail Device_detailfindByDevice_code(String device_code, int detail_no);
+
+	// >> Device_detail 데이터 업데이트 <<
+	@Update("UPDATE Device_detail SET                  " + "  device_code = #{device_code},    "
+			+ "  detail_no = #{detail_no},   " + "  state = #{state}   "  + " WHERE device_code = #{device_code} AND detail_no = #{detail_no}")
+	void Device_detailUpdate(Device_detail device_detail );
 
 
 
@@ -56,8 +67,8 @@ public interface LendMapper {
 	Lend LendfindAllByNo(int no);
 
 	// >> Lend 데이터 삽입 <<
-	@Insert("INSERT Lend (snum,device_code,detail_no,type,wait_date,visit_date,state,start_date,end_date,return_date,extend,arrear)     "
-			+ "VALUES (#{snum},#{device_code},#{detail_no},#{type},#{wait_date},#{visit_date},#{state},#{start_date},#{end_date},#{return_date},#{extend},#{arrear})")
+	@Insert("INSERT Lend (snum,device_code,detail_no,type,wait_date,visit_date,state,start_date,end_date,return_date,extend,arrears)     "
+			+ "VALUES (#{snum},#{device_code},#{detail_no},#{type},#{wait_date},#{visit_date},#{state},#{start_date},#{end_date},#{return_date},#{extend},#{arrears})")
 	void LendInsert(Lend lend);
 
 	// >> Lend 데이터 업데이트 <<
@@ -65,7 +76,7 @@ public interface LendMapper {
 			+ "  detail_no = #{detail_no},   " + "  type = #{type},   " + "  wait_date = #{wait_date},   "
 			+ "  visit_date = #{visit_date},   " + "  state = #{state},   " + "  start_date = #{start_date},   "
 			+ "  end_date = #{end_date},   " + "  return_date = #{return_date},   " + "  extend = #{extend},   "
-			+ "  arrear = #{arrear}   " + " WHERE snum = #{snum}                    ")
+			+ "  arrears = #{arrears}   " + " WHERE snum = #{snum}                    ")
 	void LendUpdate(Lend lend);
 
 

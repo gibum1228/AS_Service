@@ -55,10 +55,16 @@ div.message {
 	border: 1px solid #cc0;
 }
 </style>
+<script language="javascript">
+	function closewin() {
+		self.close();
+	}
+</script>
 </head>
 <body>
 
 	<div class="container">
+	<c:if test="${ device_details_size != 0 }"><!--type에 해당되는 장비가 0일때  -->
 		<form method="post" action="rentsave">
 			<div class="title">장비선택하기</div>
 			<table>
@@ -71,6 +77,14 @@ div.message {
 					<!-- 선택된 lend의 no 넘겨주기 -->
 					<td><input type="hidden" name=lend_no value="${ lend_no }"></td>
 				</tr>
+								<tr>
+					<td>장비대여유형: <select name="lend_type">
+
+							<option value="1" ${ lend_type == 1 ? "selected" : "" }>노트북 대여</option>
+							<option value="2" ${ lend_type == 2 ? "selected" : "" }>태블릿,카메라 대여</option>
+							<option value="3" ${ lend_type == 3 ? "selected" : "" }>프로젝트 대여</option>
+							
+					</select>
 				<tr>
 					<td>대여일: <fmt:formatDate pattern="yyyy-MM-dd"
 							value="${ currenttime }" /></td>
@@ -87,6 +101,16 @@ div.message {
 				</tr>
 			</table>
 		</form>
+		</c:if>
+		<c:if test="${ device_details_size == 0 }">
+		<div class="title">장비선택하기</div>
+			<table>
+				<tr>
+					<td>예약가능한 장비가 없습니다.</td>
+				<td><input type="button" value="확인"
+						onclick="javascript:closewin()"></td></tr>
+			</table>
+		</c:if>
 	</div>
 </body>
 </html>

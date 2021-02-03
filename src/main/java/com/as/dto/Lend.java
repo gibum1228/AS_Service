@@ -19,7 +19,7 @@ public class Lend {
 	private Date end_date;
 	private Date return_date;
 	private int extend;
-	private int arrear;
+	private int arrears;
 	//Device에서 장비명 불러오기
 	private String device_name;
 
@@ -91,10 +91,10 @@ public class Lend {
 		this.extend = extend;
 	}
 	public int getArrear() {
-		return arrear;
+		return arrears;
 	}
-	public void setArrear(int arrear) {
-		this.arrear = arrear;
+	public void setArrear(int arrears) {
+		this.arrears = arrears;
 	}
 
 	public Date getVisit_date() {

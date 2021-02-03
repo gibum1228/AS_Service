@@ -62,7 +62,7 @@ div.message {
 		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width=700, height=800, top=0,left=20";
 		window.open("", title, status);
 		frm.target = title;
-		frm.action = "/front/lend/deviceselect";
+		frm.action = "/front/lend/majorselect";
 		frm.method = "post";
 		frm.submit();
 	}
@@ -77,6 +77,43 @@ div.message {
 			<div class="title">장비대여하기</div>
 			<table>
 				<tr>
+					<td>방문날짜:</td>
+					<td><select name="visit_date">
+							<option value=${calendar[0] }
+								${ visit_date == calendar[0] ? "selected" : "" }>${selectDate[0]}</option>
+							<option value=${calendar[1] }
+								${ visit_date == calendar[1] ? "selected" : "" }>${selectDate[1]}</option>
+							<option value=${calendar[2] }
+								${ visit_date == calendar[2] ? "selected" : "" }>${selectDate[2]}</option>
+							<option value=${calendar[3] }
+								${ visit_date == calendar[3] ? "selected" : "" }>${selectDate[3]}</option>
+							<option value=${calendar[4] }
+								${ visit_date == calendar[4] ? "selected" : "" }>${selectDate[4]}</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><c:if test="${ visit_date == calendar[0] }">
+							<input type="hidden" name="korDayOfWeek"
+								value="${korDayOfWeeks[0]}" />
+						</c:if></td>
+					<td><c:if test="${ visit_date == calendar[1] }">
+							<input type="hidden" name="korDayOfWeek"
+								value="${korDayOfWeeks[1]}" />
+						</c:if></td>
+					<td><c:if test="${ visit_date == calendar[2] }">
+							<input type="hidden" name="korDayOfWeek"
+								value="${korDayOfWeeks[2]}" />
+						</c:if></td>
+					<td><c:if test="${ visit_date == calendar[3] }">
+							<input type="hidden" name="korDayOfWeek"
+								value="${korDayOfWeeks[3]}" />
+						</c:if></td>
+					<td><c:if test="${ visit_date == calendar[4] }">
+							<input type="hidden" name="korDayOfWeek"
+								value="${korDayOfWeeks[4]}" />
+						</c:if></td>
+				</tr>
+				<tr>
 					<td>대여장비:</td>
 					<td><input type="text" name="device_name"
 						value="${ device_name }" /></td>
@@ -84,13 +121,10 @@ div.message {
 						value="${ device_code }" /></td>
 					<td><input type="button" name="select" value="선택"
 						onclick="javascript:popup(this.form);"></td>
+
 				</tr>
-				<tr>
-					<td>방문날짜:</td>
-					<fmt:formatDate pattern="yyyy-MM-dd"
-						value="${ device_lend.visit_date }" var="b" />
-					<td><input type="date" name="visit_date" value="${ b }" /></td>
-				</tr>
+
+
 
 			</table>
 

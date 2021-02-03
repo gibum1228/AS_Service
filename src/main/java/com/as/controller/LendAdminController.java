@@ -39,7 +39,7 @@ public class LendAdminController {
 		return "/admin/lend/list";
 	}
 
-	//팝업창으로 예약장비디테일넘버,대여일,반납예정일 선택하기
+	//팝업창으로 예약장비디테일넘버,대여일,반납예정일,대여유형 선택하기
 	@PostMapping("rent")
 	public String Rent(Model model, String lend_no) {
 		//선택한 lend 정보 가져오기
@@ -47,20 +47,22 @@ public class LendAdminController {
 		Lend selectedLend = lendMapper.LendfindAllByNo(no);
 
 		//선택한 lend.device_code에 맞는 detail_no 리스트 가져오기
-		List<Device_detail> device_details = lendMapper.Device_detailfindByDevice_code(selectedLend.getDevice_code());
+		List<Device_detail> device_details = lendMapper.Device_detailfindByDevice_codeAndStateOne(selectedLend.getDevice_code());
 		model.addAttribute("lend_no", lend_no);
 		model.addAttribute("device_details", device_details);
 		model.addAttribute("selectedLend", selectedLend);
+		model.addAttribute("device_details_size", device_details.size());
 		//대여일에 오늘 날짜 출력하기
 		Timestamp currenttime = new Timestamp(System.currentTimeMillis());
 		model.addAttribute("currenttime", currenttime);
+
 
 		return "/admin/lend/rent";
 	}
 
 	//대여한 정보 저장완료 메세지 보여주기
 	@PostMapping("rentsave")
-	public String RentSave(Model model, String detail_no, String lend_no, @DateTimeFormat(pattern = "yyyy-MM-dd") Date end_date) {
+	public String RentSave(Model model, String detail_no, String lend_no, @DateTimeFormat(pattern = "yyyy-MM-dd") Date end_date, String lend_type) {
 
 		//lend에서 no로 정보가져오기
 		int lend_No = Integer.parseInt(lend_no);
@@ -68,6 +70,14 @@ public class LendAdminController {
 		//선택된 detail_no를 lend에서 no로 정보를 가져와서 detail_no(예약장비디테일넘버) 삽입
 		int detail_No = Integer.parseInt(detail_no);
 		selectedLend.setDetail_no(detail_No);
+		//선택된 lend_type을 lend에서 type(장비대여유형) 삽입
+		int type = Integer.parseInt(lend_type);
+		selectedLend.setType(type);
+
+		Device_detail device_detail= lendMapper.Device_detailfindByDevice_code(selectedLend.getDevice_code(), detail_No);
+		device_detail.setState(0);
+		lendMapper.Device_detailUpdate(device_detail);
+
 
 		//오늘 날짜를 start_date(대여일)에 삽입
 		Timestamp currenttime = new Timestamp(System.currentTimeMillis());
@@ -103,6 +113,11 @@ public class LendAdminController {
 ;
 		//선택된 return_date를 return_date(반납일)에 삽입
 		selectedLend.setReturn_date(return_date);
+
+		Device_detail device_detail= lendMapper.Device_detailfindByDevice_code(selectedLend.getDevice_code(), selectedLend.getDetail_no());
+		device_detail.setState(1);
+		lendMapper.Device_detailUpdate(device_detail);
+
 
 		//선택된 lend 업데이트하기!
 		lendMapper.LendUpdate(selectedLend);

@@ -62,8 +62,9 @@ div.message {
 			<div class="title">예약완료</div>
 			<table>
 				 <tr>
+				 <!-- 반납일은 원래 오늘 날짜 삽입해야하는데 연체료 계산해보려고 지정할 수 있게 설정해놓음 -->
 					<td>${selecteddevice.name}가 <fmt:formatDate
-							pattern="yyyy년MM월dd일" value="${device_lend.visit_date}" />에
+							pattern="yyyy년MM월dd일" value="${device_lend.visit_date}" /> ${korDayOfWeek}요일에
 						예약되었습니다.
 					</td>
 					</tr><tr>

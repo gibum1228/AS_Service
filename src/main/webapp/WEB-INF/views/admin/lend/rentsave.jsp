@@ -70,30 +70,50 @@ div.message {
 		<form name="myForm" method="post">
 			<div class="title">예약완료</div>
 			<table>
-			<tr>
-				<td>예약장비코드: </td>
-				<td>${selectedLend.device_code} </td></tr>
-				<td>예약장비이름: </td>
-				<td>${selectedLend.device_name} </td></tr>
-				<tr><td>예약장비디테일넘버: </td>
-				<td>${selectedLend.detail_no} </td>	</tr>
-			<tr>	<td>대여일: </td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd"
-								value="${ selectedLend.start_date }" /></td>
+				<tr>
+					<td>예약장비코드:</td>
+					<td>${selectedLend.device_code}</td>
 				</tr>
 				<tr>
-				<td>반납예정일: </td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd"
-								value="${ selectedLend.end_date }" /></td>		
-							
-					</tr>		
-				<tr>			
-				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ visit_date }" var="b" />
-				<input type="hidden" type="date" name="visit_date" value="${ b }" /></td> 
-				
-				<td><input type="button" value="확인"
-					onclick="javascript:closewin()"></td>
-			</tr>
+					<td>예약장비이름:</td>
+					<td>${selectedLend.device_name}</td>
+				</tr>
+				<tr>
+					<td>예약장비디테일넘버:</td>
+					<td>${selectedLend.detail_no}</td>
+				</tr>
+				<tr>
+					<td>예약장비대여유형:</td>
+					<c:if test="${ selectedLend.type == 1 }">
+						<td>노트북 대여</td>
+					</c:if>
+					<c:if test="${ selectedLend.type == 2 }">
+						<td>태블릿,카메라 대여</td>
+					</c:if>
+					<c:if test="${ selectedLend.type == 1 }">
+						<td>프로젝트 대여</td>
+					</c:if>
+				</tr>
+
+				<tr>
+					<td>대여일:</td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd"
+							value="${ selectedLend.start_date }" /></td>
+				</tr>
+				<tr>
+					<td>반납예정일:</td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd"
+							value="${ selectedLend.end_date }" /></td>
+
+				</tr>
+				<tr>
+					<td><fmt:formatDate pattern="yyyy-MM-dd"
+							value="${ visit_date }" var="b" /> <input type="hidden"
+						type="date" name="visit_date" value="${ b }" /></td>
+
+					<td><input type="button" value="확인"
+						onclick="javascript:closewin()"></td>
+				</tr>
 			</table>
 		</form>
 	</div>

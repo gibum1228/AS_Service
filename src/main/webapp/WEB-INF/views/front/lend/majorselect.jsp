@@ -43,7 +43,7 @@ input {
 }
 
 button {
-	padding: 0.5em 2em;
+	padding: 0.4em 2em;
 	margin: 5px 0 20px 20px;
 }
 
@@ -55,34 +55,26 @@ div.message {
 	border: 1px solid #cc0;
 }
 </style>
-<script language="javascript">
-	function closewin() {
-		window.opener.name = "select"; // 부모창의 이름 설정
-		document.myForm.target = "select"; // 타켓을 부모창으로 설정
-		document.myForm.action = "/front/lend/select";
-		document.myForm.submit();
-		self.close();
-	}
-</script>
 </head>
 <body>
 
 	<div class="container">
-		<form name="myForm" method="post">
-			<div class="title">장비선택하기</div>
-			<table>
-				<td><select name="device_code">
-						<c:forEach var="device" items="${ devices }">
-							<option value=${ device.code }>${ device.name }</option>
-						</c:forEach>
-				</select></td>
-				<td><input type="button" value="선택"
-					onclick="javascript:closewin()"></td>
-			</table>
-		</form>
 
+		<div class="title">장비선택하기</div>
+		<table>
 
+			<tr>
+				<td><a
+					href="deviceselect?major_id=${firstmajor.id}&&visit_date=${visit_date}"
+					class="btn">${firstmajor.name} </a></td>
+				<c:if test="${ secondmajor.id > 0 }">
+					<td><a
+						href="deviceselect?major_id=${secondmajor.id}&&visit_date=${visit_date}"
+						class="btn">${secondmajor.name} </a></td>
+				</c:if>
+		</table>
 	</div>
+
 </body>
 </html>
 
