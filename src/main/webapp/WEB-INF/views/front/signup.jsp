@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/css/login.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/signup.js"></script>
 </head>
 <body>
 	<form:form method="POST" modelAttribute="member">
@@ -22,7 +23,7 @@
 		<div class="container">
 			<label for="usnum"><b>학번*</b></label>
 			<form:input type="text" path="snum" value="${ member.snum }"
-				placeholder="학번" name="userSNum" autocomplete="off" />
+				placeholder="학번" name="userSNum" autocomplete="off" onchange="idSame(this)" />
 		</div>
 		<div class="container">
 			<label for="uname"><b>이름*</b></label>
@@ -53,22 +54,16 @@
 		<div class="container">
 			<table style="text-align: center;">
 				<tr>
-					<td>
-						제1전공
-					</td>
-					<td>
-						제2전공
-					</td>
+					<td>제1전공</td>
+					<td>제2전공</td>
 				</tr>
 				<tr>
-					<td>
-						<form:select path="first_major_id" itemValue="id" itemLabel="name"
-						items="${ majors }" name="userMajor" id="selectBox" />
-					</td>
-					<td>
-						<form:select path="sec_major_id" itemValue="id" itemLabel="name"
-						items="${ majors }" name="userMajor" id="selectBox" />
-					</td>
+					<td><form:select path="first_major_id" itemValue="id"
+							itemLabel="name" items="${ majors }" name="userFirstMajor"
+							id="selectBox" /></td>
+					<td><form:select path="sec_major_id" itemValue="id"
+							itemLabel="name" items="${ majors }" name="userSecondMajor"
+							id="selectBox" /></td>
 				</tr>
 			</table>
 		</div>

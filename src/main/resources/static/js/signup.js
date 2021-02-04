@@ -1,11 +1,14 @@
-var IDOk = false; // 아이디 정상 체크
-var pswOk = false; // 비밀번호 정상 체크
+/**
+ * 
+ */
+let IDOk = false; // 아이디가 조건에 맞는지 체크
+let pswOk = false; // 비밀번호가 조건에 맞는지 체크
 
 // 비밀번호 맞는지 확인
 function pswSame() {
-    var uPsw = document.getElementsByName("userPsw")[0].value;
-    var cPsw = document.getElementsByName("checkPsw")[0].value;
-    var pswArr = uPsw.split("");
+    let uPsw = document.getElementsByName("userPsw")[0].value;
+    let cPsw = document.getElementsByName("checkPsw")[0].value;
+    let pswArr = uPsw.split("");
 
     // 비밀번호는 8~16자리
     if(uPsw.length < 8 || uPsw.lengh > 16){ 
@@ -14,12 +17,12 @@ function pswSame() {
         document.getElementsByName("userPsw")[0].style.borderColor = 'red';
         signUpOk();
     }else{
-        var pswPass = false; // 비밀번호 특수문자 정상인지 판단하는 변수
+        let pswPass = false; // 비밀번호 특수문자 정상인지 판단하는 변수
 
-        document.getElementsByName("userPsw")[0].style.borderColor = '#ccc';
-        document.getElementsByName("checkPsw")[0].style.borderColor = '#ccc';
+        document.getElementsByName("userPsw")[0].style.borderColor = '#CCC';
+        document.getElementsByName("checkPsw")[0].style.borderColor = '#CCC';
         
-        for(var i = 0; i < PswArr; i++){
+        for(let i = 0; i < PswArr; i++){
             switch(pswArr[i]){
                 case '0': case '1': case '2': case '3': case '4': case '!':
                 case '5': case '6': case '7': case '8': case '9': case '.':
@@ -69,26 +72,30 @@ function pswSame() {
         
     }
 }
-// 동일한 아이디가 있는지 확인
-function idSame(){
-    var sNum = document.getElementsByName("userSNum")[0].value;
-    var date = new Date();
-    
-    // 가입 가능한 학번은 올해 학번 기준 -10학번까지 가능
-    if(String(sNum).substring(0, 4) < (date.getFullYear() - 10) || String(sNum).substring(0, 4) > date.getFullYear()){
-        alert("학번을 제대로 입력해주세요.")
-        IDOk = false;
-        signUpOk();
-    }else{
-        IDOk = true;
-        signUpOk();
-    }
 
-
+// 아이디가 조건에 맞는지 확인
+function idSame(snum){
+	
+	let now = new Date();
+	let snumValue = snum.value;
+	
+	// 가입 가능한 학번은 올해 학번 기준 (-10) {ex >> 2018년이면 2009학번만 가입 가능}
+	if(String(snumValue).substring(0, 4) < (now.getFullYear() - 10)
+	 || String(snumValue).substring(0, 4) > now.getFullYear()){
+		alert("학번을 제대로 입력해주세요.");
+		IDOk = false;
+		snum.style.borderColor = 'red';
+		signUpOk();
+	}else{
+		IDOk = true;
+		snum.style.borderColor = 'black';
+		signUpOk();
+	}
 }
+
 // 모든 데이터 이상 없을 시 DB에 데이터 추가
 function signUpOk(){
-    var submitBtn = document.getElementById("upBtn");
+    let submitBtn = document.getElementById("upBtn");
 
     if(IDOk && pswOk){
         submitBtn.disabled = false;
