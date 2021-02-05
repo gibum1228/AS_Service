@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,33 +24,34 @@
 		<div class="container">
 			<label for="usnum"><b>학번*</b></label>
 			<form:input type="text" path="snum" value="${ member.snum }"
-				placeholder="학번" name="userSNum" autocomplete="off" onchange="idSame(this)" />
+				placeholder="학번" id="userSNum" autocomplete="off"
+				onchange="idSame(this)" />
 		</div>
 		<div class="container">
 			<label for="uname"><b>이름*</b></label>
 			<form:input type="text" path="name" value="${ member.name }"
-				placeholder="이름" name="userName" autocomplete="off" />
+				placeholder="이름" id="userName" autocomplete="off" />
 		</div>
 		<div class="container">
 			<label for="upsw"><b>비밀번호*</b></label>
 			<form:input type="password" path="password"
-				value="${ member.password }" placeholder="비밀번호" name="userPsw"
-				autocomplete="off" />
+				value="${ member.password }" placeholder="비밀번호" id="userPsw"
+				autocomplete="off" onchange="pswSame()" />
 		</div>
 		<div class="container">
 			<label for="cpsw"><b>비밀번호 확인*</b></label>
-			<form:input type="password" placeholder="비밀번호 재입력" name="checkPsw"
-				path="password" autocomplete="off" />
+			<form:input type="password" placeholder="비밀번호 재입력" id="checkPsw"
+				path="password" autocomplete="off" onchange="pswSame()" />
 		</div>
 		<div class="container">
 			<label for="uemail"><b>이메일*</b></label>
 			<form:input type="email" path="email" value="${ member.email }"
-				placeholder="ID@as.com" name="userEmail" autocomplete="off" />
+				placeholder="ID@as.com" id="userEmail" autocomplete="off" onchange="emailSame(this)" />
 		</div>
 		<div class="container">
 			<label for="uphone"><b>휴대 전화*</b></label>
 			<form:input type="text" path="phone" value="${ member.phone }"
-				placeholder="01012345678" name="userPhone" autocomplete="off" />
+				placeholder="01012345678" id="userPhone" autocomplete="off" />
 		</div>
 		<div class="container">
 			<table style="text-align: center;">
@@ -71,7 +73,7 @@
 		<!--정보 전송-->
 		<div class="container">
 			<div style="margin-top: 50px;">
-				<button type="submit" id="upBtn">회원 가입</button>
+				<button type="submit" id="upBtn" disabled="disabled">회원 가입</button>
 			</div>
 		</div>
 	</form:form>

@@ -11,40 +11,75 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.as.dto.Major;
 import com.as.dto.Member;
 import com.as.mapper.MemberMapper;
+import com.as.service.MemberService;
 
 @Controller
 public class MemberController {
 
 	@Autowired
 	MemberMapper memberMapper;
+	@Autowired
+	MemberService memberService;
 
 // 회원 가입 페이지
 	@GetMapping("/signup")
 	public String signup(Model model) {
 
 		Member member = new Member();
+
 		// 전공 목록 받기
 		List<Major> majors = memberMapper.findAllMajor();
-		majors.remove(0); // 0:관리자 삭제
+		for(int i = 0; i < majors.size(); i++) {
+			if(majors.get(i).getId() == 10) {
+				majors.remove(i);
+			}
+		}
 
 		model.addAttribute("member", member);
 		model.addAttribute("majors", majors);
 
 		return "front/signup";
 	}
-
 	@PostMapping("/signup")
-	public String signup(Model model, Member member, String emailAddress) {
+	public String signup(Model model, Member member) {
 
-		member.setPassword("");
-		// 전공 목록 받기
-		List<Major> majors = memberMapper.findAllMajor();
-		majors.remove(0); // 0:관리자 삭제
+		boolean isEmpty = false;
 
-		model.addAttribute("member", member);
-		model.addAttribute("majors", majors);
-		model.addAttribute("emailAddress", emailAddress);
+		if(member.getName().compareTo("") == 0 || member.getPhone().compareTo("") == 0 || member.getFirst_major_id() == 0) {
+			isEmpty = false;
+		}else if(memberMapper.findEmail(member.getEmail()) != null) {
+			isEmpty = false;
+		}else if(memberMapper.findPhone(member.getPhone()) != null) {
+			isEmpty = false;
+		}else if(memberMapper.findMember(member.getSnum()) != null) {
+			isEmpty = false;
+		}else {
+			isEmpty = true;
+		}
 
-		return "front/signup"; // 회원 가입 성공시
+		if(isEmpty) {
+
+			memberService.save(member);
+
+			return "front/login"; // 회원 가입 성공시
+		}else {
+
+			member.setSnum("");
+			member.setPassword("");
+			member.setEmail("");
+			member.setPhone("");
+
+			List<Major> majors = memberMapper.findAllMajor();
+			for(int i = 0; i < majors.size(); i++) {
+				if(majors.get(i).getId() == 10) {
+					majors.remove(i);
+				}
+			}
+
+			model.addAttribute("member", member);
+			model.addAttribute("majors", majors);
+
+			return "redirect:signup";
+		}
 	}
 }
