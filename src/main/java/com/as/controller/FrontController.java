@@ -29,12 +29,6 @@ public class FrontController {
 		return "front/login";
 	}
 
-	@RequestMapping("/signup")
-	public String signup(Model model) {
-
-		return "front/signup";
-	}
-
 	// 어드민 페이지 기본 테스트
 	@RequestMapping("/admin/hello")
 	public String hello(Model model) {
