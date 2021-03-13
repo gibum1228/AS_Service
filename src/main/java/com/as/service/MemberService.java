@@ -28,7 +28,6 @@ public class MemberService implements UserDetailsService {
 	// 로그인 과정
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
 		Member member = memberRepository.findById(username);
 
 		member.setAuthorities(getAuthority(username));
@@ -38,7 +37,6 @@ public class MemberService implements UserDetailsService {
 
 	// 회원 정보 저장
 	public Member save(Member member) {
-
 		member.setPassword(passwordEncoder.encode(member.getPassword()));
 
 		return memberRepository.save(member);
@@ -46,7 +44,6 @@ public class MemberService implements UserDetailsService {
 
 	// 위에 말한 로그인 과정에 필요한 회원 정보 가져오기
 	public Collection<GrantedAuthority> getAuthority(String username){
-
 		List<String> string_authorities = memberRepository.findAuthorityById(username);
 		List<GrantedAuthority> authorities = new ArrayList<>();
 

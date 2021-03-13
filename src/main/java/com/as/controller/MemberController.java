@@ -15,7 +15,6 @@ import com.as.service.MemberService;
 
 @Controller
 public class MemberController {
-
 	@Autowired
 	MemberMapper memberMapper;
 	@Autowired
@@ -24,62 +23,68 @@ public class MemberController {
 // 회원 가입 페이지
 	@GetMapping("/signup")
 	public String signup(Model model) {
-
 		Member member = new Member();
 
 		// 전공 목록 받기
 		List<Major> majors = memberMapper.findAllMajor();
-		for(int i = 0; i < majors.size(); i++) {
-			if(majors.get(i).getId() == 10) {
-				majors.remove(i);
-			}
-		}
+		selectMajors(majors);
 
 		model.addAttribute("member", member);
 		model.addAttribute("majors", majors);
 
 		return "front/signup";
 	}
+
 	@PostMapping("/signup")
 	public String signup(Model model, Member member) {
-
 		boolean isEmpty = false;
 
-		if(member.getName().compareTo("") == 0 || member.getPhone().compareTo("") == 0 || member.getFirst_major_id() == 0) {
+		if (member.getName().compareTo("") == 0 || member.getPhone().compareTo("") == 0
+				|| member.getFirst_major_id() == 0) {
 			isEmpty = false;
-		}else if(memberMapper.findEmail(member.getEmail()) != null) {
+		} else if (memberMapper.findEmail(member.getEmail()) != null) {
 			isEmpty = false;
-		}else if(memberMapper.findPhone(member.getPhone()) != null) {
+		} else if (memberMapper.findPhone(member.getPhone()) != null) {
 			isEmpty = false;
-		}else if(memberMapper.findMember(member.getSnum()) != null) {
+		} else if (memberMapper.findMember(member.getSnum()) != null) {
 			isEmpty = false;
-		}else {
+		} else {
 			isEmpty = true;
 		}
 
-		if(isEmpty) {
-
+		if (isEmpty) {
 			memberService.save(member);
 
 			return "front/login"; // 회원 가입 성공시
-		}else {
-
+		} else {
 			member.setSnum("");
 			member.setPassword("");
+			member.setName("");
 			member.setEmail("");
 			member.setPhone("");
 
+			// 전공 목록 받기
 			List<Major> majors = memberMapper.findAllMajor();
-			for(int i = 0; i < majors.size(); i++) {
-				if(majors.get(i).getId() == 10) {
-					majors.remove(i);
-				}
-			}
+			selectMajors(majors);
 
 			model.addAttribute("member", member);
 			model.addAttribute("majors", majors);
 
-			return "redirect:signup";
+			return "front/signup";
+		}
+	}
+
+// Methods
+	void selectMajors(List<Major> m) {
+		int[] majorDelList = { 0, 97, 98, 99 };
+
+		// 전공 목록 반환
+		for (int i = 0; i < m.size(); i++) {
+			for (int j : majorDelList) {
+				if (m.get(i).getId() == j) {
+					m.remove(i);
+				}
+			}
 		}
 	}
 }

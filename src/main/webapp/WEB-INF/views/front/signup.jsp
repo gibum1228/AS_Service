@@ -39,14 +39,10 @@
 				autocomplete="off" onchange="pswSame()" />
 		</div>
 		<div class="container">
-			<label for="cpsw"><b>비밀번호 확인*</b></label>
-			<form:input type="password" placeholder="비밀번호 재입력" id="checkPsw"
-				path="password" autocomplete="off" onchange="pswSame()" />
-		</div>
-		<div class="container">
 			<label for="uemail"><b>이메일*</b></label>
 			<form:input type="email" path="email" value="${ member.email }"
-				placeholder="ID@as.com" id="userEmail" autocomplete="off" onchange="emailSame(this)" />
+				placeholder="ID@as.com" id="userEmail" autocomplete="off"
+				onchange="emailSame(this)" />
 		</div>
 		<div class="container">
 			<label for="uphone"><b>휴대 전화*</b></label>
