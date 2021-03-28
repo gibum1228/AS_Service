@@ -13,8 +13,8 @@ public interface NoticeMapper {
 
 
     // 회원 정보 저장
-    @Insert("INSERT INTO notice (snum, title, body, views, write_date) VALUES "
-    		+ "(#{n.snum}, #{n.title}, #{n.body}, #{n.views}, now()) ")
+    @Insert("INSERT INTO notice (snum, title, body, write_date) VALUES "
+    		+ "(#{n.snum}, #{n.title}, #{n.body}, now()) ")
     void insertNotice(@Param("n")Notice n);
 
 
