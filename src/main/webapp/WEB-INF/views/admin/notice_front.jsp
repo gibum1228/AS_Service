@@ -1,35 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/notice.css">
+<script src="/js/main.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  body { font-family: 굴림체; }
-  div.container { width: 600px; margin: 20px auto; }
-  form div { margin-bottom: 10px; }
-  input { width: 200px; padding: 4px; }
-  button { padding: 0.4em 3em; margin-top: 10px; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
-  <div class="container">
-    <form method="post">
-      <h1>공지사항</h1>
+	<div class="navBar">
+		<a href="">공지사항</a> <a href="">장비 예약</a> <a href="">장비 목록</a> <a
+			href="">문의하기</a>
+		<sec:authorize access="authenticated">
+			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
+		</sec:authorize>
+		<a href="" style="float: right;">마이페이지</a>
+	</div>
+	<div class="container">
+	
+		<form method="post">
+			<h1 class="notice_word">공지사항</h1>
 
-      <div>
-        <label>제목</label> 
-        <input type="text" name="title" value="" placeholder="제목" />
-      </div>
+			<div>
+				<input type="text" class="title" name="title" value="" placeholder="제목" />
+			</div>
+			<hr>
 
-      <div>
-        <label>내용</label> 
-        <textarea name="body" value="" placeholder="내용을 입력해주세요." style="width:100%; height:30em;"></textarea>
-      </div>
-      
-      <button type="submit">확인</button>
-      <button type="reset">취소</button>
-    </form>
-  </div>
+			<div class="">
+  				<textarea class="body" rows="3"></textarea>
+			</div>
+
+			<button type="submit" style="margin-left: 37%;">확인</button>
+			<button type="reset">취소</button>
+		</form>
+	</div>
 </body>
 </html>
