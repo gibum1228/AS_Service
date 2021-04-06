@@ -155,5 +155,8 @@ textarea:focus {
     border: 2px solid #97cbff;
     
 }
-
+div#string_limit {
+	text-align: right;
+	color:black;
+}
 

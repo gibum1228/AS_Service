@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/notice.css">
 <script src="/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -33,7 +34,21 @@
 					<tr><th>제목</th><th><input type="text" class="title" name="title" value="" placeholder="제목" /></th></tr>
 				</thead>
 				<tbody>
-					<tr><td><h4>내용</h4></td><td><textarea class="body" rows="3" placeholder=" 내용을 적어주세요"></textarea></td></tr>
+					<tr><td><h4>내용</h4></td><td><textarea class="body" id="body" rows="3" placeholder=" 내용을 적어주세요"></textarea>
+						<div id ="string_limit"> (0 / 2500) </div></td></tr>
+						<script>
+ 							$(document).ready(function() {
+        						$('#body').on('keyup', function() {
+            						$('#string_limit').html("("+$(this).val().length+" / 2500)");
+ 
+            						if($(this).val().length > 500) {
+                						$(this).val($(this).val().substring(0, 2500));
+                						$('#string_limit').html("(2500 / 2500)");
+           								 }
+        							});
+							});
+        
+    </script>
 				</tbody>
 				<tfoot>
 					<tr><td colspan="2"><button type="submit">저장</button></td></tr>
