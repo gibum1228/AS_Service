@@ -27,12 +27,12 @@ public class NoticeController {
     /*공지사항 리스트 컨트롤러*/
     @GetMapping("admin/notice_list")
     public String notice_list(Model model) {
+
         return "admin/notice_list";
     }
 
     @PostMapping("admin/notice_list")
     public String notice_list(Model model, String title) {
-
 
         return "admin/notice_list";
     }
@@ -40,14 +40,28 @@ public class NoticeController {
     /*공지사항 리스트 회원 컨트롤러*/
     @GetMapping("front/notice_list_front")
     public String notice_list_front(Model model) {
+
         return "front/notice_list_front";
     }
 
     @PostMapping("front/notice_list_front")
     public String notice_list_front2(Model model) {
 
-
         return "front/notice_list_front";
     }
+
+    /*공지사항 디테일 회원 컨트롤러*/
+    @GetMapping("front/notice_details")
+    public String notice_details(Model model) {
+
+        return "front/notice_details";
+    }
+
+    @PostMapping("front/notice_details")
+    public String notice_details2(Model model) {
+
+        return "front/notice_details";
+    }
+
 
 }
