@@ -9,65 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>성공회대학교 A/S실</title>
 <link rel="stylesheet" href="/css/main.css">
-<style type="text/css">
-body {
-	margin-top: 100px;	
-}
-
-.section {
-	width: 100%;
-	height: 800px;
-}
-
-.tabMenu {
-	width: 20%;
-	display: inline-block;
-	height: 100%;
-}
-
-.tabSection {
-	width: 60%;
-	display: inline-block;
-	height: 100%;
-}
-
-ul.tabs {
-	margin-top: 0px;
-	list-style: none;
-	border-right: 3px solid gray;
-	float: right;
-}
-
-ul.tabs li {
-	background: none;
-	color: #222;
-	padding: 10px 15px;
-	cursor: pointer;
-	text-align: right;
-}
-
-ul.tabs li.current {
-	background-color: gray;
-	border-left: 5px solid red;
-	color: white;
-}
-
-.tab-content {
-	display: none;
-	background: #ededed;
-	padding: 15px;
-}
-
-.tab-content.current {
-	display: inherit;
-	margin-left: 50px;
-	float: left;
-	width: 100%;
-}
-</style>
+<link rel="stylesheet" href="/css/mypages.css">
 ﻿
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-﻿
 <script type="text/javascript">
 	$(document).ready(function() { // 화면 보여주기, 가리기
 
@@ -111,6 +55,8 @@ ul.tabs li.current {
 		</div>
 		<div class="tabSection">
 			<div id="tab-1" class="tab-content current">
+				<h1>프로필</h1>
+				<hr>
 				<div>
 					<label>이름</label>
 					<input type="text" value="${ student.name }" readonly>
@@ -129,24 +75,6 @@ ul.tabs li.current {
 					<label>가입일</label>
 					<input type="text" value="${ student.signup_date }" readonly>
 				</div>
-				<div>1</div>
-				<div>2</div>
-				<div>3</div>
-				<div>4</div>
-				<div>5</div>
-				<div>6</div>
-				<div>7</div>
-				<div>8</div>
-				<div>9</div>
-				<div>0</div>
-				<div>1</div>
-				<div>2</div>
-				<div>2</div>
-				<div>2</div>
-				<div>2</div>
-				<div>2</div>
-				<div>2</div>
-				<div>2</div>
 			</div>
 			<div id="tab-2" class="tab-content">
 				<div style="margin: 0 auto;">
