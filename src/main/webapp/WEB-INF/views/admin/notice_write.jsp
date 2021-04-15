@@ -35,7 +35,7 @@
 				</thead>
 				<tbody>
 					<tr><td><h4>내용</h4></td><td><textarea class="body" id="body" rows="3" placeholder=" 내용을 적어주세요"></textarea>
-						<div id ="string_limit"> (0 / 10000) </div></td></tr>
+						<div id ="string_limit"> (0 / 1000) </div></td></tr>
 						<script>
  							$(document).ready(function() {
         						$('#body').on('keyup', function() {

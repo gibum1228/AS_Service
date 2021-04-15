@@ -59,14 +59,18 @@ tr:hover {
 	background-color: #ffffe3; cursor: pointer;
 	}
 	
-hr {
+hr.hr_level2 {
 	background-color: #999;
 	border: solid 1px #999;
 	width: 50%;
 }
+hr.hr_level1 {
+	background-color: #999;
+	width: 50%;
+}
 
 h1 {
-	margin-top: 5%;
+	margin-top: 4%;
 	margin-left: 25%;
 }
 
@@ -77,7 +81,7 @@ div.writeing_day {
 
 div.name {
 	display: inline;
-	margin-left: 33%;
+	margin-left: 23%;
 }
 
 div.title {
@@ -86,4 +90,23 @@ div.title {
 	margin-left: 25%;
 	padding-left: 1%;
 	width: 49%;
+}
+div.write_option {
+	margin-top: 5px;
+}
+div.notice_body {
+	padding-left: 1%;
+	font-size: 25px;
+	margin-left: 25%;
+	width: 49%;
+}
+div.next {
+	margin-left: 25%;
+	width: 49%;
+}
+span.next_text {
+	margin-left: 5%;
+}
+footer {
+	margin-bottom: 2%;
 }
