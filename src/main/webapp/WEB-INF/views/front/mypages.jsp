@@ -22,19 +22,20 @@ body {
 .tabMenu {
 	width: 20%;
 	display: inline-block;
+	height: 100%;
 }
 
 .tabSection {
-	width: 70%;
+	width: 60%;
 	display: inline-block;
+	height: 100%;
 }
 
 ul.tabs {
-	vertical-align: top;
+	margin-top: 0px;
 	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
 	border-right: 3px solid gray;
+	float: right;
 }
 
 ul.tabs li {
@@ -60,6 +61,8 @@ ul.tabs li.current {
 .tab-content.current {
 	display: inherit;
 	margin-left: 50px;
+	float: left;
+	width: 100%;
 }
 </style>
 ﻿
@@ -126,9 +129,29 @@ ul.tabs li.current {
 					<label>가입일</label>
 					<input type="text" value="${ student.signup_date }" readonly>
 				</div>
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+				<div>7</div>
+				<div>8</div>
+				<div>9</div>
+				<div>0</div>
+				<div>1</div>
+				<div>2</div>
+				<div>2</div>
+				<div>2</div>
+				<div>2</div>
+				<div>2</div>
+				<div>2</div>
+				<div>2</div>
 			</div>
 			<div id="tab-2" class="tab-content">
-				
+				<div style="margin: 0 auto;">
+					<button type="button">비밀번호 변경하기</button>
+				</div>
 			</div>
 			<div id="tab-3" class="tab-content">
 				<p>대여 기록 보기</p>
