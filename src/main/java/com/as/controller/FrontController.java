@@ -23,7 +23,10 @@ public class FrontController {
 	MemberMapper memberMapper;
 
 	@RequestMapping("/index")
-	public String idex(Model model) {
+	public String idex(Model model, Principal principal) {
+		Member student = memberMapper.findMember(principal.getName());
+
+		model.addAttribute("student", student);
 
 		return "front/index";
 	}
