@@ -41,7 +41,7 @@
 		<div class="container">
 			<label for="uemail"><b>이메일*</b></label>
 			<form:input type="email" path="email" value="${ member.email }"
-				placeholder="ID@as.com" id="userEmail" autocomplete="off"
+				placeholder="ID@office.skhu.ac.kr" id="userEmail" autocomplete="off"
 				onchange="emailSame(this)" />
 		</div>
 		<div class="container">
