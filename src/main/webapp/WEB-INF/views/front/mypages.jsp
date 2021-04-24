@@ -10,6 +10,7 @@
 <title>성공회대학교 A/S실</title>
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/mypages.css">
+<link rel="stylesheet" href="/css/boxs.css">
 ﻿
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
@@ -25,8 +26,8 @@
 			$("#" + tab_id).addClass('current');
 		})
 	})
-	
-	function logout(){
+
+	function logout() {
 		location.href = "/logout_processing"; // 페이지 이동
 	}
 </script>
@@ -34,14 +35,11 @@
 <body>
 	<div class="navBar">
 		<a href="/index" id="homeImg"><img src="/media/마크_성공회대학교.png" alt="MAIN" width="50px" height="50px"></a>
-		<a href="">공지사항</a>
-		<a href="">장비 예약</a>
-		<a href="">장비 목록</a>
+		<a href="">공지사항</a> 
+		<a href="">장비 예약</a> <a href="">장비 목록</a> 
 		<a href="">문의하기</a>
-		<sec:authorize access="authenticated">
-			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
-		</sec:authorize>
-		<a href="/front/mypages" style="float: right;">마이페이지</a>
+		<sec:authorize access="authenticated"><a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
+		</sec:authorize><a href="/front/mypages" style="float: right;">마이페이지</a>
 	</div>
 	<div class="section">
 		<div class="tabMenu">
@@ -57,35 +55,45 @@
 			<div id="tab-1" class="tab-content current">
 				<h1>프로필</h1>
 				<hr>
-				<div>
-					<label>이름</label>
+				<div style="width: 500px">
+					<p><b>학번</p>
+					<input type="text" value="${ student.snum }" readonly>
+					<p><b>이름</p>
 					<input type="text" value="${ student.name }" readonly>
-				</div>
-				<div>
-					<label>이메일</label>
-					<input type="text" value="${ student.email }" readonly>				
-				</div>
-				<div>
-					<label>제1전공</label>
-					<input type="text" value="${ first_major }" readonly>
-					<label>제2전공</label>
-					<input type="text" value="${ sec_major }" readonly>
-				</div>
-				<div>
-					<label>가입일</label>
+					<p><b>학교 이메일</p>
+					<input type="text" value="${ student.email }" readonly>
+					<p><b>제1전공</p>
+					<input type="text" value="${ student.first_major_id }" readonly>
+					<p><b>제2전공</p>
+					<input type="text" value="${ student.sec_major_id }" readonly>
+					<p><b>가입 날짜</p>
 					<input type="text" value="${ student.signup_date }" readonly>
 				</div>
 			</div>
 			<div id="tab-2" class="tab-content">
-				<div style="margin: 0 auto;">
+				<h1>비밀번호 변경</h1>
+				<hr>
+				<div style="margin: 300px auto; width: 500px;">
 					<button type="button">비밀번호 변경하기</button>
 				</div>
 			</div>
 			<div id="tab-3" class="tab-content">
-				<p>대여 기록 보기</p>
+				<h1>대여 기록 보기</h1>
+				<hr>
+				<div style="margin: 300px auto; width: 500px;">
+					<button type="button">대여 기록 보러가기</button>
+				</div>
 			</div>
 			<div id="tab-4" class="tab-content">
-				<p>이메일 인증</p>
+				<h1>이메일 인증</h1>
+				<hr>
+				<div style="margin: 300px auto; width: 500px; text-align: center">
+					<p>
+						아래 이메일이 맞나요?<br>
+						${ student.email }
+					</p>
+					<button type="button">이메일 인증하기</button>
+				</div>
 			</div>
 		</div>
 	</div>
