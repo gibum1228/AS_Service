@@ -43,8 +43,8 @@ public class FrontController {
 		Member student = memberMapper.findMember(principal.getName());
 
 		model.addAttribute("student", student);
-		model.addAttribute("first_major", memberMapper.findMajorName(student.getFirst_major_id()));
-		model.addAttribute("sec_major", memberMapper.findMajorName(student.getSec_major_id()));
+		model.addAttribute("first", memberMapper.findMajorName(student.getFirst_major_id()));
+		model.addAttribute("sec", memberMapper.findMajorName(student.getSec_major_id()));
 
 		return "front/mypages";
 	}

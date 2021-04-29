@@ -63,9 +63,9 @@
 					<p><b>학교 이메일</p>
 					<input type="text" value="${ student.email }" readonly>
 					<p><b>제1전공</p>
-					<input type="text" value="${ student.first_major_id }" readonly>
+					<input type="text" value="${ first }" readonly>
 					<p><b>제2전공</p>
-					<input type="text" value="${ student.sec_major_id }" readonly>
+					<input type="text" value="${ sec }" readonly>
 					<p><b>가입 날짜</p>
 					<input type="text" value="${ student.signup_date }" readonly>
 				</div>
@@ -88,10 +88,8 @@
 				<h1>이메일 인증</h1>
 				<hr>
 				<div style="margin: 300px auto; width: 500px; text-align: center">
-					<p>
-						아래 이메일이 맞나요?<br>
-						${ student.email }
-					</p>
+					<p><b>이메일 주소 확인</b></p>
+					<input type="text" value="${ student.email }" readonly>
 					<button type="button">이메일 인증하기</button>
 				</div>
 			</div>
