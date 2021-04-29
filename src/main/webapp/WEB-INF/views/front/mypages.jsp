@@ -38,8 +38,8 @@
 		<a href="">공지사항</a> 
 		<a href="">장비 예약</a> <a href="">장비 목록</a> 
 		<a href="">문의하기</a>
-		<sec:authorize access="authenticated"><a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
-		</sec:authorize><a href="/front/mypages" style="float: right;">마이페이지</a>
+		<sec:authorize access="authenticated"><a class="btn" style="float: right;" href="/logout_processing">로그아웃</a></sec:authorize>
+		<a href="/front/mypages" style="float: right;">마이페이지</a>
 	</div>
 	<div class="section">
 		<div class="tabMenu">
@@ -48,6 +48,11 @@
 				<li class="tab-link" data-tab="tab-2">비밀번호 변경</li>
 				<li class="tab-link" data-tab="tab-3">대여 기록 보기</li>
 				<li class="tab-link" data-tab="tab-4">이메일 인증</li>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li class="tab-link" data-tab="tab-5">장비 처리하기</li>
+					<li class="tab-link" data-tab="tab-6">장비 처리 기록보기</li>
+					<li class="tab-link" data-tab="tab-7">문의 처리하기</li>
+				</sec:authorize>
 				<li class="tab-link" onClick="logout()">로그아웃</li>
 			</ul>
 		</div>
