@@ -1,10 +1,15 @@
 package com.as.controller;
 
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.as.dto.Major;
+import com.as.dto.Member;
 import com.as.mapper.MemberMapper;
 import com.as.service.MemberService;
 
@@ -18,7 +23,10 @@ public class FrontController {
 	MemberMapper memberMapper;
 
 	@RequestMapping("/index")
-	public String idex(Model model) {
+	public String idex(Model model, Principal principal) {
+		Member student = memberMapper.findMember(principal.getName());
+
+		model.addAttribute("student", student);
 
 		return "front/index";
 	}
@@ -29,10 +37,15 @@ public class FrontController {
 		return "front/login";
 	}
 
-	// 어드민 페이지 기본 테스트
-	@RequestMapping("/admin/hello")
-	public String hello(Model model) {
+	@RequestMapping("/front/mypages")
+	public String mypages(Model model, Principal principal) {
+		List<Major> majorList = memberMapper.findAllMajor();
+		Member student = memberMapper.findMember(principal.getName());
 
-		return "admin/hello";
+		model.addAttribute("student", student);
+		model.addAttribute("first", memberMapper.findMajorName(student.getFirst_major_id()));
+		model.addAttribute("sec", memberMapper.findMajorName(student.getSec_major_id()));
+
+		return "front/mypages";
 	}
 }
