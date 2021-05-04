@@ -25,18 +25,15 @@ public class MailController {
 	public String verify(Principal p, HttpSession session) {
 		Member m = memberMapper.findMember(p.getName());
 
-		String authKey = mss.sendAuthMail(m.getEmail());
+		String authKey = mss.sendAuthMail(m);
 		session.setAttribute("authKey", authKey);
-
-		System.out.println(session);
 
 		return session.getAttribute("authKey").toString();
 	}
 
 	@RequestMapping("/front/mail/show_Session")
 	public String showSession(HttpSession session, @RequestParam Map<String, String> map) {
-		System.out.println(session);
-		System.out.println(session.getAttribute("authKey"));
+//		System.out.println(session.getAttribute("authKey"));
 
 //		ModelAndView mv = new ModelAndView();
 //		mv.setViewName("/index");
