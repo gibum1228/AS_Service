@@ -10,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>성공회대학교 A/S실</title>
 <link rel="stylesheet" href="/css/main.css">
-<script src="/js/main.js"></script>
 </head>
 <body>
 	<div class="navBar">
@@ -51,22 +50,22 @@
 		<div style="margin: 0; padding: 0; background: blue; height: 250px;">
 			
 		</div>
-		<div style="margin: 0; padding: 0; background: black; height: 200px;">
-			<div style="height: 100px; background: red;">
-				<div style="height: 100px; background: white; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
+		<div style="margin: 0; padding: 0; height: 200px;">
+			<div style="height: 100px;">
+				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
+					<img alt="1" src="/media/calculate.png" width="100%" height="100%">
 				</div>
-				<div style="height: 100px; background: red; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
+				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
+					<img alt="1" src="/media/write_notice.png" width="100%" height="100%">
 				</div>
-				<div style="height: 100px; background: skyblue; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
+				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
+					<img alt="1" src="/media/report_qna.png" width="100%" height="100%">
 				</div>
-				<div style="height: 100px; background: green; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
+				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
+					<img alt="1" src="/media/lend_device.png" width="100%" height="100%">
 				</div>
 			</div>
-			<div style="height: 100px;">
+			<div style="height: 100px; display: none;">
 				<div style="height: 100px; background: green; width: 120px; float: left; padding: 0 40px;">
 					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
 				</div>
