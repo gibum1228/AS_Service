@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.as.dto.Major;
 import com.as.dto.Member;
@@ -50,4 +51,8 @@ public interface MemberMapper {
     // 휴대전화 존재하는지 검색
     @Select("SELECT * FROM member WHERE phone=#{phone}")
     Member findPhone(String phone);
+
+    // 학생 계정 인증 여부 변경
+    @Update("UPDATE member SET access = 1 WHERE snum = #{ m.snum }")
+    void updateAcess(@Param("m") Member m);
 }

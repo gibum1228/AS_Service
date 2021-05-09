@@ -70,7 +70,7 @@ public class MailSendService {
 				"		감사합니다."																																															+
 				"	</p>"																																																	+
 				"	<a style=\"color: #FFF; text-decoration: none; text-align: center;\""																																	+
-				"	href=\"http://localhost:8088/front/mail/show_Session?email=" + m.getEmail() + "&authKey=" + authKey + "\" target=\"_blank\">"														+
+				"	href=\"http://localhost:8088/front/mail/verify?email=" + m.getEmail() + "&authKey=" + authKey + "\" target=\"_blank\">"														+
 				"		<p"																																																	+
 				"			style=\"display: inline-block; width: 210px; height: 45px; margin: 30px 5px 40px; background: #02b875; line-height: 45px; vertical-align: middle; font-size: 16px;\">"							+
 				"			메일 인증</p>"																																														+
