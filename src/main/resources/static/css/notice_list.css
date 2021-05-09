@@ -1,21 +1,15 @@
 /*아이디 또는 비밀번호 입력 받는 박스*/
-input[type=text],
-input[type=password],
-input[type=email]
-input[type=textarea] {
-    width: 100%;
+input[type=text] {
+    width: 20%;
     height: 3em;
     padding-left: 20px;
     border: 1px solid #ccc;
     border-radius: 50px;
-    margin-top: 10px;
 }
 
 /*아이디 또는 비밀번호 박스 클릭 시*/
 input[type=text]:focus,
-input[type=password]:focus,
-input[type=email]:focus,
-input[type=textarea]
+
 #selectBox:focus {
     outline: none;
     border-radius: 50px;
@@ -61,6 +55,28 @@ button:hover {
     text-align-last: center;
 }
 
+.edit {
+	padding: 7px 0 7px 0;
+	float: left;
+	width: 50%;
+	font-size: 15px;
+	margin: 0;
+	
+}
+
+.pixed {
+	margin-top: 6%;
+}
+
+.search {
+	margin-top: 1%;
+	float: right;
+}
+
+.search_button {
+	float: right;
+}
+
 table {
 	 border: 1px solid black; 
 	 margin: auto;
@@ -73,17 +89,29 @@ table td:nth-child(1) {
 }
 
 table td:nth-child(2) { 
-	width: 58%;
+	width: 45%;
 	text-align: center;
 }
 
 table td:nth-child(3) { 
-	width: 10%
+	width: 10%;
 }
 
 table td:nth-child(4) { 
-	width: 12%
+	width: 12%;
 }
+
+table td:nth-child(5) { 
+	width: 10%;
+	text-align: center;
+}
+
+table td:nth-child(6) { 
+	width: 13%;
+	text-align: center;
+	background-color: white;
+}
+
 
 table {
     border-collapse: collapse;
@@ -100,6 +128,6 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-tr:hover { 
+tr:nth-child(n+2):hover {
 	background-color: #ffffe3; cursor: pointer;
 	}
