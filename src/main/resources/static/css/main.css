@@ -4,9 +4,9 @@ body {
     margin: 0 auto;
     padding: 0 0;
     width: 100%;
-    background-image: url('/media/background_img/1.jpg');
+    /* background-image: url('/media/background_img/1.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 /*-----------------------------------------*/
 /* The navigation bar */
