@@ -31,10 +31,10 @@
 			
 			<table>
 				<thead>
-					<tr><th>제목</th><th><input type="text" class="title" name="title" value="" placeholder="제목" /></th></tr>
+					<tr><th>제목</th><th><input type="text" class="title" name="title" value="${notice_list.title}" placeholder="제목" /></th></tr>
 				</thead>
 				<tbody>
-					<tr><td><h4>내용</h4></td><td><textarea class="body" name="body" id="body" rows="3" placeholder=" 내용을 적어주세요"></textarea>
+					<tr><td><h4>내용</h4></td><td><textarea class="body" name="body" id="body" rows="3">${notice_list.body}</textarea>
 						<div id ="string_limit"> (0 / 1000) </div></td></tr>
 						<script>
  							$(document).ready(function() {

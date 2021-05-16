@@ -15,6 +15,9 @@ input[type=text]:focus,
 }
 
 
+p {
+	margin: 0;
+}
 
 table {
 	 border: 1px solid black; 
@@ -95,6 +98,7 @@ div.write_option {
 	margin-top: 5px;
 }
 div.notice_body {
+	white-space: pre-line;
 	padding-left: 1%;
 	font-size: 25px;
 	margin-left: 25%;

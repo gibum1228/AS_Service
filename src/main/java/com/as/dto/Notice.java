@@ -2,7 +2,7 @@ package com.as.dto;
 
 import java.sql.Date;
 
-public class Notice {
+public class Notice implements Comparable<Notice> {
 
 	/* data */
 
@@ -64,4 +64,8 @@ public class Notice {
 		this.write_date = write_date;
 	}
 
+	 @Override
+	    public int compareTo(Notice o) {
+	        return o.getNo() - getNo();
+	    }
 }

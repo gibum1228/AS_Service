@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/css/notice_details.css">
 <link rel="stylesheet" href="/css/main.css">
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 	<div class="navBar">
@@ -26,39 +27,55 @@
 		<hr class="hr_level2">
 		<div>
 			<div class="title">
-				<p>노트북 대여 연장 신청기간 변경에 대해</p>
+				<p>${notice_list.getTitle()}</p>
 			</div>
 			<div class="write_option">
-				<div class="writeing_day">작성일: 2021-04-08</div>
-				<div class="name">작성자: 양재용</div>
+				<div class="writeing_day">작성일: ${notice_list.getWrite_date() }</div>
+				<div class="name">작성자: ${ notice_list.getSnum() }</div>
 			</div>
 			<hr class="hr_level2">
 			<div class="notice_body">
-				<pre>마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-왜 이렇게 배가 고픈지 모르겠어요
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-</pre>
+				<p>${notice_list.getBody()}</p>
 			</div>
 			<hr class="hr_level2">
-			<div class="next"><span>다음글</span><span class="next_text">양재용가리만두더지렁이빨래판다곰</span></div>
+			<div id = "app">
+			<div class="next" v-on:click="next_list"><span>다음글</span><span class="next_text">${nextTitle}</span></div>
 			<hr class="hr_level1">
-			<div class="next"><span>이전글</span><span class="next_text">진진자라지리지리자 진진자라지리지라</span></div>
+			<div class="next" v-on:click="pre_list"><span>이전글</span><span class="next_text">${preTitle}</span></div>
+			</div>
+			<script type="text/javascript">
+				var LX = "${LX}";
+				var no = "${notice_list.getNo()}";
+				var next_no = parseInt(no)+1;
+				var pre_no = parseInt(no)-1;
+				
+				var app = new Vue({
+					el: '#app',
+					data: { 
+						
+						},
+					methods: {
+						next_list() {
+							if(LX == no) {
+								confirm("게시글이 없습니다");
+							}
+							else{
+								location.href='notice_details?no='+next_no;
+							}
+						},
+						pre_list() {
+							if(no == 1) {
+								confirm("게시글이 없습니다");
+							}
+							else{
+								location.href='notice_details?no='+pre_no;
+							}
+						}
+					}
+	
+				}) 
+			</script>
+			
 </body>
 <footer>
 

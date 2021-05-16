@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,21 +22,18 @@
 
 	<div style="display: inline-block; width:100%; margin-top: 5%;">
     	<p style="font-size: 50px; margin-top: 10%; margin-left: 5%; display: inline;">공지사항</p>
-    	<form>
-    	<button class="search_button">조회</button>
-    	<input type="text" class="search">
+    	<form method="post">
+    	<input type="text" name="title" value="${title}" class="search" placeholder="제목으로 검색">
+    	<button type="submit">조회</button>
     	</form>
     </div>
         <hr style="width: 90%;">
 
         <table class="notice">
-            <tr><td>번호</td><td>제목</td><td>작성자</td><td>작성일</td><td>조회수</td><td>수정/고정</td></tr>
-            <tr><td>1</td><td>옛날에 했던거 가져왔어</td><td>양재용</td><td>2021.04.06</td><td>10</td><td><button class="edit">수정</button><input type="checkbox" class="pixed" name="pixed"></td></tr>
-            <tr><td>2</td><td>디자인 좀 어때??</td><td>양재용</td><td>2021.04.06</td><td>10</td><td><button class="edit">수정</button><input type="checkbox" class="pixed" name="pixed"></td></tr>
-            <tr><td>번호</td><td>제목</td><td>작성자</td><td>작성일</td><td>10</td><td><button class="edit">수정</button><input type="checkbox" class="pixed" name="pixed"></td></tr>
-            <tr><td>번호</td><td>제목</td><td>작성자</td><td>작성일</td><td>10</td><td><button class="edit">수정</button><input type="checkbox" class="pixed" name="pixed"></td></tr>
-            <tr><td>번호</td><td>제목</td><td>작성자</td><td>작성일</td><td>10</td><td><button class="edit">수정</button><input type="checkbox" class="pixed" name="pixed"></td></tr>
-            
+            <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>수정/고정</th></tr>
+            <c:forEach var="notice_list" items="${ notice_list }">
+            <tr><td>${ notice_list.getNo() }</td><td>${ notice_list.getTitle() }</td><td>${ notice_list.getSnum() }</td><td>${ notice_list.getWrite_date() }</td><td>${ notice_list.getViews() }</td><td><button class="edit" onclick="location.href='notice_edit?no=${notice_list.getNo()}'">수정</button><input type="checkbox" class="pixed" name="pixed"></td></tr>
+            </c:forEach>
         </table>
 
         <button onclick = "location.href='notice_write'">글쓰기</button>

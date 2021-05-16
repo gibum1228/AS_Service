@@ -70,7 +70,8 @@ button:hover {
 
 .search {
 	margin-top: 1%;
-	float: right;
+	margin-left: 66%;
+	margin-bottom: 3px;
 }
 
 .search_button {
