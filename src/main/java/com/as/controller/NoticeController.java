@@ -11,8 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.as.dto.Notice;
+import com.as.dto.NoticeSequence;
 import com.as.mapper.NoticeMapper;
 
 
@@ -70,6 +74,22 @@ public class NoticeController {
 
          return "redirect:notice_list";
     }
+
+    // 공지사항 글 삭제
+    @RequestMapping
+    (value = "admin/notice_delete", method = RequestMethod.GET)
+    public String getDelete(@RequestParam("no") int no) throws Exception {
+
+    Notice notice = noticeMapper.findByNo(no);
+
+    noticeMapper.deleteNotice(notice);
+
+
+     return "redirect:notice_list";
+    }
+
+
+
 
     /*공지사항 리스트 컨트롤러*/
     @GetMapping("admin/notice_list")
@@ -130,13 +150,17 @@ public class NoticeController {
     @GetMapping("front/notice_details")
     public String notice_details(Model model, int no, String nextTitle, String preTitle, HttpSession session) {
 
-    	int LX = (int)session.getAttribute("list_length");
+    	int LX = noticeMapper.findLX();
+    	System.out.print(LX);
     	Notice notice = noticeMapper.findByNo(no);
+    	NoticeSequence list = noticeMapper.find_ud_notice(no);
+
+
 
     	notice.setViews(notice.getViews()+1);
 
     	if(no == 1) {
-        	Notice next = noticeMapper.findByNo(no+1);
+        	Notice next = noticeMapper.findByNo(list.getNextNo());
 
         	nextTitle = next.getTitle();
     		preTitle = "게시글이 존재하지 않습니다";
@@ -144,14 +168,14 @@ public class NoticeController {
     		model.addAttribute("nextTitle",nextTitle);
         	model.addAttribute("preTitle",preTitle);
 
-        	int next_no = next.getNo();
-        	int pre_no = 9999;
+        	int next_no = list.getNextNo();
+        	int pre_no = list.getPreNo();
 
         	model.addAttribute("notice_next",next_no);
         	model.addAttribute("notice_pre", pre_no);
     	}
     	else if(no == LX) {
-    		Notice previous = noticeMapper.findByNo(no-1);
+    		Notice previous = noticeMapper.findByNo(list.getPreNo());
 
         	preTitle = previous.getTitle();
     		nextTitle = "게시글이 존재하지 않습니다";
@@ -159,15 +183,15 @@ public class NoticeController {
     		model.addAttribute("nextTitle",nextTitle);
         	model.addAttribute("preTitle",preTitle);
 
-        	int pre_no = previous.getNo();
-        	int next_no = 9999;
+        	int pre_no = list.getPreNo();
+        	int next_no = list.getNextNo();
 
         	model.addAttribute("notice_next",next_no);
         	model.addAttribute("notice_pre", pre_no);
     	}
     	else {
-        	Notice next = noticeMapper.findByNo(no+1);
-        	Notice previous = noticeMapper.findByNo(no-1);
+        	Notice next = noticeMapper.findByNo(list.getNextNo());
+        	Notice previous = noticeMapper.findByNo(list.getPreNo());
 
         	nextTitle = next.getTitle();
         	preTitle = previous.getTitle();
@@ -175,8 +199,8 @@ public class NoticeController {
         	model.addAttribute("nextTitle",nextTitle);
         	model.addAttribute("preTitle",preTitle);
 
-        	int next_no = next.getNo();
-        	int pre_no = previous.getNo();
+        	int next_no = list.getNextNo();
+        	int pre_no = list.getPreNo();
 
         	model.addAttribute("notice_next",next_no);
         	model.addAttribute("notice_pre", pre_no);

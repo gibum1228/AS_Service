@@ -46,8 +46,8 @@
 			<script type="text/javascript">
 				var LX = "${LX}";
 				var no = "${notice_list.getNo()}";
-				var next_no = parseInt(no)+1;
-				var pre_no = parseInt(no)-1;
+				var next_no = "${notice_next}";
+				var pre_no = "${notice_pre}";
 				
 				var app = new Vue({
 					el: '#app',
@@ -75,6 +75,7 @@
 	
 				}) 
 			</script>
+			<button class="button_back" onclick = "location.href='notice_list_front'">돌아가기</button>
 			
 </body>
 <footer>

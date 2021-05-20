@@ -30,13 +30,20 @@
         <hr style="width: 90%;">
 
         <table class="notice">
-            <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>수정/고정</th></tr>
+            <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>수정/삭제</th></tr>
             <c:forEach var="notice_list" items="${ notice_list }">
-            <tr><td>${ notice_list.getNo() }</td><td>${ notice_list.getTitle() }</td><td>${ notice_list.getSnum() }</td><td>${ notice_list.getWrite_date() }</td><td>${ notice_list.getViews() }</td><td><button class="edit" onclick="location.href='notice_edit?no=${notice_list.getNo()}'">수정</button><input type="checkbox" class="pixed" name="pixed"></td></tr>
+            <tr><td>${ notice_list.getNo() }</td><td>${ notice_list.getTitle() }</td><td>${ notice_list.getSnum() }</td><td>${ notice_list.getWrite_date() }</td><td>${ notice_list.getViews() }</td>
+            <td><button class="edit" onclick="location.href='notice_edit?no=${notice_list.getNo()}'">수정</button>
+            <button class="delete" onclick="location.href='notice_delete?no=${notice_list.getNo()}'">삭제</button></td></tr>
             </c:forEach>
         </table>
+        <script>
+        	function notice_delete() {
+        		alert("삭제 기능 실행");
+        	}
+        </script>
 
-        <button onclick = "location.href='notice_write'">글쓰기</button>
+        <button style="background-color:#2E64FE;" onclick = "location.href='notice_write'">글쓰기</button>
 
     </body>
 </html>
