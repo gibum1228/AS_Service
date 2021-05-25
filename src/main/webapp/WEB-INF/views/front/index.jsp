@@ -22,31 +22,7 @@
 		<a href="/front/mypages" style="float: right;">마이페이지</a> 
 		<a href="" style="float: right;">${ student.name }님</a>
 	</div>
-	<!-- <div class="countDday">
-		<p id="countDown"></p>
-	</div> -->
-	<!-- <div class="quickBox">
-		<div class="quickBtn">
-			<span>대여 기록보기</span><br> 
-			<a href=""><img src="/media/past.png" alt="장비 대여 기록"></a>
-		</div>
-		<div class="quickBtn">
-			<span>문의하기</span><br>
-			<a href=""><img src="/media/reported.png" alt="장애 신고"></a>
-		</div>
-	</div>
-	<div class="quickBox">
-		<div class="quickBtn">
-			<span>장비 예약하기</span><br>
-			<a href=""><img src="/media/cat.jpg" alt="고양이"></a>
-		</div>
-		<div class="quickBtn">
-			<span>연체료 계산기</span><br>
-			<a href=""><img src="/media/calcul.png" alt="계산기"></a>
-		</div>
-	</div> -->
-	
-	<div class="center_container">
+	<div class="container_center">
 		<div style="margin: 0; padding: 0; background: blue; height: 250px;">
 			
 		</div>
@@ -56,7 +32,7 @@
 					<img alt="1" src="/media/calculate.png" width="100%" height="100%">
 				</div>
 				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/write_notice.png" width="100%" height="100%">
+					<img alt="1" src="/media/past_lend_list.png" width="100%" height="100%">
 				</div>
 				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
 					<img alt="1" src="/media/report_qna.png" width="100%" height="100%">
@@ -65,30 +41,21 @@
 					<img alt="1" src="/media/lend_device.png" width="100%" height="100%">
 				</div>
 			</div>
-			<div style="height: 100px; display: none;">
-				<div style="height: 100px; background: green; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
+			<div style="height: 100px;">
+				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
+					<img alt="1" src="/media/write_notice.png" width="100%" height="100%">
 				</div>
-				<div style="height: 100px; background: skyblue; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
+				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
+
 				</div>
-				<div style="height: 100px; background: red; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
+				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
+
 				</div>
-				<div style="height: 100px; background: white; width: 120px; float: left; padding: 0 40px;">
-					<img alt="1" src="/media/calcul.png" width="100%" height="100%">
+				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
+					<img alt="1" src="/media/menu_plus.png" width="100%" height="100%">
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<!-- <div class="footer">
-		<p>
-			<br>전화번호: 02-2610-4201
-			<br>주소: 서울특별시 구로구 오류2동 연동로 320 (성공회대학교), 월당관 1층
-			<br>근무시간: 9:00 AM ~ 5:00 PM
-			<br>점심시간: 12:00 PM ~ 1:00 PM
-		</p>
-	</div> -->
 </body>
 </html>

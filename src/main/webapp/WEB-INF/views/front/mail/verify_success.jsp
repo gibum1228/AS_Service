@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성공회대학교 A/S실</title>
+<link rel="stylesheet" href="/css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-
+	<div class="container_center">
+		<div style="height: 400px;">
+			<p style="line-height: 350px; font-size: 50px; text-align: center;">
+				이메일 인증에 성공했습니다!
+			</p>
+		</div>
+	</div>
 </body>
 </html>
