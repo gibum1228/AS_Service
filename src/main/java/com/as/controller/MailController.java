@@ -22,39 +22,32 @@ public class MailController {
 	@Autowired
 	private MemberMapper memberMapper;
 
-	@RequestMapping("/front/mail/sendMail")
+	@RequestMapping("/front/mail/send")
 	public ModelAndView verify(Principal p, HttpSession session) {
 		Member m = memberMapper.findMember(p.getName());
 
 		String authKey = mss.sendAuthMail(m);
 		session.setAttribute("authKey", authKey);
+		session.setMaxInactiveInterval(60*10); // 세션 유효 기간 600초 -> 10분
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/front/index");
+		mv.setViewName("/front/mail/sendMail");
 
 		return mv;
 	}
 
 	@RequestMapping("/front/mail/verify")
-	public ModelAndView verify(Principal p, HttpSession session, @RequestParam Map<String, String> map) {
-		Member m = memberMapper.findMember(p.getName());
-
-		if(m.getAccess() == 0) { // 인증 되지 않은 계정이고
-			if(m.getEmail().compareTo(map.get("email")) == 0) { // 현재 동일한 계정이며
-				if(session.getAttribute("authKey").toString().compareTo(map.get("authKey")) == 0) { // 인증키가 같을 경우
-					memberMapper.updateAcess(m); // 인증 계정으로 변경
-				}else {
-					// 에러메세지 => 인증키 유효 기간 지남
-				}
-			}else {
-				// 에러메세지 => 동일한 계정(이메일) 아님
-			}
-		}else {
-			// 이미 인증 되었습니다.
-		}
-
+	public ModelAndView verify(HttpSession session, @RequestParam Map<String, String> map) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/front/index");
+
+		if(session.getAttribute("authKey") == null) { // 세션이 없으면 키 정보가 없어서 null
+			mv.setViewName("front/mail/verify_fail");
+		}else{
+			mv.setViewName("front/mail/verify_success");
+			Member m = memberMapper.findMemberAtEmail(map.get("email"));
+			memberMapper.updateAcess(m);
+			session.invalidate(); // 세션 초기화
+		}
 
 		return mv;
 	}

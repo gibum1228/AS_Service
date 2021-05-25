@@ -27,6 +27,11 @@ public interface MemberMapper {
     		+ " WHERE id = #{major_id}")
     String findMajorName(int major_id);
 
+    // 이메일로 회원 정보 return
+    @Select("SELECT * FROM member"
+    		+ " WHERE email = #{mail}")
+    Member findMemberAtEmail(String mail);
+
     // 회원 정보 저장
     @Insert("INSERT INTO member (snum, password, name, phone, email, first_major_id, sec_major_id, signup_date) VALUES "
     		+ "(#{m.snum}, #{m.password}, #{m.name}, #{m.phone}, #{m.email}, #{m.first_major_id}, #{m.sec_major_id}, now())")

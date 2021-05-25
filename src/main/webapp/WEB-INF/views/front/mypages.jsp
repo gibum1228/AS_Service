@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/mypages.css">
 <link rel="stylesheet" href="/css/boxs.css">
-﻿
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() { // 화면 보여주기, 가리기
@@ -95,7 +94,7 @@
 				<div style="margin: 300px auto; width: 500px; text-align: center">
 					<p><b>이메일 주소 확인</b></p>
 					<input type="text" value="${ student.email }" readonly>
-					<button type="button">이메일 인증하기</button>
+					<input type="button" value="이메일 인증하기" onClick="location.href='/front/mail/send'">
 				</div>
 			</div>
 		</div>
