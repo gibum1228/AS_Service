@@ -99,7 +99,7 @@ function idSame(snum) {
 // 이메일이 맞는지 확인
 function emailSame(userEmail) {
 	let emailValue = String(userEmail.value).split("@")[1];
-	let addressList = ["gmail.com", "naver.com", "daum.net", "office.skhu.ac.kr", "skhu.ac.kr"];
+	let addressList = ["office.skhu.ac.kr", "skhu.ac.kr"];
 	let checkMail = false;
 
 	for (let i = 0; i < addressList.length; i++) {
@@ -118,7 +118,7 @@ function emailSame(userEmail) {
 		emailOk = false;
 		userEmail.style.borderColor = "red";
 		signUpOk();
-		alert("구글, 네이버, 다음, 학교 이메일로만 가입 가능합니다.")
+		alert("학교 이메일(@office.skhu.ac.kr)로만 가입 가능합니다.")
 	}
 }
 
