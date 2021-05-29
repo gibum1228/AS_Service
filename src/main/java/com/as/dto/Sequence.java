@@ -1,6 +1,6 @@
 package com.as.dto;
 
-public class NoticeSequence {
+public class Sequence {
 
 	private int no;
 	private int nextNo;

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,53 +27,75 @@
 		<hr class="hr_level2">
 		<div>
 			<div class="title">
-				<p>노트북 대여 연장 신청기간 변경에 대해</p>
+				<p>${inquiry_list.getTitle()}</p>
 			</div>
 			<div class="write_option">
-				<div class="writeing_day">작성일: 2021-04-08</div>
-				<div class="name">작성자: 양재용</div>
-				<div class="type">문의 타입: 기타</div>
+				<div class="writeing_day">작성일: ${inquiry_list.getWrite_date() }</div>
+				<div class="name">작성자: ${ inquiry_list.getSnum() }</div>
+				<div class="type">문의 타입: <c:if test ="${ inquiry_list.getType() == 1 }" >장비 장애</c:if><c:if test ="${ inquiry_list.getType() == 2 }" >버그 신고</c:if><c:if test ="${ inquiry_list.getType() == 3 }" >기타</c:if></div>
 			</div>
 			<hr class="hr_level2">
 			<div class="notice_body">
-				<pre>마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-왜 이렇게 배가 고픈지 모르겠어요
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-마마마마마마마마마마마마마마마마마마마마마마마마마마마마마
-
-</pre>
+				<p>${inquiry_list.getBody()}</p>
 			</div>
 			<hr class="hr_level2">
-			<div class="next"><span>다음글</span><span class="next_text">양재용가리만두더지렁이빨래판다곰</span></div>
+			<div id = "aee">
+			<div class="next" v-on:click="next_list"><span>다음글</span><span class="next_text">${nextTitle}</span></div>
 			<hr class="hr_level1">
-			<div class="next"><span>이전글</span><span class="next_text">진진자라지리지리자 진진자라지리지라</span></div>
-
+			<div class="next" v-on:click="pre_list"><span>이전글</span><span class="next_text">${preTitle}</span></div>
+			</div>
+			<script type="text/javascript">
+				var LX = "${LX}";
+				var no = "${inquiry_list.getNo()}";
+				var next_no = "${inquiry_next}";
+				var pre_no = "${inquiry_pre}";
+				
+				var app = new Vue({
+					el: '#aee',
+					data: { 
+						
+						},
+					methods: {
+						next_list() {
+							if(LX == no) {
+								confirm("게시글이 없습니다");
+							}
+							else{
+								location.href='inquiry_details_admin?no='+next_no;
+							}
+						},
+						pre_list() {
+							if(no == 1) {
+								confirm("게시글이 없습니다");
+							}
+							else{
+								location.href='inquiry_details_admin?no='+pre_no;
+							}
+						}
+					}
+	
+				}) 
+			</script>
+			
 			<hr class="hr_level2">
-			<form>
+			<form method="post">
 			<div id="app" v-show="true">
 				<h1>답변</h1>
 				<hr class="hr_level2">
 			<div class="notice_body">
-				<textarea class="body" id="body" rows="3" v-model="body" placeholder="내용을 입력해주세요."></textarea>
+				<textarea class="body" id="answer" name="answer" rows="3"  placeholder="내용을 입력해주세요.">${inquiry_list.getAnswer()}</textarea>
 			</div>
 			<hr class="hr_level2">
 			<script type="text/javascript">
 				var app = new Vue({
 					el : '#app',
 					data : {
-						body : '
+		
 					}
 				})
 			</script>
 			</div>
-			<button onclick = "">저장</button>
+			<button type="submit">저장</button>
 			</form>
 </body>
 <footer>

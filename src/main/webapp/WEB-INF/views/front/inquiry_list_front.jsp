@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="/css/inquiry_list.css">
         <link rel="stylesheet" href="/css/main.css">
         <script src="js/main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
 	<div class="navBar">
@@ -20,24 +21,34 @@
 	</div>
 
 
-	<div>
+	<div id="app">
             <h1 style="margin-top: 5%; margin-left: 5%;">문의사항</h1>
-            <select class="select_sort" name="select_value" onchange="정렬 메소드">
-            	<option value="1">답변 완료</option>
-            	<option value="0">답변 대기중</option>
+            <form method="post">
+            <select class="select_sort" name="select_value">
+                <option value="2" <c:if test="${select_value == 2}">selected</c:if>></option>
+            	<option value="1" <c:if test="${select_value == 1}">selected</c:if>>답변 완료</option>
+            	<option value="0" <c:if test="${select_value == 0}">selected</c:if>>답변 대기중</option>
             </select>
+            <button class="sort_button" type="submit">정렬</button>
+            </form>
     </div>
+   
         <hr style="width: 90%;">
 
-        <table class="notice" border= "1px solid black" style="margin:auto; width:90%; text-align: center; margin-top">
-            <tr><td>번호</td><td>제목</td><td>작성자</td><td>작성일</td><td>타입</td><td>상태</td></tr>
-            <tr><td>1</td><td>옛날에 했던거 가져왔어</td><td>양재용</td><td>2021.04.06</td><td>장비 장애</td><td>0</td></tr>
-            <tr><td>2</td><td>디자인 좀 어때??</td><td>양재용</td><td>2021.04.06</td><td>장비 장애</td><td>0</td></tr>
-            <tr><td>번호</td><td>제목</td><td>작성자</td><td>작성일</td><td>장비 고장</td><td>0</td></tr>
-            <tr><td>번호</td><td>제목</td><td>작성자</td><td>작성일</td><td>장비 고장</td><td>0</td></tr>
-            <tr><td>번호</td><td>제목</td><td>작성자</td><td>작성일</td><td>장비 고장</td><td>0</td></tr>
-            
+         <table class="inquiry">
+            <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>타입</th><th>상태</th></tr>
+            <c:forEach var="inquiry_list" items="${ inquiry_list }">
+            <tr data-url="inquiry_details_front?no=${ inquiry_list.getNo() }"><td>${ inquiry_list.getNo() }</td><td>${ inquiry_list.getTitle() }</td><td>${ inquiry_list.getSnum() }</td>
+            <td>${ inquiry_list.getWrite_date() }</td><td>${ inquiry_list.getViews() }</td><td><c:if test = "${ inquiry_list.getType() ==1 }">장비 장애</c:if><c:if test = "${ inquiry_list.getType() == 2}">버그 신고</c:if><c:if test = "${ inquiry_list.getType() == 3}">기타</c:if></td><td><c:if test ="${ inquiry_list.getState() == 0}">답변 대기중</c:if><c:if test ="${ inquiry_list.getState() == 1}">답변 완료</c:if></td></tr>
+            </c:forEach>
         </table>
+        
+        <script> 
+        $("[data-url]").click(function() {
+        	var url = $(this).attr("data-url");
+        	location.href = url; 
+        	}) 
+        </script>
 		
 		 <button onclick = "location.href='inquiry'">글쓰기</button>
 

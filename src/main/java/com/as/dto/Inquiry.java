@@ -1,15 +1,15 @@
 package com.as.dto;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
-public class Inquiry {
+public class Inquiry implements Comparable<Inquiry>{
 // ===== Data =====
 	private int no;
 	private String snum;
 	private String title;
 	private String body;
 	private int views;
-	private Timestamp write_date;
+	private Date write_date;
 	private int type;
 	private int state;
 	private String answer;
@@ -45,10 +45,10 @@ public class Inquiry {
 	public void setViews(int views) {
 		this.views = views;
 	}
-	public Timestamp getWrite_date() {
+	public Date getWrite_date() {
 		return write_date;
 	}
-	public void setWrite_date(Timestamp write_date) {
+	public void setWrite_date(Date write_date) {
 		this.write_date = write_date;
 	}
 	public int getType() {
@@ -68,5 +68,10 @@ public class Inquiry {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	@Override
+	public int compareTo(Inquiry o) {
+
+		return o.getNo() - getNo();
 	}
 }

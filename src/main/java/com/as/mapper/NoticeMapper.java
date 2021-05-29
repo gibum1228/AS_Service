@@ -10,14 +10,14 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.as.dto.Notice;
-import com.as.dto.NoticeSequence;
+import com.as.dto.Sequence;
 
 
 
 @Mapper
 public interface NoticeMapper {
 
-	// 공지사항 no로 수정
+	// 공지사항 no로 찾기
 	@Select("SELECT * from notice WHERE notice.no = #{no}")
 	Notice findByNo(int no);
 
@@ -36,7 +36,7 @@ public interface NoticeMapper {
 	("SELECT MAX(no) FROM notice;")
 	int findLX();
 
-	// 공지사항 리스트 no 최대값
+	// 공지사항 리스트 이전 이후값
 		@Select
 		("SELECT no, preNo, nextNo"
 				+ " FROM"
@@ -45,7 +45,7 @@ public interface NoticeMapper {
 				+ "			, LEAD(no, 1) over (ORDER BY no) nextNo"
 				+ "	FROM notice) a"
 				+ " WHERE no = #{no};")
-	NoticeSequence find_ud_notice(int no);
+	Sequence find_ud_notice(int no);
 
 
 	// 공지사항 정보 수정

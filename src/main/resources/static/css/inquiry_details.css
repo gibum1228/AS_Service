@@ -80,7 +80,7 @@ div.writeing_day {
 
 div.name {
 	display: inline;
-	margin-left: 10%;
+	margin-left: 9%;
 }
 
 div.type {
@@ -99,12 +99,14 @@ div.write_option {
 	margin-top: 5px;
 }
 div.notice_body {
+	white-space: pre-line;
 	padding-left: 1%;
 	font-size: 25px;
 	margin-left: 25%;
 	width: 49%;
 }
 div.next {
+	cursor:pointer;
 	margin-left: 25%;
 	width: 49%;
 }

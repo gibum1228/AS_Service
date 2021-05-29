@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.as.dto.Notice;
-import com.as.dto.NoticeSequence;
+import com.as.dto.Sequence;
 import com.as.mapper.NoticeMapper;
 
 
@@ -151,9 +151,9 @@ public class NoticeController {
     public String notice_details(Model model, int no, String nextTitle, String preTitle, HttpSession session) {
 
     	int LX = noticeMapper.findLX();
-    	System.out.print(LX);
+
     	Notice notice = noticeMapper.findByNo(no);
-    	NoticeSequence list = noticeMapper.find_ud_notice(no);
+    	Sequence list = noticeMapper.find_ud_notice(no);
 
 
 
