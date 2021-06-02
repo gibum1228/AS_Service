@@ -4,7 +4,9 @@ body {
     margin: 0 auto;
     padding: 0 0;
     width: 100%;
-    height: 100%;
+    /* background-image: url('/media/background_img/1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 /*-----------------------------------------*/
 /* The navigation bar */
@@ -96,6 +98,13 @@ body {
 	transform: translate(-50%, -50%);
 	width: 800px;
 	border: 2px solid black;
+}
+.container_center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 800px;
 }
 /*-----------------------------------------*/
 /* footer */

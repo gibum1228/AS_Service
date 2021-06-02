@@ -16,7 +16,7 @@
 	<div>
 		<form:form method="post" action="/login_processing">
 			<div class="imgContainer">
-				<img src="/media/마크_성공회대학교.png" alt="mark" width="50%" height="50%">
+				<img src="/media/mark_SKHU.png" alt="mark" width="50%" height="50%">
 			</div>
 
 			<div class="container">
