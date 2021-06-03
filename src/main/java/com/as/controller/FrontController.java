@@ -28,16 +28,16 @@ public class FrontController {
 
 		model.addAttribute("student", student);
 
-		return "front/index";
+		return "user/index";
 	}
 
 	@RequestMapping({"/", "/login"})
 	public String login(Model model) {
 
-		return "front/login";
+		return "user/login";
 	}
 
-	@RequestMapping("/front/mypages")
+	@RequestMapping("/user/mypages")
 	public String mypages(Model model, Principal principal) {
 		List<Major> majorList = memberMapper.findAllMajor();
 		Member student = memberMapper.findMember(principal.getName());
@@ -46,6 +46,6 @@ public class FrontController {
 		model.addAttribute("first", memberMapper.findMajorName(student.getFirst_major_id()));
 		model.addAttribute("sec", memberMapper.findMajorName(student.getSec_major_id()));
 
-		return "front/mypages";
+		return "user/mypages";
 	}
 }

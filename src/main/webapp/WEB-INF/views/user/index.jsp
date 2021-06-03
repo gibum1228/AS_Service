@@ -19,11 +19,13 @@
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
 		</sec:authorize>
-		<a href="/front/mypages" style="float: right;">마이페이지</a> 
+		<a href="/user/mypages" style="float: right;">마이페이지</a> 
 		<a href="" style="float: right;">${ student.name }님</a>
 	</div>
 	<div class="container_center">
-		<div style="margin: 0; padding: 0; background: blue; height: 250px;"></div>
+		<div style="margin: 0; padding: 0; height: 250px;">
+			<img src="/media/logo_ascenter_1_lower.png" alt="LOGO" width="100%" height="100%">
+		</div>
 		<div style="margin: 0; padding: 0; height: 200px;">
 			<div style="height: 100px;">
 				<div style="height: 100px; width: 120px; float: left; padding: 0 40px;">
