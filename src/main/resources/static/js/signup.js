@@ -1,6 +1,38 @@
-/**
- * 
- */
+var app = new Vue({
+	el: "#app",
+	data: {
+		m: {
+			snum: "",
+			name: "",
+			pwd: "",
+			email: "",
+			phone: "",
+			first_major: 0,
+			sec_major: 0,
+		},
+		pswOk: false,
+		emailOk: false,
+		doubleMajor: false,
+		majorList: [
+			{ id: 1, name: "IT융합자율학부" }, { id: 2, name: "미디어콘텐츠융합자율학부" }, { id: 3, name: "인문융합자율학부" },
+			{ id: 4, name: "사회융합자율학부" }, { id: 5, name: "컴퓨터공학전공" }, { id: 6, name: "소프트웨어공학전공" },
+			{ id: 7, name: "정보통신공학전공" }, { id: 8, name: "글로컬IT전공" }, { id: 9, name: "디지털콘텐츠전공" },
+			{ id: 10, name: "신문방속학전공" }
+		]
+	},
+	methods: {
+		pswSame() {
+			
+		},
+		emailSame() {
+
+		},
+		checkDouble() {
+
+		}
+	}
+});
+
 let IDOk = false; // 아이디가 조건에 맞는지 체크
 let pswOk = false; // 비밀번호가 조건에 맞는지 체크
 let emailOk = false;

@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/mypages.css">
 <link rel="stylesheet" href="/css/boxs.css">
-﻿
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() { // 화면 보여주기, 가리기
@@ -34,12 +33,12 @@
 </head>
 <body>
 	<div class="navBar">
-		<a href="/index" id="homeImg"><img src="/media/마크_성공회대학교.png" alt="MAIN" width="50px" height="50px"></a>
+		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="50px" height="50px"></a>
 		<a href="">공지사항</a> 
 		<a href="">장비 예약</a> <a href="">장비 목록</a> 
 		<a href="">문의하기</a>
 		<sec:authorize access="authenticated"><a class="btn" style="float: right;" href="/logout_processing">로그아웃</a></sec:authorize>
-		<a href="/front/mypages" style="float: right;">마이페이지</a>
+		<a href="/user/mypages" style="float: right;">마이페이지</a>
 	</div>
 	<div class="section">
 		<div class="tabMenu">
@@ -95,7 +94,7 @@
 				<div style="margin: 300px auto; width: 500px; text-align: center">
 					<p><b>이메일 주소 확인</b></p>
 					<input type="text" value="${ student.email }" readonly>
-					<button type="button">이메일 인증하기</button>
+					<input type="button" value="이메일 인증하기" onClick="location.href='/front/mail/send'">
 				</div>
 			</div>
 		</div>

@@ -24,6 +24,7 @@ input[type=textarea]
 
 /*-------버튼-------*/
 /*버튼 박스*/
+input[type=button],
 button {
     background-color: #007ADD;
     color: white;
@@ -37,6 +38,7 @@ button {
 }
 
 /*버튼 위에 마우스 올릴 시*/
+input[type=button]:hover,
 button:hover {
     opacity: 0.6;
 }
