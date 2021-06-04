@@ -20,18 +20,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	// 스프링 시큐리티 설정
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.csrf().disable();
+		http.csrf().disable();
 
 		// 각 경로에 따른 권한을 지정
 		http.authorizeRequests()
-			.antMatchers("/login", "/signup", "/", "/user/mail/verifying").permitAll() // 누구나
-			.antMatchers("/server/**").access("hasRole('ROLE_SERVER')")
-			.antMatchers("/superadmin/**").access("hasRole('ROLE_SUPERADMIN')")
+			.antMatchers("/login", "/signup", "/", "/front/mail/verify").permitAll() // 누구나
 			.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-			.antMatchers("/professor/**").access("hasRole('ROLE_PROFESSOR')")
-			.antMatchers("/employee/**").access("hasRole('ROLE_EMPLOYEE')")
-			.antMatchers("/member/**").access("hasRole('ROLE_MEMBER')")
-			.antMatchers("/user/**").authenticated();
+			.antMatchers("/front/**").authenticated();
+//			.antMatchers("/front/**").access("hasRole('ROLE_MEMBER')");
 //			.antMatchers("/**").authenticated(); // 로그인 된 사용자만
 			// 접근 권한 제한으로 인해 리소스(css, js, media) 파일이 적용 안 될 수 있음
 

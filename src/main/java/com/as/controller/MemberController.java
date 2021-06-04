@@ -32,7 +32,7 @@ public class MemberController {
 		model.addAttribute("member", member);
 		model.addAttribute("majors", majors);
 
-		return "user/signup";
+		return "front/signup";
 	}
 
 	@PostMapping("/signup")
@@ -55,7 +55,7 @@ public class MemberController {
 		if (isEmpty) {
 			memberService.save(member);
 
-			return "/login"; // 회원 가입 성공시
+			return "front/login"; // 회원 가입 성공시
 		} else {
 			member.setSnum("");
 			member.setPassword("");
@@ -70,7 +70,7 @@ public class MemberController {
 			model.addAttribute("member", member);
 			model.addAttribute("majors", majors);
 
-			return "user/signup";
+			return "front/signup";
 		}
 	}
 
