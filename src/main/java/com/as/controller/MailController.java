@@ -22,7 +22,7 @@ public class MailController {
 	@Autowired
 	private MemberMapper memberMapper;
 
-	@RequestMapping("/front/mail/send")
+	@RequestMapping("/user/mail/send")
 	public ModelAndView verify(Principal p, HttpSession session) {
 		Member m = memberMapper.findMember(p.getName());
 
@@ -31,19 +31,19 @@ public class MailController {
 		session.setMaxInactiveInterval(60*10); // 세션 유효 기간 600초 -> 10분
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/front/mail/sendMail");
+		mv.setViewName("/user/mail/sendMail");
 
 		return mv;
 	}
 
-	@RequestMapping("/front/mail/verify")
+	@RequestMapping("/user/mail/verifying")
 	public ModelAndView verify(HttpSession session, @RequestParam Map<String, String> map) {
 		ModelAndView mv = new ModelAndView();
 
 		if(session.getAttribute("authKey") == null) { // 세션이 없으면 키 정보가 없어서 null
-			mv.setViewName("front/mail/verify_fail");
+			mv.setViewName("user/mail/verify_fail");
 		}else{
-			mv.setViewName("front/mail/verify_success");
+			mv.setViewName("user/mail/verify_success");
 			Member m = memberMapper.findMemberAtEmail(map.get("email"));
 			memberMapper.updateAcess(m);
 			session.invalidate(); // 세션 초기화
