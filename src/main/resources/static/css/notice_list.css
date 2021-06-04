@@ -5,7 +5,6 @@ input[type=text] {
     padding-left: 20px;
     border: 1px solid #ccc;
     border-radius: 50px;
-    box-shadow: 3px 3px gray;
 }
 
 /*아이디 또는 비밀번호 박스 클릭 시*/
@@ -14,12 +13,12 @@ input[type=text]:focus,
 #selectBox:focus {
     outline: none;
     border-radius: 50px;
-    border: 1.5px solid gray;
+    border: 1.5px solid black;
 }
 
 /*-------버튼-------*/
 /*버튼 박스*/
-.button {
+button {
     background-color: gray;
     width: 6%;
     font-size: 15px;
@@ -54,15 +53,6 @@ button:hover {
     border-radius: 50px;
     outline: none;
     text-align-last: center;
-}
-
-.search_button {
-	margin-top: 21px;
-	border: none;
-	top:0;
-	right:13%;
-	position: absolute;
-	background-color: white;
 }
 
 .edit {
