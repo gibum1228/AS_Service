@@ -118,7 +118,7 @@ public class NoticeController {
     }
 
     /*공지사항 리스트 회원 컨트롤러*/
-    @GetMapping("front/notice_list_front")
+    @GetMapping("user/notice_list_front")
     public String notice_list_front(Model model, HttpSession session) {
 
     	List<Notice> list = noticeMapper.findAll();
@@ -128,10 +128,10 @@ public class NoticeController {
     	session.setAttribute("list_length", list.size());
 
 
-        return "front/notice_list_front";
+        return "user/notice_list_front";
     }
 
-    @PostMapping("front/notice_list_front")
+    @PostMapping("user/notice_list_front")
     public String notice_list_front2(Model model, String title) {
 
     	if (title == null) title = "";
@@ -143,11 +143,11 @@ public class NoticeController {
     	model.addAttribute("title", title);
 
 
-        return "front/notice_list_front";
+        return "user/notice_list_front";
     }
 
     /*공지사항 디테일 회원 컨트롤러*/
-    @GetMapping("front/notice_details")
+    @GetMapping("user/notice_details")
     public String notice_details(Model model, int no, String nextTitle, String preTitle, HttpSession session) {
 
     	int LX = noticeMapper.findLX();
@@ -212,13 +212,13 @@ public class NoticeController {
 
     	noticeMapper.updateNotice_views(notice);
 
-        return "front/notice_details";
+        return "user/notice_details";
     }
 
-    @PostMapping("front/notice_details")
+    @PostMapping("user/notice_details")
     public String notice_details2(Model model) {
 
-        return "front/notice_details";
+        return "user/notice_details";
     }
 
 
