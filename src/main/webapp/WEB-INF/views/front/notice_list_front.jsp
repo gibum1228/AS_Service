@@ -22,10 +22,12 @@
 
 
 	<div style="display: inline-block; width:100%; margin-top: 5%;">
-    	<p style="font-size: 50px; margin-top: 10%; margin-left: 5%; display: inline;">공지사항</p>
+    	<p style="font-size: 36px; margin-top: 10%; margin-left: 50%; display: inline;">공지사항</p>
     	<form method="post">
+    	<div style="position: relative">
     	<input type="text" name="title" value="${title}" class="search" placeholder="제목으로 검색">
-    	<button type="submit">조회</button>
+    	<button type="submit" class="search_button"><img src="/media/search_black_24dp.svg"></button>
+    	</div>
     	</form>
     </div>
         <hr style="width: 90%;">
