@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	// 스프링 시큐리티 설정
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.csrf().disable();
+		http.csrf().disable();
 
 		// 각 경로에 따른 권한을 지정
 		http.authorizeRequests()
