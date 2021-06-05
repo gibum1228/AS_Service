@@ -128,6 +128,7 @@ public class NoticeController {
     	session.setAttribute("list_length", list.size());
 
 
+
         return "user/notice_list_front";
     }
 

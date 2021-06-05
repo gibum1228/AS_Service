@@ -39,9 +39,9 @@
 			</div>
 			<hr class="hr_level2">
 			<div id = "app">
-			<div class="next" v-on:click="next_list"><span>다음글</span><span class="next_text">${nextTitle}</span></div>
+			<div class="next" v-on:click="next_list"><img src="/media/arrow_drop_up_black_24dp.svg" width="5%" style="position: absolute; bottom:-15%; left:0%;"><span style="margin-left:5%;">다음글</span><span class="next_text">${nextTitle}</span></div>
 			<hr class="hr_level1">
-			<div class="next" v-on:click="pre_list"><span>이전글</span><span class="next_text">${preTitle}</span></div>
+			<div class="next" v-on:click="pre_list"><img src="/media/arrow_drop_down_black_24dp.svg" width="5%" style="position: absolute; bottom:-20%; left:0%;"><span style="margin-left:5%;">이전글</span><span class="next_text">${preTitle}</span></div>
 			</div>
 			<script type="text/javascript">
 				var LX = "${LX}";

@@ -129,6 +129,7 @@ div.notice_body {
 	width: 49%;
 }
 div.next {
+	position: relative;
 	cursor:pointer;
 	margin-left: 25%;
 	width: 49%;
