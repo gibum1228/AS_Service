@@ -15,6 +15,7 @@ var app = new Vue({
 		disable: true,
 		doubleMajor: false,
 		majorOk: false,
+		help: false,
 		majorList: [
 			{ id: 1, name: "IT융합자율학부" }, { id: 2, name: "미디어콘텐츠융합자율학부" }, { id: 3, name: "인문융합자율학부" },
 			{ id: 4, name: "사회융합자율학부" }, { id: 5, name: "컴퓨터공학전공" }, { id: 6, name: "소프트웨어공학전공" },
@@ -68,12 +69,18 @@ var app = new Vue({
 
 			this.enable();
 		},
-		enable() {
-			console.log(this.pwdOk + " " + this.emailOk + " " + this.majorOk)
+		enable() {  // 회원가입 버튼 활성화
 			if((this.pwdOk && this.emailOk && this.majorOk)){
 				this.disable = false;
 			}else{
 				this.disable  = true;
+			}
+		},
+		showHelp() { // 도움말 원클릭 이벤트
+			if(this.help){
+				this.help = false;
+			}else{
+				this.help = true;
 			}
 		}
 	}

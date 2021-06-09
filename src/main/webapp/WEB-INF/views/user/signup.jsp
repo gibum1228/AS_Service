@@ -10,15 +10,15 @@
 <title>성공회대학교 A/S실</title>
 <link rel="stylesheet" href="/css/boxs.css">
 <link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://kit.fontawesome.com/68abb170e0.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/js/signup.js" async defer></script>
 <style>
 	.error {
 		padding-left: 15px;
-		font-size: 10px;
+		font-size: 12.5px;
 		color: red;
 	}
 	.success {
@@ -26,13 +26,47 @@
 		font-size: 10px;
 		color: green;
 	}
+	.backBtn {
+		position: absolute;
+		left: 20px;
+		top: 20px;
+		cursor: pointer;
+	}
+	.help {
+		position: absolute;
+		left: 80px;
+		top: 20px;
+		cursor: pointer;
+	}
+	.helpBox {
+		position: absolute;
+		top: 60px;
+		left: 80px;
+		width: 300px;
+		height: 200px;
+		border: 1px solid black;
+		background-color: lightyellow;
+	}
 </style>
 </head>
 <body>
-	<div id="app">
+	<div id="app" style="padding-top: 30px;">
+		<div class="backBtn" onclick="location.href='/login'">
+			<i class="fas fa-arrow-circle-left" style="font-size: 40px;"></i>
+		</div>
+		<div class="help" @click="showHelp">
+			<i class="fas fa-question-circle" style="font-size: 40px;"></i>
+		</div>
+		<div class="helpBox" v-show="help">
+			@office.skhu.ac.kr 계정 만드는 방법<br><br>
+			1. 학교 홈페이지에 로그인한다.<br><br>
+			2. 상단에 office365 로고를 클릭한다.<br><br>
+			3. office365 계정을 만든다.<br>
+			(*A/S실 웹 서비스 가입과 MS 학생판을 사용한다.)
+		</div>
 		<form method="POST">
 			<!--정보 입력-->
-			<div class="container">
+			<div class="container" style="padding-top: 20px;">
 				<b>학번*</b>
 				<input type="text" name="snum" v-model.trim="m.snum" placeholder="학번" autocomplete="off"/>
 				<p class="error" v-show="!m.snum">
@@ -102,10 +136,10 @@
 	
 			<!--정보 전송-->
 			<div class="container">
-				<div style="margin-top: 50px;">
+				<div style="margin-top: 20px;">
 					<button type="submit" id="upBtn" v-bind:disabled="disable">회원 가입</button>
 					<p class="error">
-						{{ error }}
+						${ error }
 					</p>
 				</div>
 			</div>
