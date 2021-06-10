@@ -37,7 +37,7 @@ function showBanner() {
 }
 
 function scrollF(){
-	if(document.body.scrollTop > 190 || document.documentElement.scrollTop > 190){
+	if(document.body.scrollTop > 150 || document.documentElement.scrollTop > 150){
 		document.getElementById("navBar").style.top = "0";
 	}else{
 		document.getElementById("navBar").style.top = "-300px";
