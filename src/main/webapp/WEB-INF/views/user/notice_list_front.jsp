@@ -35,7 +35,7 @@
         <table class="notice">
             <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th></tr>
             <c:forEach var="notice_list" items="${ notice_list }">
-            <tr data-url="notice_details?no=${ notice_list.getNo() }"><td>${ notice_list.getNo() }</td><td>${ notice_list.getTitle() }</td><td>${ notice_list.getSnum() }</td><td>${ notice_list.getWrite_date() }</td><td>${ notice_list.getViews() }</td></tr>
+            <tr data-url="notice_details?no=${ notice_list.getNo() }"><td>${ notice_list.getNo() }</td><td>${ notice_list.getTitle() }</td><td>${ notice_list.getSnum() }</td><td>${ notice_list.getWrite_date() }</td><td style="height:40px;">${ notice_list.getViews() }</td></tr>
             </c:forEach>
         </table>
 

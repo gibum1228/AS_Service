@@ -65,7 +65,6 @@ public class NoticeController {
          notice.setSnum(principal.getName());
          notice.setTitle(title);
          notice.setBody(body);
-         System.out.print(notice.getBody());
          notice.setViews(0);
 
          noticeMapper.updateNotice(notice);
