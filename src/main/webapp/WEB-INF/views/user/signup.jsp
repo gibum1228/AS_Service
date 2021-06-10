@@ -16,6 +16,9 @@
 <script src="https://kit.fontawesome.com/68abb170e0.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/js/signup.js" async defer></script>
 <style>
+	body {
+		font-size: 20px;
+	}
 	.error {
 		padding-left: 15px;
 		font-size: 12.5px;
@@ -43,7 +46,7 @@
 		top: 60px;
 		left: 80px;
 		width: 300px;
-		height: 200px;
+		height: 300px;
 		border: 1px solid black;
 		background-color: lightyellow;
 	}
@@ -90,9 +93,9 @@
 			</div>
 			<div class="container">
 				<b>이메일*</b>
-				<input type="email" name="email" v-model.trim="m.email" placeholder="ID@office.skhu.ac.kr" @change="emailSame" />
+				<input type="email" name="email" v-model.trim="m.email" placeholder="ID@domain" @change="emailSame" />
 				<p class="error" v-show="!emailOk">
-					<i class="fas fa-check"></i>  이메일 도메인은 @office.skhu.ac.kr 또는 @skhu.ac.kr만 입력 가능합니다.
+					<i class="fas fa-check"></i>  구글, 네이버, 다음 계정으로만 가입 가능합니다.
 				</p>
 				<p class="success" v-show="emailOk">
 					<i class="fas fa-check"></i> 제대로 입력하셨습니다.
@@ -103,10 +106,10 @@
 				<input type="text" name="phone" v-model.trim="m.phone" placeholder="01012345678" autocomplete="off" />
 			</div>
 			<div class="container">
-				<table style="text-align: center;">
+				<table>
 					<tr>
-						<td><b>제1전공</b></td>
-						<td v-show="doubleMajor"><b>제2전공</b></td>
+						<td><b>제1전공*</b></td>
+						<td v-show="doubleMajor"><b>제2전공*</b></td>
 					</tr>
 					<tr>
 						<td>
@@ -124,10 +127,10 @@
 							</select>
 						</td>
 					</tr>
-					<tr>
-						<td v-show="!majorOk">
+					<tr v-show="!majorOk">
+						<td colspan="2">
 							<p class="error">
-								<i class="fas fa-check"></i>  전공 선택을 해주세요.
+								<i class="fas fa-check"></i> IT학부가 아닌 2학년 이상은 제1전공과 제2전공을 똑같이 해주세요
 							</p>
 						</td>
 					</tr>

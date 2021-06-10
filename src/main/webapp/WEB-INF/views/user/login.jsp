@@ -11,6 +11,7 @@
 <title>성공회대학교 A/S실</title>
 <link rel="stylesheet" type="text/css" href="/css/boxs.css">
 <link rel="stylesheet" type="text/css" href="/css/login.css">
+<link rel="stylesheet" type="text/css" href="/css/main.css">
 <script src="https://kit.fontawesome.com/68abb170e0.js" crossorigin="anonymous"></script>
 </head>
 <body>

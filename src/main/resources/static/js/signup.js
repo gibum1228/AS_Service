@@ -41,21 +41,24 @@ var app = new Vue({
 		},
 		emailSame() { // 이메일 조건과 맞는지 확인
 			let email = this.m.email.split("@")[1];
-			let address = ["office.skhu.ac.kr", "skhu.ac.kr"];
+			let address = ["naver.com", "gmail.com", "daum.net"];
 			
-			address.reduce((a, b) => {
-				if(a == email || b == email){
-					this.emailOk = true;
-				}else{
-					this.emailFasle = true;
+			this.emailOk = address.reduce((a, b) => {
+				if(a == true){
+					return true;
+				}else if(b == email){
+					return true
 				}
-			});
+			}, false);
 			
 			this.enable();
 		},
 		checkDouble() { // 복수 전공, 부전공 판단
 			if (this.m.first_major > 4){
 				this.doubleMajor = true;
+				if (this.m.sec_major == 0){
+					this.m.sec_major = this.m.first_major;
+				}
 				if (this.m.sec_major > 4){
 					this.majorOk = true;
 				}else{

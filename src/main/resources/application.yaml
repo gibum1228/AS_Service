@@ -1,4 +1,8 @@
-spring:  mvc: # JSP 설정    view:      prefix: /WEB-INF/views/      suffix: .jsp
+spring:
+  mvc: # JSP 설정
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
 
 ---
 spring:
@@ -9,4 +13,25 @@ spring:
     password: test123
 
 ---
-server:  port: 8088---spring:  mail:    host: smtp.gmail.com    port: 587    protocol: smtp    default-encoding: UTF-8    username:  # SMTP용 google 계정    password:  # SMTP용 google 계정 비밀번호    properties:      mail:         smtp:          starttls:            enable: true            required: true          auth: true          connectiontimeout: 5000          timeout: 5000          writetimeout: 5000
+server:
+  port: 8088
+
+---
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    default-encoding: UTF-8
+    username:  # SMTP용 google 계정
+    password:  # SMTP용 google 계정 비밀번호
+    properties:
+      mail: 
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000

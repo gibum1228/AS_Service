@@ -21,30 +21,20 @@
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
 		</sec:authorize>
 		<a href="/user/mypages" style="float: right;">마이페이지</a> 
-		<a style="float: right;">${ student.name }님</a>
+		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
-	<div style="width: 100%; height: 100vh; margin: 0 0; padding: 0 0;">
-		<div class="header">
+	<div style="width: 100%; height: 100vh;">
+		<div class="header" style="overflow: inherit;">
 			<div class="headerBtn" style="float: left; width: 350px;">
-				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="200px">
+				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
 			</div>
-			<div class="headerBtn">
-				<a href="/logout_processing">로그아웃</a>
-			</div>
-			<div class="headerBtn">
-				<a href="/user/mypages">마이페이지</a>
-			</div>
-			<div class="headerBtn">
-				<a href="">문의하기</a>
-			</div>
-			<div class="headerBtn">
-				<a href="">예약하기</a>
-			</div>
-			<div class="headerBtn">
-				<a href="">공지사항</a>
-			</div>
+			<a class="headerBtn" href="/logout_processing">로그아웃</a>
+			<a class="headerBtn" href="/user/mypages">마이페이지</a>
+			<a class="headerBtn" href="">문의하기</a>
+			<a class="headerBtn" href="">예약하기</a>
+			<a class="headerBtn" href="">공지사항</a>
 		</div>
-		<img id='banner' src="/media/background_img/10.jpg" alt="background" width="100%" height="800px">
+		<img id='banner' src="/media/background_img/0.jpg" alt="background" width="100%" height="777px">
 	</div>
 	<div style="width: 100%; height: 100vh;">
 		
