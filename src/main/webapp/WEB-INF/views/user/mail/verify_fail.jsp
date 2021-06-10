@@ -10,12 +10,29 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-	<div class="container_center">
+	<div id='app' class="container_center" style="width: 100%;">
 		<div style="height: 400px;">
 			<p style="line-height: 350px; font-size: 50px; text-align: center;">
-				이메일 인증에 실패했습니다...
+				이메일 인증에 실패해서 {{ count }}초 후에 메인 화면으로 이동합니다.
 			</p>
 		</div>
 	</div>
+	<script>
+		let app = new Vue({
+			el: '#app',
+			data: {
+				count: 5
+			},
+			mounted() {
+				setInterval(() => {
+					this.count--;
+					if(this.count == 0){
+						location.href = "/index";
+						clearInterval(this);
+					}
+				},1000)
+			}
+		})
+	</script>
 </body>
 </html>

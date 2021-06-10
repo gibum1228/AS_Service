@@ -26,7 +26,11 @@ public class FrontController {
 	public String idex(Model model, Principal principal) {
 		Member student = memberMapper.findMember(principal.getName());
 
-		model.addAttribute("student", student);
+		if(student == null){
+			return "redirect: /logout_processing";
+		}else{
+			model.addAttribute("student", student);
+		}
 
 		return "user/index";
 	}

@@ -1,42 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
 /*body*/
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0 auto;
+    font-family: 'Jua', sans-serif;
     padding: 0 0;
+    margin: 0 0;
     width: 100%;
-    /* background-image: url('/media/background_img/1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; */
+}
+/*-----------------------------------------*/
+.header {
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    height: 190px;
+    background-color: white;
+}
+.headerBtn {
+    width: 250px;
+    height: 200px;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    font-size: 25px;
+    text-decoration: none;
+    line-height: 200px;
+    color: #222222;
+}
+.headerBtn:hover {
+    background-color: lightgray;
 }
 /*-----------------------------------------*/
 /* The navigation bar */
-.navBar {
+#navBar {
     overflow: hidden;
     background-color: #333;
     position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    left: 0;
+    top: -300px; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
+    height: 70px;
+    transition: top 0.4s;
+    box-shadow: 0px 1px 20px gray;
 }
 /* Links inside the navbar */
-.navBar a {
+#navBar a {
     float: left;
-    display: block;
     color: #f2f2f2;
     text-align: center;
     text-decoration: none;
-    padding: 14px 16px;
-    height: 20px;
+    padding: 20px 20px;
+    line-height: 35px;
+    height: 70px;
+    font-size: 20px;
 }
 /* Change background on mouse-over */
-.navBar a:hover {
+#navBar a:hover {
     background: #ddd;
     color: black;
 }
-.navBar #homeImg {
+#navBar #homeImg {
+    width: 80px;
+    height: 70px;
 	padding: 0 0;
 }
-.navBar #homeImg img:hover {
+#navBar #homeImg img:hover {
 	background-color: #333;
 }
 /*-----------------------------------------*/
@@ -91,14 +117,6 @@ body {
     width: 60%;
     height: 80%;
 }
-.center_container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 800px;
-	border: 2px solid black;
-}
 .container_center {
 	position: absolute;
 	top: 50%;
@@ -110,11 +128,12 @@ body {
 /* footer */
 .footer {
     background-color: #333;
-    text-align: center;
     width: 100%;
-    height: 100px;
+    height: 200px;
 }
 .footer p {
+    text-align: center;
+    padding-top: 20px;
     color: rgb(217, 217, 217);
 }
 /*-----------------------------------------*/

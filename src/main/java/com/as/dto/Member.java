@@ -6,6 +6,9 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.Data;
+
+@Data
 public class Member implements UserDetails {
 	/*
 	 * ver 1.0.0
@@ -29,6 +32,21 @@ public class Member implements UserDetails {
 	private boolean isCredentialsNonExpired;
 	private boolean isEnabled;
 	private Collection<? extends GrantedAuthority> authorities;
+
+
+// ====== 생성자 =====
+	public Member(){};
+	public Member(String snum, String name, String pwd, String email, String phone, int first_major, int sec_major){
+		this.snum = snum;
+		this.name = name;
+		this.password = pwd;
+		this.email = email;
+		this.phone = phone;
+		this.first_major_id = first_major;
+		this.sec_major_id = sec_major;
+		this.role_id = 1;
+		this.access = 0;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

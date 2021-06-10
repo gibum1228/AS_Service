@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>성공회대학교 A/S실</title>
 <link rel="stylesheet" href="/css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <style type="text/css">
 	.container_btn {
 		width: 800px;
@@ -35,20 +36,30 @@
 </style>
 </head>
 <body>
-	<div class="container_center" style="border: 1px solid black; border-radius: 50px">
+	<div id="app" class="container_center" style="border: 1px solid black; border-radius: 50px; width: 100%;">
 		<div style="height: 300px;">
 			<p>
-				인증 확인 메일을 보냈습니다!
+				인증 확인 메일을 보냈습니다!<br>
+				{{ count }}초 후에 메인 화면으로 이동합니다
 			</p>
 		</div>
-		<div class="container_btn">
-			<div class="btn" style="background-color: lightgreen;">
-				<a href="/index">홈으로 가기</a>
-			</div>
-			<div class="btn" style="background-color: orange;">
-				<a href="http://skhu.ac.kr/main.aspx">메일 확인 하러 가기</a>
-			</div>
-		</div>
 	</div>
+	<script>
+		let app = new Vue({
+			el: '#app',
+			data: {
+				count: 5
+			},
+			mounted() {
+				setInterval(() => {
+					this.count--;
+					if(this.count == 0){
+						location.href = "/logout_processing";
+						clearInterval(this);
+					}
+				},1000)
+			}
+		})
+	</script>
 </body>
 </html>

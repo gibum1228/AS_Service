@@ -1,29 +1,25 @@
-body {
-	margin-top: 100px;	
-}
-
 .section {
 	width: 100%;
-	height: 800px;
+	height: 100vh;
 }
 
 .tabMenu {
 	width: 20%;
-	display: inline-block;
 	height: 100%;
+	display: inline-block;
 }
 
 .tabSection {
-	width: 60%;
 	display: inline-block;
+	width: 70%;
 	height: 100%;
 }
 
 ul.tabs {
 	list-style: none;
 	border-right: 2px solid black;
-	float: right;
 	width: 200px;
+	float: right;
 }
 
 ul.tabs li {
@@ -44,7 +40,7 @@ ul.tabs li.current {
 
 .tab-content.current {
 	display: inherit;
-	margin-left: 50px;
 	float: left;
+	padding-left: 50px;
 	width: 100%;
 }
