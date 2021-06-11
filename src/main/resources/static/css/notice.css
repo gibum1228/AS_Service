@@ -62,8 +62,8 @@ button:hover {
 }
 
 body {
+	margin-bottom: 20px;
 	
-	font-family: 굴림체;
 }
 
 div.container {

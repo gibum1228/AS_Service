@@ -18,6 +18,14 @@ input[type=text]:focus,
 	margin-right: 25%;
 }
 
+.title_banner {
+	background-color: #DDDDDD;
+	width: 780px; 
+	margin: auto; 
+	border-radius: 10px;
+}
+
+
 button {
     background-color: gray;
     width: 6%;
@@ -97,8 +105,10 @@ hr.hr_level1 {
 }
 
 h1 {
+	padding-top: 10px;
+	padding-bottom: 10px;
 	margin-top: 4%;
-	margin-left: 25%;
+	margin-left:3%
 }
 
 div.writeing_day {

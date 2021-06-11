@@ -22,8 +22,9 @@
 
 
 	<div>
+		<div class="title_banner">
 		<h1>공지사항</h1>
-
+		</div>
 		<hr class="hr_level2">
 		<div>
 			<div class="title">
@@ -76,7 +77,8 @@
 				}) 
 			</script>
 			<button class="button_back" onclick = "location.href='notice_list_front'">돌아가기</button>
-			
+			</div>
+			</div>
 </body>
 <footer>
 

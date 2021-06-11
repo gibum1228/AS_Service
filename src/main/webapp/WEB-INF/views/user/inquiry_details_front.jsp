@@ -22,7 +22,9 @@
 
 
 	<div>
+		<div class="title_banner">
 		<h1>문의사항</h1>
+		</div>
 
 		<hr class="hr_level2">
 		<div>
@@ -76,10 +78,14 @@
 	
 				}) 
 			</script>
+			</div>
+			</div>
 			<hr class="hr_level2">
 
 			<div id="app" v-show="${inquiry_list.getState() }">
+	 			<div class="title_banner">
 				<h1>답변</h1>
+				</div>
 				
 				<div class="write_option">
 				<hr class="hr_level2">
@@ -97,6 +103,7 @@
 					}
 				})
 			</script>
+			<button class="button_back" onclick = "location.href='notice_list_front'">돌아가기</button>
 			
 </body>
 <footer>

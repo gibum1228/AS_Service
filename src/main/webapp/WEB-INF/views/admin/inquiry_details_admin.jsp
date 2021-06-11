@@ -22,8 +22,9 @@
 
 
 	<div>
-		<h1>문의사항</h1>
-
+		<div class="title_banner">
+			<h1>문의사항</h1>
+		</div>
 		<hr class="hr_level2">
 		<div>
 			<div class="title">
@@ -32,17 +33,30 @@
 			<div class="write_option">
 				<div class="writeing_day">작성일: ${inquiry_list.getWrite_date() }</div>
 				<div class="name">작성자: ${ inquiry_list.getSnum() }</div>
-				<div class="type">문의 타입: <c:if test ="${ inquiry_list.getType() == 1 }" >장비 장애</c:if><c:if test ="${ inquiry_list.getType() == 2 }" >버그 신고</c:if><c:if test ="${ inquiry_list.getType() == 3 }" >기타</c:if></div>
+				<div class="type">
+					문의 타입:
+					<c:if test="${ inquiry_list.getType() == 1 }">장비 장애</c:if>
+					<c:if test="${ inquiry_list.getType() == 2 }">버그 신고</c:if>
+					<c:if test="${ inquiry_list.getType() == 3 }">기타</c:if>
+				</div>
 			</div>
 			<hr class="hr_level2">
 			<div class="notice_body">
 				<p>${inquiry_list.getBody()}</p>
 			</div>
 			<hr class="hr_level2">
-			<div id = "aee">
-			<div class="next" v-on:click="next_list"><span>다음글</span><span class="next_text">${nextTitle}</span></div>
-			<hr class="hr_level1">
-			<div class="next" v-on:click="pre_list"><span>이전글</span><span class="next_text">${preTitle}</span></div>
+			<div id="aee">
+				<div class="next" v-on:click="next_list">
+					<img src="/media/arrow_drop_up_black_24dp.svg" width="5%"
+						style="position: absolute; bottom: -15%; left: 0%;"><span
+						style="margin-left: 5%;">다음글</span><span class="next_text">${nextTitle}</span>
+				</div>
+				<hr class="hr_level1">
+				<div class="next" v-on:click="pre_list">
+					<img src="/media/arrow_drop_down_black_24dp.svg" width="5%"
+						style="position: absolute; bottom: -20%; left: 0%;"><span
+						style="margin-left: 5%;">이전글</span><span class="next_text">${preTitle}</span>
+				</div>
 			</div>
 			<script type="text/javascript">
 				var LX = "${LX}";
@@ -76,14 +90,19 @@
 	
 				}) 
 			</script>
-			
-			<hr class="hr_level2">
-			<form method="post">
-			<div id="app" v-show="true">
+		</div>
+	</div>
+
+	<hr class="hr_level2">
+	<form method="post">
+		<div id="app" v-show="true">
+			<div class="title_banner">
 				<h1>답변</h1>
-				<hr class="hr_level2">
+			</div>
+			<hr class="hr_level2">
 			<div class="notice_body">
-				<textarea class="body" id="answer" name="answer" rows="3"  placeholder="내용을 입력해주세요.">${inquiry_list.getAnswer()}</textarea>
+				<textarea class="body" id="answer" name="answer" rows="3"
+					placeholder="내용을 입력해주세요.">${inquiry_list.getAnswer()}</textarea>
 			</div>
 			<hr class="hr_level2">
 			<script type="text/javascript">
@@ -94,11 +113,9 @@
 					}
 				})
 			</script>
-			</div>
-			<button type="submit">저장</button>
-			</form>
+		</div>
+		<button type="submit">저장</button>
+	</form>
 </body>
-<footer>
-
-</footer>
+<footer> </footer>
 </html>

@@ -13,7 +13,7 @@ input[type=text]:focus,
 input[type=textarea]
 #selectBox:focus {
 	
-	background-color: #efefef;
+	background-color: white;
     outline: none;
     border-radius: 10px;
     border: 2px solid #97cbff;

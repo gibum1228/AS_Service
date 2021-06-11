@@ -10,20 +10,21 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body style="margin-bottom: 5%;">
-	<div class="navBar" style="z-index:100">
-		<a href="/index" id="homeImg"><img src="/media/마크_성공회대학교.png"
-			alt="MAIN" width="50px" height="50px"></a> <a href="">공지사항</a> <a
-			href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
+	<div id="navBar">
+		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a> 
+		<a href="">공지사항</a>
+		<a href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
 		</sec:authorize>
-		<a href="/front/mypages" style="float: right;">마이페이지</a>
+		<a href="/user/mypages" style="float: right;">마이페이지</a> 
+		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
 
 
 	<div style="display: inline-block; width:100%; margin-top: 5%;">
     	<p style="font-size: 36px; margin-top: 10%; margin-left: 45%; display: inline; color:#585858;">공지사항</p>
-    	<p style="font-size: 20px; color: #A0A0A0; margin-left: 45%; margin-top: 5px;">skhu/AS_Center</p>
+    	<p style="font-size: 20px; color: #A0A0A0; margin-left: 44%; margin-top: 5px;">skhu/AS_Center</p>
     	<form method="post">
     	<div style="position: relative">
     	<input type="text" name="title" value="${title}" class="search" placeholder="제목으로 검색">
