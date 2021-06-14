@@ -10,6 +10,7 @@ public class Device {
 	private Date buy_date;
 	private int major_id;
 
+
 // ===== getter & setter =====
 	public String getCode() {
 		return code;
@@ -41,4 +42,7 @@ public class Device {
 	public void setMajor_id(int major_id) {
 		this.major_id = major_id;
 	}
+
+
 }
+

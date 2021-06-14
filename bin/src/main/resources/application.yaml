@@ -1,0 +1,37 @@
+spring:
+  mvc: # JSP 설정
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+---
+spring:
+  datasource: # DB 접속 정보
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/as_service?useUnicode=yes&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Seoul
+    username: user1
+    password: test123
+
+---
+server:
+  port: 8088
+
+---
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    default-encoding: UTF-8
+    username:  # SMTP용 google 계정
+    password:  # SMTP용 google 계정 비밀번호
+    properties:
+      mail: 
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000

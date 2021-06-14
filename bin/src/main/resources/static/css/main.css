@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/*body*/
+body {
+    font-family: 'Jua', sans-serif;
+    padding: 0 0;
+    margin: 0 0;
+    width: 100%;
+}
+/*-----------------------------------------*/
+.header {
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    height: 190px;
+    background-color: white;
+}
+.headerBtn {
+    width: 250px;
+    height: 200px;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    font-size: 25px;
+    text-decoration: none;
+    line-height: 200px;
+    color: #222222;
+}
+.headerBtn:hover {
+    background-color: lightgray;
+}
+/*-----------------------------------------*/
+/* The navigation bar */
+#navBar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    top: -300px; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    height: 70px;
+    transition: top 0.4s;
+    box-shadow: 0px 1px 20px gray;
+}
+/* Links inside the navbar */
+#navBar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 20px;
+    line-height: 35px;
+    height: 70px;
+    font-size: 20px;
+}
+/* Change background on mouse-over */
+#navBar a:hover {
+    background: #ddd;
+    color: black;
+}
+#navBar #homeImg {
+    width: 80px;
+    height: 70px;
+	padding: 0 0;
+}
+#navBar #homeImg img:hover {
+	background-color: #333;
+}
+/*-----------------------------------------*/
+/* CountDown D-Day DIV */
+.countDday {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    height: 250px;
+    text-align: center;
+}
+/* JS CountDown */
+#countDown {
+    margin: 100px;
+    padding: 20px 0px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Arial Black", sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: #222222;
+    text-shadow: 2px 2px 3px gray;
+}
+/*-----------------------------------------*/
+/* quick Box */
+.quickBox:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.quickBox {
+	display: flex;
+	height: 320px;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+}
+.quickBtn {
+    box-sizing: border-box;
+    width: 400px;
+    height: 300px;
+    margin: 20px 20px;
+    text-align: center;
+}
+.quickBtn span {
+    font-family: "Arial Black", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+.quickBtn img {
+    width: 60%;
+    height: 80%;
+    width: 60%;
+    height: 80%;
+}
+.container_center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 800px;
+}
+/*-----------------------------------------*/
+/* footer */
+.footer {
+    background-color: #333;
+    width: 100%;
+    height: 200px;
+}
+.footer p {
+    text-align: center;
+    padding-top: 20px;
+    color: rgb(217, 217, 217);
+}
+/*-----------------------------------------*/
+/* section */
+.section {
+	margin: 50px auto;
+}
