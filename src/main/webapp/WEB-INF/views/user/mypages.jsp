@@ -58,7 +58,7 @@
 				<li class="current" data-tab="tab-1">프로필</li>
 				<li data-tab="tab-2">이메일 변경</li>
 				<li data-tab="tab-3">대여 기록 보기</li>
-				<li data-tab="tab-4">이메일 인증</li>
+				<li data-tab="tab-4" onClick="location.href='/user/mail/send'">이메일 인증</li>
 				<li onClick="location.href='/logout_processing'">로그아웃</li>
 				<sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
@@ -89,11 +89,11 @@
 					<input type="text" value="${ student.snum }" readonly>
 					<p><b>이름</p>
 					<input type="text" value="${ student.name }" readonly>
-					<p><b>학교 이메일</p>
+					<p><b>이메일</p>
 					<input type="text" value="${ student.email }" readonly>
-					<p><b>제1전공</b></p>
+					<p><b>제1전공>></b></p>
 					<input type="text" value="${ first }" readonly>
-					<p><b>제2전공</b></p>
+					<p><b>제2전공>></b></p>
 					<input type="text" value="${ sec }" readonly>
 					<p><b>가입 날짜</p>
 					<input type="text" value="${ student.signup_date }" readonly>
@@ -102,8 +102,13 @@
 			<div id="tab-2" class="tab-content">
 				<h1>이메일 변경</h1>
 				<hr>
-				<div style="margin: 300px auto; width: 500px;">
-					<button type="button">이메일 변경하기</button>
+				<div style="margin: 300px auto; width: 500px; text-align: center;">
+					<form action="/user/mail/send_change_email">
+						<input type="text" name="changeEMail" placeholder="구글, 네이버, 다음으로만 변경 가능합니다.">
+						<p><b>아래 메일로 확인 메일이 발송됩니다.</b></p>
+						<p><b>${ student.email }</b></p>
+						<button type="submit">이메일 변경하기</button>
+					</form>
 				</div>
 			</div>
 			<div id="tab-3" class="tab-content">
@@ -116,7 +121,7 @@
 			<div id="tab-4" class="tab-content">
 				<h1>이메일 인증</h1>
 				<hr>
-				<div style="margin: 300px auto; width: 500px; text-align: center">
+				<div style="margin: 300px auto; width: 500px; text-align: center;">
 					<p><b>이메일 주소 확인</b></p>
 					<input type="text" value="${ student.email }" readonly>
 					<input type="button" value="이메일 인증하기" onClick="location.href='/user/mail/send'">

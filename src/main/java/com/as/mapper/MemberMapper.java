@@ -65,4 +65,8 @@ public interface MemberMapper {
     // 학생 계정 인증 여부 변경
     @Update("UPDATE member SET access = 1 WHERE snum = #{ m.snum }")
     void updateAcess(@Param("m") Member m);
+
+    // 학생 이메일 변경
+    @Update("UPDATE member SET email = #{ changeEMail } WHERE snum = #{ snum }")
+    void updateEMail(String snum, String changeEMail);
 }

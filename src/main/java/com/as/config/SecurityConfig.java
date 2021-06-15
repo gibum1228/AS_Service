@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// 각 경로에 따른 권한을 지정
 		http.authorizeRequests().
-			antMatchers("/login", "/signup", "/", "/user/mail/verifying").permitAll() // 누구나
+			antMatchers("/login", "/signup", "/", "/user/mail/verifying", "/user/mail/change_email").permitAll() // 누구나
 			.antMatchers("/server/**").access("hasRole('ROLE_SERVER')")
 			.antMatchers("/superadmin/**").access("hasAnyRole('ROLE_SUPERADMIN', 'ROLE_SERVER')")
 			.antMatchers("/admin/**").access("hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN','ROLE_SERVER')")

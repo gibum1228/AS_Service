@@ -20,8 +20,8 @@ spring:
     port: 587
     protocol: smtp
     default-encoding: UTF-8
-    username: # SMTP용 google 계정
-    password: # SMTP용 google 계정 비밀번호
+    username:  # SMTP용 google 계정
+    password:  # SMTP용 google 계정 비밀번호
     properties:
       mail:
         smtp:
