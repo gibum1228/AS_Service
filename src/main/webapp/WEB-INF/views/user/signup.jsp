@@ -57,7 +57,7 @@
 		<div class="backBtn" onclick="location.href='/login'">
 			<i class="fas fa-arrow-circle-left" style="font-size: 40px;"></i>
 		</div>
-		<div class="help" @click="showHelp">
+		<!-- <div class="help" @click="showHelp">
 			<i class="fas fa-question-circle" style="font-size: 40px;"></i>
 		</div>
 		<div class="helpBox" v-show="help">
@@ -66,7 +66,7 @@
 			2. 상단에 office365 로고를 클릭한다.<br><br>
 			3. office365 계정을 만든다.<br>
 			(*A/S실 웹 서비스 가입과 MS 학생판을 사용한다.)
-		</div>
+		</div> -->
 		<form method="POST">
 			<!--정보 입력-->
 			<div class="container" style="padding-top: 20px;">
@@ -93,7 +93,7 @@
 			</div>
 			<div class="container">
 				<b>이메일*</b>
-				<input type="email" name="email" v-model.trim="m.email" placeholder="ID@domain" @change="emailSame" />
+				<input type="email" name="email" v-model.trim="m.email" placeholder="ID@domain.com" @change="emailSame" />
 				<p class="error" v-show="!emailOk">
 					<i class="fas fa-check"></i>  구글, 네이버, 다음 계정으로만 가입 가능합니다.
 				</p>
@@ -109,7 +109,7 @@
 				<table>
 					<tr>
 						<td><b>제1전공*</b></td>
-						<td v-show="doubleMajor"><b>제2전공*</b></td>
+						<td><b>제2전공*</b></td>
 					</tr>
 					<tr>
 						<td>
@@ -119,7 +119,7 @@
 								</option>
 							</select>
 						</td>
-						<td v-show="doubleMajor">
+						<td>
 							<select class="selectBox" name="sec_major" v-model="m.sec_major" @change="checkDouble">
 								<option v-for="major in majorList" v-bind:value="major.id">
 									{{ major.name }}
@@ -127,10 +127,10 @@
 							</select>
 						</td>
 					</tr>
-					<tr v-show="!majorOk">
+					<tr>
 						<td colspan="2">
 							<p class="error">
-								<i class="fas fa-check"></i> IT학부가 아닌 2학년 이상은 제1전공과 제2전공을 똑같이 해주세요
+								<i class="fas fa-check"></i> 학부생은 제1전공과 제2전공을 같게 선택해주세요.
 							</p>
 						</td>
 					</tr>
