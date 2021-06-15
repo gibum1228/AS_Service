@@ -4,35 +4,37 @@
 	prefix="sec"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>성공회대학교 A/S실</title>
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/mypages.css">
-<link rel="stylesheet" href="/css/boxs.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="/js/main.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() { // 화면 보여주기, 가리기
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>성공회대학교 A/S실</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/mypages.css">
+	<link rel="stylesheet" href="/css/boxs.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="/js/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () { // 화면 보여주기, 가리기
 
-		$('ul.tabs li').click(function() {
-			var tab_id = $(this).attr('data-tab');
+			$('ul.tabs li').click(function () {
+				var tab_id = $(this).attr('data-tab');
 
-			$('ul.tabs li').removeClass('current');
-			$('.tab-content').removeClass('current');
+				$('ul.tabs li').removeClass('current');
+				$('.tab-content').removeClass('current');
 
-			$(this).addClass('current');
-			$("#" + tab_id).addClass('current');
+				$(this).addClass('current');
+				$("#" + tab_id).addClass('current');
+			})
 		})
-	})
-</script>
+	</script>
 </head>
+
 <body>
 	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a>
-		<a href="">공지사항</a> 
-		<a href="">장비 예약</a> <a href="">장비 목록</a> 
+		<a href="">공지사항</a>
+		<a href="">장비 예약</a> <a href="">장비 목록</a>
 		<a href="">문의하기</a>
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
@@ -72,7 +74,9 @@
 				<sec:authorize access="hasRole('ROLE_SERVER')">
 					<hr>
 					<h1>SERVER</h1>
-					<li></a></li>
+					<a href="/server/deviceList">
+						<li>장비관리하기</li>
+					</a>
 				</sec:authorize>
 			</ul>
 		</div>
@@ -130,4 +134,5 @@
 		</p>
 	</div>
 </body>
+
 </html>

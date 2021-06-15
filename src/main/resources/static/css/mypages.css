@@ -44,3 +44,9 @@ ul.tabs li.current {
 	padding-left: 50px;
 	width: 100%;
 }
+
+a {
+	text-decoration: none;
+	color: #222;
+	cursor: pointer;
+}

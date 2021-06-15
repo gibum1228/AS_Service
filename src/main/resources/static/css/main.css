@@ -16,7 +16,7 @@ body {
     background-color: white;
 }
 .headerBtn {
-    width: 250px;
+    width: 200px;
     height: 200px;
     display: inline-block;
     float: right;
@@ -28,6 +28,7 @@ body {
 }
 .headerBtn:hover {
     background-color: lightgray;
+    color: #222;
 }
 /*-----------------------------------------*/
 /* The navigation bar */
@@ -40,6 +41,7 @@ body {
     height: 70px;
     transition: top 0.4s;
     box-shadow: 0px 1px 20px gray;
+    z-index: 5;
 }
 /* Links inside the navbar */
 #navBar a {

@@ -28,7 +28,7 @@ public class MailController {
 
 		String authKey = mss.sendAuthMail(m);
 		session.setAttribute("authKey", authKey);
-		session.setMaxInactiveInterval(60*10); // 세션 유효 기간 600초 -> 10분
+		session.setMaxInactiveInterval(60 * 10); // 세션 유효 기간 600초 -> 10분
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/user/mail/sendMail");
@@ -40,9 +40,9 @@ public class MailController {
 	public ModelAndView verify(HttpSession session, @RequestParam Map<String, String> map) {
 		ModelAndView mv = new ModelAndView();
 
-		if(session.getAttribute("authKey") == null) { // 세션이 없으면 키 정보가 없어서 null
+		if (session.getAttribute("authKey") == null) { // 세션이 없으면 키 정보가 없어서 null
 			mv.setViewName("user/mail/verify_fail");
-		}else{
+		} else {
 			mv.setViewName("user/mail/verify_success");
 			Member m = memberMapper.findMemberAtEmail(map.get("email"));
 			memberMapper.updateAcess(m);
