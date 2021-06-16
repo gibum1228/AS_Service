@@ -48,6 +48,7 @@ public class MailController {
 			mv.setViewName("user/mail/verify_success"); // 세션 안에 있는 인증키 인증 성공
 			Member m = memberMapper.findMemberAtEmail(map.get("email"));
 			memberMapper.updateAcess(m);
+			memberMapper.updateRoleAtSnum(m.getSnum(), m.getRole_id());
 			session.invalidate(); // 세션 초기화
 		}
 
@@ -61,7 +62,7 @@ public class MailController {
 		mss.sendChangeEMail(m, changeEMail);
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/user/logout");
+		mv.setViewName("/user/index");
 
 		return mv;
 	}
@@ -74,7 +75,7 @@ public class MailController {
 
 		String email = map.get("email");
 		String changeDomain = map.get("changeEMail").split("@")[1];
-
+		
 		if(email == null || changeDomain == null){
 			mv.setViewName("user/mail/verify_fail");
 			return mv;
@@ -83,8 +84,9 @@ public class MailController {
 		if(changeDomain.compareTo("gmail.com") == 0 || changeDomain.compareTo("daum.net") == 0 || changeDomain.compareTo("naver.com") == 0){
 			if(memberMapper.findEmail(map.get("changeEMail")) == null) {
 				Member m = memberMapper.findMemberAtEmail(map.get("email"));
-				memberMapper.updateEMail(m.getSnum(), map.get("changeEMail"));
+				memberMapper.updateEMail(m.getSnum(), map.get("changeEMail"));	
 			}
+			
 		}
 		
 		return mv;

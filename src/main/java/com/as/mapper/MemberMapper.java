@@ -37,6 +37,11 @@ public interface MemberMapper {
     		+ " WHERE email = #{mail}")
     Member findMemberAtEmail(String mail);
 
+    // 이름으로 회원 정보 검색
+    @Select("SELECT * FROM member"
+            + " WHERE name = #{name}")
+    List<Member> findMemberAtName(String name);
+
     // 회원 정보 저장
     @Insert("INSERT INTO member (snum, password, name, phone, email, first_major_id, sec_major_id, signup_date) VALUES "
     		+ "(#{m.snum}, #{m.password}, #{m.name}, #{m.phone}, #{m.email}, #{m.first_major_id}, #{m.sec_major_id}, now())")
@@ -69,4 +74,8 @@ public interface MemberMapper {
     // 학생 이메일 변경
     @Update("UPDATE member SET email = #{ changeEMail } WHERE snum = #{ snum }")
     void updateEMail(String snum, String changeEMail);
+
+    // 학번으로 계정 권한 변경
+    @Update("UPDATE member SET role_id = #{ rold_id } WHERE snum = #{ snum }")
+    void updateRoleAtSnum(String snum, int rold_id);
 }

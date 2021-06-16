@@ -31,7 +31,7 @@ public class MemberController {
 		String error = "";
 
 		// '-' 제거하고 휴대전화 번호 저장
-		phone = phone.split("-")[0] + phone.split("-")[1] + phone.split("-")[2];
+		// phone = phone.split("-")[0] + phone.split("-")[1] + phone.split("-")[2];
 
 		// 회원 정보가 유니크하지 않은지 판단
 		if(memberMapper.findMember(snum) != null){
