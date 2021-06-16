@@ -12,10 +12,9 @@ var app = new Vue({
 		},
 		pwdOk: false,
 		emailOk: false,
-		disable: true,
-		doubleMajor: false,
 		majorOk: false,
 		help: false,
+		disable: true,
 		majorList: [
 			{ id: 1, name: "IT융합자율학부" }, { id: 2, name: "미디어콘텐츠융합자율학부" }, { id: 3, name: "인문융합자율학부" },
 			{ id: 4, name: "사회융합자율학부" }, { id: 5, name: "컴퓨터공학전공" }, { id: 6, name: "소프트웨어공학전공" },
@@ -53,20 +52,8 @@ var app = new Vue({
 			
 			this.enable();
 		},
-		checkDouble() { // 복수 전공, 부전공 판단
-			if (this.m.first_major > 4){
-				this.doubleMajor = true;
-				if (this.m.sec_major == 0){
-					this.m.sec_major = this.m.first_major;
-				}
-				if (this.m.sec_major > 4){
-					this.majorOk = true;
-				}else{
-					this.majorOk = false;
-				}
-			}else{ // 저학년 학부생
-				this.sec_major = this.first_major;
-				this.doubleMajor = false;
+		checkDouble() { // 두 개의 전공을 선택했는가?
+			if(this.m.first_major != 0 && this.m.sec_major != 0){
 				this.majorOk = true;
 			}
 

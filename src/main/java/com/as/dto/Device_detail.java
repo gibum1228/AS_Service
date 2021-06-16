@@ -1,5 +1,10 @@
 package com.as.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class Device_detail {
 // ===== Data =====
 	private String code;

@@ -22,10 +22,15 @@ public interface MemberMapper {
     @Select("SELECT r.name FROM role AS r JOIN member AS m ON r.id = m.role_id WHERE m.snum=#{snum}")
     List<String> findAuthority(String snum);
 
-    // 학번으로 전공명 검색
+    // 전공 번호로 전공명 검색
     @Select("SELECT name FROM major"
     		+ " WHERE id = #{major_id}")
-    String findMajorName(int major_id);
+    String findMajorAtId(int major_id);
+
+    // 전공명으로 전공 번호 리턴
+    @Select("SELECT id FROM major"
+            + " WHERE name REGEXP #{ name }")
+    int findMajorAtName(String name);
 
     // 이메일로 회원 정보 return
     @Select("SELECT * FROM member"
@@ -60,4 +65,8 @@ public interface MemberMapper {
     // 학생 계정 인증 여부 변경
     @Update("UPDATE member SET access = 1 WHERE snum = #{ m.snum }")
     void updateAcess(@Param("m") Member m);
+
+    // 학생 이메일 변경
+    @Update("UPDATE member SET email = #{ changeEMail } WHERE snum = #{ snum }")
+    void updateEMail(String snum, String changeEMail);
 }
