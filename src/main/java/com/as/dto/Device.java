@@ -2,6 +2,11 @@ package com.as.dto;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class Device {
 // ===== Data =====
 	private String code;
@@ -9,6 +14,7 @@ public class Device {
 	private int type;
 	private Date buy_date;
 	private int major_id;
+
 
 // ===== getter & setter =====
 	public String getCode() {
@@ -41,4 +47,7 @@ public class Device {
 	public void setMajor_id(int major_id) {
 		this.major_id = major_id;
 	}
+
+
 }
+

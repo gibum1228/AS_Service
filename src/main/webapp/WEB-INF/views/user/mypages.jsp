@@ -4,35 +4,38 @@
 	prefix="sec"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>성공회대학교 A/S실</title>
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/mypages.css">
-<link rel="stylesheet" href="/css/boxs.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="/js/main.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() { // 화면 보여주기, 가리기
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>성공회대학교 A/S실</title>
+	<link rel="icon" href="/media/mark_SKHU.png">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/mypages.css">
+	<link rel="stylesheet" href="/css/boxs.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="/js/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () { // 화면 보여주기, 가리기
 
-		$('ul.tabs li').click(function() {
-			var tab_id = $(this).attr('data-tab');
+			$('ul.tabs li').click(function () {
+				var tab_id = $(this).attr('data-tab');
 
-			$('ul.tabs li').removeClass('current');
-			$('.tab-content').removeClass('current');
+				$('ul.tabs li').removeClass('current');
+				$('.tab-content').removeClass('current');
 
-			$(this).addClass('current');
-			$("#" + tab_id).addClass('current');
+				$(this).addClass('current');
+				$("#" + tab_id).addClass('current');
+			})
 		})
-	})
-</script>
+	</script>
 </head>
+
 <body>
 	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a>
-		<a href="">공지사항</a> 
-		<a href="">장비 예약</a> <a href="">장비 목록</a> 
+		<a href="">공지사항</a>
+		<a href="">장비 예약</a> <a href="">장비 목록</a>
 		<a href="">문의하기</a>
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
@@ -55,24 +58,25 @@
 			<ul class="tabs">
 				<li class="current" data-tab="tab-1">프로필</li>
 				<li data-tab="tab-2">이메일 변경</li>
-				<li data-tab="tab-3">대여 기록 보기</li>
-				<li data-tab="tab-4">이메일 인증</li>
-				<li onClick="location.href='/logout_processing'">로그아웃</li>
+				<li>대여 기록 보기</li>
+				<a href="/user/mail/send"><li>이메일 인증</li></a>
+				<a href="/logout_processing"><li>로그아웃</li></a>
 				<sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
 					<h1>ADMIN</h1>
-					<li data-tab="tab-5">장비 처리하기</li>
-					<li data-tab="tab-6">장비 처리 기록보기</li>
-					<li data-tab="tab-7">문의 처리하기</li>
+					<a href=""><li>장비 처리하기</li></a>
+					<a href=""><li>문의사항 처리하기</li></a>
+					<a href=""><li>공지사항 쓰기</li></a>
 				</sec:authorize>
 				<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
 					<h1>SUPERADMIN</h1>
+					<a href="/superadmin/"><li>학생 관리하기</li></a>
 				</sec:authorize>
 				<sec:authorize access="hasRole('ROLE_SERVER')">
 					<hr>
 					<h1>SERVER</h1>
-					<li></a></li>
+					<a href="/server/deviceList"><li>장비 관리하기</li></a>
 				</sec:authorize>
 			</ul>
 		</div>
@@ -85,11 +89,11 @@
 					<input type="text" value="${ student.snum }" readonly>
 					<p><b>이름</p>
 					<input type="text" value="${ student.name }" readonly>
-					<p><b>학교 이메일</p>
+					<p><b>이메일</p>
 					<input type="text" value="${ student.email }" readonly>
-					<p><b>제1전공</b></p>
+					<p><b>제1전공>></b></p>
 					<input type="text" value="${ first }" readonly>
-					<p><b>제2전공</b></p>
+					<p><b>제2전공>></b></p>
 					<input type="text" value="${ sec }" readonly>
 					<p><b>가입 날짜</p>
 					<input type="text" value="${ student.signup_date }" readonly>
@@ -98,8 +102,13 @@
 			<div id="tab-2" class="tab-content">
 				<h1>이메일 변경</h1>
 				<hr>
-				<div style="margin: 300px auto; width: 500px;">
-					<button type="button">이메일 변경하기</button>
+				<div style="margin: 300px auto; width: 500px; text-align: center;">
+					<form action="/user/mail/send_change_email">
+						<input type="text" name="changeEMail" placeholder="구글, 네이버, 다음으로만 변경 가능합니다.">
+						<p><b>아래 메일로 확인 메일이 발송됩니다.</b></p>
+						<p><b>${ student.email }</b></p>
+						<button type="submit">이메일 변경하기</button>
+					</form>
 				</div>
 			</div>
 			<div id="tab-3" class="tab-content">
@@ -112,7 +121,7 @@
 			<div id="tab-4" class="tab-content">
 				<h1>이메일 인증</h1>
 				<hr>
-				<div style="margin: 300px auto; width: 500px; text-align: center">
+				<div style="margin: 300px auto; width: 500px; text-align: center;">
 					<p><b>이메일 주소 확인</b></p>
 					<input type="text" value="${ student.email }" readonly>
 					<input type="button" value="이메일 인증하기" onClick="location.href='/user/mail/send'">
@@ -130,4 +139,5 @@
 		</p>
 	</div>
 </body>
+
 </html>

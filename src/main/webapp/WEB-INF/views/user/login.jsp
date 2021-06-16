@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>성공회대학교 A/S실</title>
+<link rel="icon" href="/media/mark_SKHU.png">
 <link rel="stylesheet" type="text/css" href="/css/boxs.css">
 <link rel="stylesheet" type="text/css" href="/css/login.css">
 <link rel="stylesheet" type="text/css" href="/css/main.css">
