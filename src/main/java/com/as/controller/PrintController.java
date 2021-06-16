@@ -11,7 +11,7 @@ import com.as.service.MemberService;
 
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("admin")
 
 public class PrintController {
 
@@ -29,7 +29,7 @@ public class PrintController {
 		model.addAttribute("member",testMapper.findByPrint(snum));
 
 
-		return "user/print";
+		return "admin/print";
 	}
 
 	@RequestMapping("print_button")
@@ -37,6 +37,6 @@ public class PrintController {
 
 
 
-		return "user/print_button";
+		return "admin/print_button";
 	}
 }

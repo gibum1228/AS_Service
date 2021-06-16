@@ -16,7 +16,7 @@
 	<script type="text/javascript">
 	
 	function onClick(){
-		const html = window.open('http://localhost:8088/user/print?snum=201734017');
+		const html = window.open('http://localhost:8088/admin/print?snum=201734017');
 		html.print();
 	}
 	
