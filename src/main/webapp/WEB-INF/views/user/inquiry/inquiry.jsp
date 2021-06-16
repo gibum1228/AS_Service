@@ -5,26 +5,24 @@
 <head>
 <title>성공회대학교 A/S실</title>
 <link rel="icon" href="/media/mark_SKHU.png">
-<link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/inquiry.css">
+<link rel="stylesheet" href="/css/main.css">
 <script src="/js/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"
-	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body>
+<body style="margin-bottom: 4%;">
 	<div class="header" style="box-shadow: 0px 1px 20px gray;">
 		<div class="headerBtn" style="float: left; width: 350px;" onclick="location.href='/index'">
 			<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
 		</div>
 		<a class="headerBtn" href="/logout_processing">로그아웃</a>
 		<a class="headerBtn" href="/user/mypages">마이페이지</a>
-		<a class="headerBtn" href="">문의하기</a>
+		<a class="headerBtn" href="/user/inquiry/inquiry_list_front">문의하기</a>
 		<a class="headerBtn" href="">예약하기</a>
-		<a class="headerBtn" href="">공지사항</a>
+		<a class="headerBtn" href="/user/notice/notice_list_front">공지사항</a>
 	</div>
 	<div class="container">
 
@@ -91,7 +89,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="2"><button type="submit">저장</button></td>
+						<td colspan="2"><button type="submit">저장</button><button type="button" onclick = "location.href='inquiry_list_front'">돌아가기</button></td></td>
 					</tr>
 				</tfoot>
 			</table>

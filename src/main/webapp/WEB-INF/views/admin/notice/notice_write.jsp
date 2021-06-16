@@ -19,9 +19,9 @@
 		</div>
 		<a class="headerBtn" href="/logout_processing">로그아웃</a>
 		<a class="headerBtn" href="/user/mypages">마이페이지</a>
-		<a class="headerBtn" href="">문의하기</a>
+		<a class="headerBtn" href="/admin/inquiry/inquiry_list">문의하기</a>
 		<a class="headerBtn" href="">예약하기</a>
-		<a class="headerBtn" href="">공지사항</a>
+		<a class="headerBtn" href="/admin/notice/notice_list">공지사항</a>
 	</div>
 	<div class="container">
 	
@@ -51,7 +51,7 @@
     </script>
 				</tbody>
 				<tfoot>
-					<tr><td colspan="2"><button type="submit">저장</button></td></tr>
+					<tr><td colspan="2"><button type="submit">저장</button><button type="button" onclick = "location.href='notice_list'">돌아가기</button></td></tr>
 				</tfoot>
 			</table>
 			

@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
 /*아이디 또는 비밀번호 입력 받는 박스*/
 input[type=text],
 input[type=textarea] {
+	font-family: 'Jua', sans-serif;
 	background-color: #efefef;
     padding-left: 20px;
     border: none;
@@ -23,6 +26,7 @@ input[type=textarea]
 /*-------버튼-------*/
 /*버튼 박스*/
 button {
+	font-family: 'Jua', sans-serif;
     background-color: #007ADD;
     color: white;
     padding: 14px 20px;
@@ -34,8 +38,6 @@ button {
     outline: none;
     float:right;
 	background-color: #007ADD;
-	padding: 0.4em 3em;
-	height: 3em;
 	width: 8em;
 	margin-top: 10px;
 }
@@ -145,6 +147,7 @@ td {
 
 /* 내용칸 */
 textarea {
+	font-family: 'Jua', sans-serif;
 	background-color: #efefef;
 	border: none;
 	border-radius: 10px / 10px;

@@ -16,9 +16,9 @@
 		</div>
 		<a class="headerBtn" href="/logout_processing">로그아웃</a>
 		<a class="headerBtn" href="/user/mypages">마이페이지</a>
-		<a class="headerBtn" href="">문의하기</a>
+		<a class="headerBtn" href="/user/inquiry/inquiry_list_front">문의하기</a>
 		<a class="headerBtn" href="">예약하기</a>
-		<a class="headerBtn" href="">공지사항</a>
+		<a class="headerBtn" href="/user/notice/notice_list_front">공지사항</a>
 	</div>
 
 
