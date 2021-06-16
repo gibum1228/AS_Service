@@ -3,26 +3,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>성공회대학교 A/S 센터</title>
+        <title>성공회대학교 A/S실</title>
+		<link rel="icon" href="/media/mark_SKHU.png">
         <link rel="stylesheet" href="/css/inquiry_list.css">
         <link rel="stylesheet" href="/css/main.css">
         <script src="js/main.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-	<div class="navBar">
-		<a href="/index" id="homeImg"><img src="/media/마크_성공회대학교.png"
-			alt="MAIN" width="50px" height="50px"></a> <a href="">공지사항</a> <a
-			href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
-		<sec:authorize access="authenticated">
-			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
-		</sec:authorize>
-		<a href="/front/mypages" style="float: right;">마이페이지</a>
+	<div class="header" style="box-shadow: 0px 1px 20px gray;">
+		<div class="headerBtn" style="float: left; width: 350px;" onclick="location.href='/index'">
+			<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
+		</div>
+		<a class="headerBtn" href="/logout_processing">로그아웃</a>
+		<a class="headerBtn" href="/user/mypages">마이페이지</a>
+		<a class="headerBtn" href="/user/inquiry/inquiry_list_front">문의하기</a>
+		<a class="headerBtn" href="">예약하기</a>
+		<a class="headerBtn" href="/user/notice/notice_list_front">공지사항</a>
 	</div>
 
 
 	<div id="app">
-            <h1 style="margin-top: 5%; margin-left: 5%;">문의사항</h1>
+            <p style="font-size: 36px; margin-top: 10%; margin-left: 45%; display: inline; color:#585858;">문의사항</p>
+    		<p style="font-size: 20px; color: #A0A0A0; margin-left: 44%; margin-top: 5px;">skhu/AS_Center</p>
             <form method="post">
             <select class="select_sort" name="select_value">
                 <option value="2" <c:if test="${select_value == 2}">selected</c:if>></option>

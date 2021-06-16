@@ -10,20 +10,22 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-	<div class="navBar">
-		<a href="/index" id="homeImg"><img src="/media/마크_성공회대학교.png"
-			alt="MAIN" width="50px" height="50px"></a> <a href="">공지사항</a> <a
-			href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
-		<sec:authorize access="authenticated">
-			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
-		</sec:authorize>
-		<a href="/front/mypages" style="float: right;">마이페이지</a>
+	<div class="header" style="box-shadow: 0px 1px 20px gray;">
+		<div class="headerBtn" style="float: left; width: 350px;" onclick="location.href='/index'">
+			<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
+		</div>
+		<a class="headerBtn" href="/logout_processing">로그아웃</a>
+		<a class="headerBtn" href="/user/mypages">마이페이지</a>
+		<a class="headerBtn" href="/user/inquiry/inquiry_list_front">문의하기</a>
+		<a class="headerBtn" href="">예약하기</a>
+		<a class="headerBtn" href="/user/notice/notice_list_front">공지사항</a>
 	</div>
 
 
 	<div>
+		<div class="title_banner">
 		<h1>공지사항</h1>
-
+		</div>
 		<hr class="hr_level2">
 		<div>
 			<div class="title">
@@ -39,9 +41,9 @@
 			</div>
 			<hr class="hr_level2">
 			<div id = "app">
-			<div class="next" v-on:click="next_list"><span>다음글</span><span class="next_text">${nextTitle}</span></div>
+			<div class="next" v-on:click="next_list"><img src="/media/arrow_drop_up_black_24dp.svg" width="5%" style="position: absolute; bottom:-15%; left:0%;"><span style="margin-left:5%;">다음글</span><span class="next_text">${nextTitle}</span></div>
 			<hr class="hr_level1">
-			<div class="next" v-on:click="pre_list"><span>이전글</span><span class="next_text">${preTitle}</span></div>
+			<div class="next" v-on:click="pre_list"><img src="/media/arrow_drop_down_black_24dp.svg" width="5%" style="position: absolute; bottom:-20%; left:0%;"><span style="margin-left:5%;">이전글</span><span class="next_text">${preTitle}</span></div>
 			</div>
 			<script type="text/javascript">
 				var LX = "${LX}";
@@ -76,7 +78,8 @@
 				}) 
 			</script>
 			<button class="button_back" onclick = "location.href='notice_list_front'">돌아가기</button>
-			
+			</div>
+			</div>
 </body>
 <footer>
 

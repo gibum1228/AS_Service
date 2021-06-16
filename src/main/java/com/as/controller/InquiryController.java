@@ -25,13 +25,13 @@ public class InquiryController {
 	@Autowired InquiryMapper inquiryMapper;
 
 	/*문의사항 글쓰기 컨트롤러*/
-    @GetMapping("front/inquiry")
+    @GetMapping("user/inquiry/inquiry")
     public String inquiry_front(Model model) {
 
-        return "front/inquiry";
+        return "user/inquiry/inquiry";
     }
 
-    @PostMapping("front/inquiry")
+    @PostMapping("user/inquiry/inquiry")
     public String inquiry_front(Model model, Principal principal, String title, String body, int type) {
     	Inquiry inquiry = new Inquiry();
 
@@ -49,7 +49,7 @@ public class InquiryController {
     }
 
     /*문의사항 모아보기 컨트롤러(admin)*/
-    @GetMapping("admin/inquiry_list")
+    @GetMapping("admin/inquiry/inquiry_list")
     public String inquiry_list_admin(Model model) {
 
     	List<Inquiry> list = inquiryMapper.findAll();
@@ -58,10 +58,10 @@ public class InquiryController {
     	model.addAttribute("inquiry_list", list);
 
 
-        return "admin/inquiry_list";
+        return "admin/inquiry/inquiry_list";
     }
 
-    @PostMapping("admin/inquiry_list")
+    @PostMapping("admin/inquiry/inquiry_list")
     public String inquiry_list_admin(Model model, int select_value) {
 
     	if(select_value == 2) {
@@ -81,11 +81,11 @@ public class InquiryController {
 
 
 
-        return "admin/inquiry_list";
+        return "admin/inquiry/inquiry_list";
     }
 
     /*문의사항 모아보기 컨트롤러(front)*/
-    @GetMapping("front/inquiry_list_front")
+    @GetMapping("user/inquiry/inquiry_list_front")
     public String inquiry_list_front(Model model) {
 
     	List<Inquiry> list = inquiryMapper.findAll();
@@ -93,10 +93,10 @@ public class InquiryController {
 
     	model.addAttribute("inquiry_list", list);
 
-        return "front/inquiry_list_front";
+        return "user/inquiry/inquiry_list_front";
     }
 
-    @PostMapping("front/inquiry_list_front")
+    @PostMapping("user/inquiry/inquiry_list_front")
     public String inquiry_list_front(Model model, int select_value) {
 
     	if(select_value == 2) {
@@ -114,11 +114,11 @@ public class InquiryController {
         	model.addAttribute("select_value", select_value);
     	}
 
-        return "front/inquiry_list_front";
+        return "user/inquiry/inquiry_list_front";
     }
 
     /*문의사항 디테일 컨트롤러(admin)*/
-    @GetMapping("admin/inquiry_details_admin")
+    @GetMapping("admin/inquiry/inquiry_details_admin")
     public String inquiry_details_admin(Model model, int no, String nextTitle, String preTitle, HttpSession session) {
     	int LX = inquiryMapper.findLX();
 
@@ -181,10 +181,10 @@ public class InquiryController {
 
     	session.setAttribute("no", no);
 
-        return "admin/inquiry_details_admin";
+        return "admin/inquiry/inquiry_details_admin";
     }
 
-    @PostMapping("admin/inquiry_details_admin")
+    @PostMapping("admin/inquiry/inquiry_details_admin")
     public String inquiry_details_admin(Model model, String answer, HttpSession session) {
 
     	int no = (int) session.getAttribute("no");
@@ -209,7 +209,7 @@ public class InquiryController {
     }
 
     /*문의사항 디테일 컨트롤러(front)*/
-    @GetMapping("front/inquiry_details_front")
+    @GetMapping("user/inquiry/inquiry_details_front")
     public String inquiry_details_front(Model model, int no, String nextTitle, String preTitle) {
        	int LX = inquiryMapper.findLX();
 
@@ -273,13 +273,13 @@ public class InquiryController {
     	inquiryMapper.updateInquiry_views(inquiry);
 
 
-        return "front/inquiry_details_front";
+        return "user/inquiry/inquiry_details_front";
     }
 
-    @PostMapping("front/inquiry_details_front")
+    @PostMapping("user/inquiry/inquiry_details_front")
     public String inquiry_details_front(Model model, String title) {
 
-        return "front/inquiry_details_front";
+        return "user/inquiry/inquiry_details_front";
     }
 
 
