@@ -20,7 +20,9 @@
 <body onload="showBanner()">
 	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a>
-		<a href="">공지사항</a>
+		<c:if test="${ student.getAccess() == 0  }" > <a href="" >공지사항</a></c:if>
+		<c:if test="${ student.getRole_id() == 1 && student.getAccess() == 1  }" > <a href="http://localhost:8088/user/notice/notice_list_front" >공지사항</a></c:if>
+		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 && student.getAccess() == 1 }" > <a href="http://localhost:8088/admin/notice/notice_list" >공지사항</a></c:if>
 		<a href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
@@ -37,7 +39,10 @@
 			<a class="headerBtn" href="/user/mypages">마이페이지</a>
 			<a class="headerBtn" href="">문의하기</a>
 			<a class="headerBtn" href="">예약하기</a>
-			<a class="headerBtn" href="">공지사항</a>
+			<c:if test="${ student.getAccess() == 0  }" ><a class="headerBtn" href="">공지사항</a></c:if>
+			<c:if test="${ student.getRole_id() == 1 && student.getAccess() == 1  }" ><a href="http://localhost:8088/user/notice/notice_list_front" class="headerBtn">공지사항</a></c:if>
+			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 && student.getAccess() == 1 }" ><a href="http://localhost:8088/admin/notice/notice_list" class="headerBtn">공지사항</a></c:if>
+			
 		</div>
 		<img id='banner' src="/media/background_img/0.jpg" alt="background" width="100%" height="777px">
 	</div>

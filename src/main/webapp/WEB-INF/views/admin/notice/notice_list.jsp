@@ -3,22 +3,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>성공회대학교 A/S 센터</title>
+        <title>성공회대학교 A/S실</title>
+		<link rel="icon" href="/media/mark_SKHU.png">
         <link rel="stylesheet" href="/css/notice_list.css">
         <link rel="stylesheet" href="/css/main.css">
         <script src="js/main.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
-    <body style="margin-bottom: 5%;">
-	<div id="navBar">
-		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a> 
-		<a href="">공지사항</a>
-		<a href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
-		<sec:authorize access="authenticated">
-			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
-		</sec:authorize>
-		<a href="/user/mypages" style="float: right;">마이페이지</a> 
-		<a style="float: right; pointer-events: none;">${ student.name }님</a>
+    <body style="margin-bottom: 7%;">
+	<div class="header" style="box-shadow: 0px 1px 20px gray;">
+		<div class="headerBtn" style="float: left; width: 350px;" onclick="location.href='/index'">
+			<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
+		</div>
+		<a class="headerBtn" href="/logout_processing">로그아웃</a>
+		<a class="headerBtn" href="/user/mypages">마이페이지</a>
+		<a class="headerBtn" href="">문의하기</a>
+		<a class="headerBtn" href="">예약하기</a>
+		<a class="headerBtn" href="">공지사항</a>
 	</div>
 
 
