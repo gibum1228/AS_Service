@@ -23,8 +23,10 @@
 		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >공지사항</a></c:if>
 		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/notice/notice_list_front" >공지사항</a></c:if>
 		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/notice/notice_list" >공지사항</a></c:if>
-		<a href="">장비 예약</a>
-		<a href="">장비 목록</a> 
+		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/lend/select_com_laptop" >장비 예약</a></c:if>
+		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/lend/booklist" >장비 관리</a></c:if>
+		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/lend/userpage" >예약 목록</a></c:if>
+		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/lend/list" >장비 목록</a></c:if>
 		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >문의하기</a></c:if>
 		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/inquiry/inquiry_list_front" >문의하기</a></c:if>
 		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/inquiry/inquiry_list" >문의하기</a></c:if>
@@ -44,7 +46,7 @@
 			<c:if test="${ student.getRole_id() == 1  }" ><a class="headerBtn" href="">문의하기</a></c:if>
 			<c:if test="${ student.getRole_id() == 2  }" ><a href="http://localhost:8088/user/inquiry/inquiry_list_front" class="headerBtn">문의하기</a></c:if>
 			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/admin/inquiry/inquiry_list" class="headerBtn">문의하기</a></c:if>
-			<a class="headerBtn" href="">예약하기</a>
+			<c:if test="${  student.getRole_id() == 2  || student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/user/lend/select_com_laptop" class="headerBtn">예약하기</a></c:if>
 			<c:if test="${ student.getRole_id() == 1  }" ><a class="headerBtn" href="">공지사항</a></c:if>
 			<c:if test="${ student.getRole_id() == 2  }" ><a href="http://localhost:8088/user/notice/notice_list_front" class="headerBtn">공지사항</a></c:if>
 			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/admin/notice/notice_list" class="headerBtn">공지사항</a></c:if>

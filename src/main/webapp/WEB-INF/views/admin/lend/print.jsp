@@ -8,6 +8,7 @@
 <meta http_quiv="content-type" content="text/html; charset=utf-8">
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/print.css">
+
 </head>
 <body style="width:100%;">
 
@@ -22,7 +23,7 @@
 					style="line-height: 4.44mm; white-space: nowrap; left: 0mm; top: -0.26mm; height: 5.29mm; width: 189.99mm;"></div>
 				<div class="hls ps0"
 					style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: 8.31mm; height: 3.17mm; width: 189.99mm;">
-					<span class="hrt cs9">&lt;별표 9&gt;</span>
+					<!-- <span class="hrt cs9">&lt;별표 9&gt;</span> -->
 				</div>
 				<div class="hls ps0"
 					style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: 13.39mm; height: 3.17mm; width: 189.99mm;"></div>
@@ -168,7 +169,7 @@
 								<div class="hcI" style="top: 2.17mm;">
 									<div class="hls ps0"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: -0.16mm; height: 3.17mm; width: 67.34mm;">
-										<span class="hrt cs8">${member.name}</span>
+										<span class="hrt cs8">${member.snum_name}</span>
 										</div>
 								</div>
 							</div>
@@ -212,7 +213,7 @@
 								<div class="hcI" style="top: 2.17mm;">
 									<div class="hls ps0"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: -0.16mm; height: 3.17mm; width: 26.92mm;"></div>
-										<span class="hrt cs8">&nbsp&nbsp&nbsp&nbsp${member.device_name}</span>
+										<span class="hrt cs8">&nbsp&nbsp&nbsp${member.device_name}</span>
 								</div>
 							</div>
 						</div>
@@ -269,6 +270,7 @@
 								<div class="hcI" style="top: 2.17mm;">
 									<div class="hls ps0"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: -0.16mm; height: 3.17mm; width: 26.92mm;"></div>
+										<span class="hrt cs8">&nbsp&nbsp&nbsp${member.detail_no}</span>
 								</div>
 							</div>
 						</div>
@@ -653,7 +655,7 @@
 									</div>
 									<div class="hls ps17"
 										style="line-height: 2.48mm; white-space: nowrap; left: 0mm; top: 128.72mm; height: 3.17mm; width: 183.60mm;">
-										<span class="hrt cs9">신청자 : &nbsp;&nbsp; ${member.name}
+										<span class="hrt cs9">신청자 : &nbsp;&nbsp; ${member.snum_name}
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(인)</span>
 									</div>
 									<div class="hls ps17"

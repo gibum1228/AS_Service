@@ -15,10 +15,11 @@ public interface LendMapper {
 
 
 	// >> lend 정보 + device 장비명 가져오기 <<
-	@Select("SELECT l.*, d.name device_name  " + "FROM lend l LEFT JOIN device d "
-			+ " ON l.device_code = d.code " + " WHERE no = #{no}"
-
-)
+	@Select("SELECT l.*, m.name snum_name,  m.phone, m.first_major_id, d.name device_name, j.name major_name  "
+			+ "FROM lend l LEFT JOIN member m ON l.snum = m.snum "
+			+" JOIN device d ON d.code = l.device_code "
+			+" JOIN major j ON d.major_id = j.id "
+			+ " WHERE no = #{no}")
 	Lend findByNo(int no);
 
 
@@ -169,7 +170,5 @@ public interface LendMapper {
 				+ "  end_date = #{end_date},   " + "  return_date = #{return_date},   " + "  extend = #{extend},   "
 				+ "  arrears = #{arrears}   " + " WHERE no = #{no} ")
 		void UpdateLend(Lend lend);
-
-
 
 }

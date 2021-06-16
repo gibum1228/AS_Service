@@ -35,6 +35,8 @@
 		self.close();
 	}
 </script>	
+<title>성공회대학교 A/S실</title>
+<link rel="icon" href="/media/mark_SKHU.png">
 </head>
 <body>
 

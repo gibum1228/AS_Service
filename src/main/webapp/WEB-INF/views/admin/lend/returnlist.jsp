@@ -6,97 +6,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="/css/lend.css">
 <link rel="stylesheet" href="/css/main.css">
 <script src="/js/main.js"></script>
 <script src="/js/lend.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
 	integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
 	crossorigin="anonymous"></script>
-	
+
 <script>
-var STARTDATE="";
-var ENDDATE="";
+	var STARTDATE = "";
+	var ENDDATE = "";
 
-$(document).ready(function() {     
-    $('#exampleModal').on('show.bs.modal', function(event) {          
-        STARTDATE = $(event.relatedTarget).data('startdate');
-        ENDDATE = $(event.relatedTarget).data('enddate');
-        $(".modal-body #start_date").val(STARTDATE);
-        $(".modal-body #end_date").val(ENDDATE);
+	$(document).ready(function() {
+		$('#exampleModal').on('show.bs.modal', function(event) {
+			STARTDATE = $(event.relatedTarget).data('startdate');
+			ENDDATE = $(event.relatedTarget).data('enddate');
+			$(".modal-body #start_date").val(STARTDATE);
+			$(".modal-body #end_date").val(ENDDATE);
 
-    });
-});
-
+		});
+	});
 </script>
+<script type="text/javascript">	
+	function onClick(){
+		const html = window.open('http://localhost:8088/admin/lend/print');
+		html.print();
+	}
+</script>
+<script type="text/javascript">
+	function popup3(frm) {
+		var url = "testpop.asp";
+		var title = "testpop";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width=500, height=500, top=130,left=500";
+		window.open("", title, status);
+		frm.target = title;
+		frm.action = "/admin/lend/print_button";
+		frm.method = "post";
+		frm.submit();
+	}
+</script>
+<title>성공회대학교 A/S실</title>
+<link rel="icon" href="/media/mark_SKHU.png">
 </head>
-<div id="navBar">
+
+<body>
+	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a> 
-		<a href="">공지사항</a>
-		<a href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
+		<a href="/admin/notice/notice_list">공지사항</a>
+		<a href="/admin/lend/booklist">장비 관리</a> <a href="/admin/lend/list">장비 목록</a> <a href="/admin/inquiry/inquiry_list">문의하기</a>
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
 		</sec:authorize>
 		<a href="/user/mypages" style="float: right;">마이페이지</a> 
 		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
-	<div style="width: 100%; height: 50vh;">
+	
 		<div class="header" style="overflow: inherit;">
 			<div class="headerBtn" style="float: left; width: 350px;">
 				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
 			</div>
 			<a class="headerBtn" href="/logout_processing">로그아웃</a>
-			<a class="headerBtn" href="/user/mypages">마이페이지</a>
-			<a class="headerBtn" href="">문의하기</a>
-			<a class="headerBtn" href="">예약하기</a>
-			<a class="headerBtn" href="">공지사항</a>
+		<a class="headerBtn" href="/user/mypages">마이페이지</a>
+		<a class="headerBtn" href="/admin/inquiry/inquiry_list">문의하기</a>
+		<a class="headerBtn" href="/user/lend/select_com_laptop">예약하기</a>
+		<a class="headerBtn" href="/admin/notice/notice_list">공지사항</a>
 		</div>
-	</div>
-<body>
 	<div class="list_top">
 		<h1>대여관리</h1>
 	</div>
 	<div class="list_middle">
-	<table class="middle">
-	<tr>
-		<ul class="nav nav-pills nav-tabs nav-fill">
-  <li class="nav-item">
-    <a class="nav-link" href="booklist">예약</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="rentlist" >대여</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active " aria-current="page" href="returnlist">반납</a>
-  </li>
-   <li class="nav-item">
-    <a class="nav-link" href="list">목록</a>
-  </li>
-</ul>
-</tr>
-		<tr>
-		<form name="inquiry" >
-		<td>
-		</tr>
-		<tr>
-		<td>
-	<div class="input-group mb-3">
-  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">${ order }</button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="list?order=학번&srchText=${srchText }">학번</a></li>
-    <li><a class="dropdown-item" href="list?order=장비명&srchText=${srchText }">장비명</a></li>
-  </ul>
-  <input type="hidden" name=order value="${ order }">
-  <input type="text" name="srchText" value="${ srchText }" placeholder="검색어를 입력해주세요" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">조회</button>
-</div> </form>
-		</td>
-		</tr>
+		<table class="middle">
+			<tr>
+				<ul class="nav nav-pills nav-tabs nav-fill">
+					<li class="nav-item"><a class="nav-link" href="booklist">예약</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="rentlist">대여</a>
+					</li>
+					<li class="nav-item"><a class="nav-link active "
+						aria-current="page" href="returnlist">반납</a></li>
+					<li class="nav-item"><a class="nav-link" href="list">목록</a></li>
+				</ul>
+			</tr>
+			<tr>
+				<form name="inquiry">
+					<td>
+			</tr>
+			<tr>
+				<td>
+					<div class="input-group mb-3">
+						<button class="btn btn-outline-secondary dropdown-toggle"
+							type="button" data-bs-toggle="dropdown" aria-expanded="false">${ order }</button>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item"
+								href="list?order=학번&srchText=${srchText }">학번</a></li>
+							<li><a class="dropdown-item"
+								href="list?order=장비명&srchText=${srchText }">장비명</a></li>
+						</ul>
+						<input type="hidden" name=order value="${ order }"> <input
+							type="text" name="srchText" value="${ srchText }"
+							placeholder="검색어를 입력해주세요" class="form-control"
+							placeholder="Recipient's username"
+							aria-label="Recipient's username"
+							aria-describedby="button-addon2">
+						<button class="btn btn-outline-secondary" type="submit"
+							id="button-addon2">조회</button>
+					</div>
+					</form>
+				</td>
+			</tr>
 		</table>
-		</div>
+	</div>
 	<div class="list_bottom">
 		<table class="table list">
 			<thead>
@@ -112,6 +140,7 @@ $(document).ready(function() {
 					<th>연장</th>
 					<th>연체료</th>
 					<th>반납</th>
+					<th>인쇄</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -131,11 +160,17 @@ $(document).ready(function() {
 						<td>${ lend.extend == 0 ? "가능" : "불가능" }</td>
 						<td>${ lend.arrears }</td>
 						<td><form method="post">
-								<input type="button" class="btn btn-primary" name="return" value="반납"
-									onclick="javascript:popup2(this.form);"> 
-								<input type="hidden" name=lend_no value="${lend.no}">
+								<input type="button" class="btn btn-primary" name="return"
+									value="반납" onclick="javascript:popup2(this.form);"> <input
+									type="hidden" name=lend_no value="${lend.no}">
 							</form></td>
-<%-- <td><button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-startdate="${lend.start_date }"  data-enddate="${lend.end_date }">
+						<td><form method="post" >
+								<input type="button" class="btn btn-secondary" name="print"
+									value="인쇄" onclick="javascript:popup3(this.form);"> <input type="hidden" name=lend_no
+									value="${lend.no}">
+							</form></td>
+							
+						<%-- <td><button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-startdate="${lend.start_date }"  data-enddate="${lend.end_date }">
 반납
 </button>
 </td>
@@ -194,12 +229,11 @@ $(document).ready(function() {
   </div>
 </div>
  --%>
-						
-			</c:forEach>
+				</c:forEach>
 			</tbody>
-			</table>
-			</div>			
-	
+		</table>
+	</div>
+
 </body>
 </html>
 

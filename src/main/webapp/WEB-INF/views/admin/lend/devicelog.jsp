@@ -16,6 +16,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
 	integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
 	crossorigin="anonymous"></script>
+	<title>성공회대학교 A/S실</title>
+<link rel="icon" href="/media/mark_SKHU.png">
 </head>
 <body>
 <div id="header">
@@ -59,7 +61,7 @@
 			<td><fmt:formatDate pattern="yyyy-MM-dd"
 								value="${ device_log.date }" /></td>
 						</tr>	</c:forEach>
-					<tr><td><input type="button"  class="btn btn-secondary" value="확인"
+					<tr><td class="lineless" colspan="5" ><input style="margin-left:45%;"type="button"  class="btn btn-secondary" value="확인"
 		onclick="window.close()"></input></td></tr>
 			
 			</tbody>

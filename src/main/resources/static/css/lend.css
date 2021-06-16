@@ -1,11 +1,11 @@
 .select_top {
 	margin: 50px auto;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding: 5%;
 	background-color: #f2f2f2;
 }
-
+h1 {margin-top:40px;}
 .select_top_down {
 	width: 100%;
 	z-index: 100;
@@ -40,7 +40,29 @@
 
 .select_button:hover {
 	border: 1px dotted;
+	color: #5e5e5e;
+}
 
+.selected_button {
+	border: 1px solid #5E5E5E;
+	color: #5e5e5e;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 400;
+	margin-top: 8px;
+	padding: 8px 30px 8px;
+	text-transform: capitalize;
+	background-color: #d9d9d9;
+	transition: all 0.3s ease 0s;
+	width: 12em;
+	text-align: center;
+	text-decoration: none;
+	margin: 2px;
+}
+
+.selected_button:hover {
+	border: 1px dotted;
+	color: #5e5e5e;
 }
 
 .major_button {
@@ -66,6 +88,22 @@
 	background-color: #5d6c8c;
 }
 
+.majored_button {
+	border: 1px solid #5d6c8c;
+	color:  #fff;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 400;
+	padding: 20px 30px 20px;
+	text-transform: capitalize;
+	background-color:  #5d6c8c;
+	width: 13em;
+	text-align: center;
+	text-decoration: none;
+
+	margin-left: -3px;
+
+}
 .card:hover {
 	margin: -5px -5px;
 	box-shadow: 20px 20px 20px grey;
@@ -74,7 +112,7 @@
 
 .device_top {
 	margin: 50px auto;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding: 5%;
 	background-color: #f2f2f2;
@@ -93,7 +131,7 @@
 
 .user_top {
 	margin: 50px auto;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding: 5%;
 	background-color: #f2f2f2;
@@ -113,7 +151,7 @@
 
 .list_top {
 	margin: 50px auto;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding: 5%;
 	background-color: #f2f2f2;
@@ -156,6 +194,14 @@
 	color: #fff;
 	background-color: #5d6c8c;
 }
+
+.print{
+	width: 300px;
+	height: 200px;
+	margin: 100px 100px;
+	font-size: 50px;
+}
+
 
 .n {
 	width: 100%;
@@ -219,12 +265,13 @@ table.middle tr {
 
 
 table.frame {
-	width: 800px;
-	margin: auto;
+	width: 500px;
+	margin-left: 100px;
 	text-align: center;
 }
 
 table.frame td {
+	width: 200px;
 	padding: 8px 8px;
 }
 
@@ -315,12 +362,13 @@ table.major {
 
 
 .table {
-	width: 500px;
+	width: 600px;
 	margin: auto;
 	margin-top: 80px;
 	margin-bottom: 80px;
 	border-collapse: collapse;
 }
+
 
 .t {
 	width: 500px;
@@ -340,4 +388,10 @@ table.major {
 
 .lineless {
 	border-bottom: 0.5px solid white;
+}
+
+.card-img-top{
+	width: 280px;
+	height: 300px;
+	
 }
