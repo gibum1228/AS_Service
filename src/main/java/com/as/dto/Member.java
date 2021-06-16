@@ -1,14 +1,16 @@
 package com.as.dto;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class Member implements UserDetails {
 	/*
 	 * ver 1.0.0
