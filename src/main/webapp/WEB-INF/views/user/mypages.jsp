@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-	prefix="sec"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
@@ -35,25 +34,35 @@
 <body>
 	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a>
-		<a href="">공지사항</a>
-		<a href="">장비 예약</a> <a href="">장비 목록</a>
-		<a href="">문의하기</a>
+		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >공지사항</a></c:if>
+		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/notice/notice_list_front" >공지사항</a></c:if>
+		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/notice/notice_list" >공지사항</a></c:if>
+		<a href="">장비 예약</a>
+		<a href="">장비 목록</a> 
+		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >문의하기</a></c:if>
+		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/inquiry/inquiry_list_front" >문의하기</a></c:if>
+		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/inquiry/inquiry_list" >문의하기</a></c:if>
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
 		</sec:authorize>
 		<a href="/user/mypages" style="float: right;">마이페이지</a>
 		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
-	<div class="header" style="box-shadow: 0px 1px 20px gray;">
-		<div class="headerBtn" style="float: left; width: 350px;" onclick="location.href='/index'">
-			<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
+	<div class="header" style="overflow: inherit;">
+			<div class="headerBtn" style="float: left; width: 350px;">
+				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
+			</div>
+			<a class="headerBtn" href="/logout_processing">로그아웃</a>
+			<a class="headerBtn" href="/user/mypages">마이페이지</a>
+			<c:if test="${ student.getRole_id() == 1  }" ><a class="headerBtn" href="">문의하기</a></c:if>
+			<c:if test="${ student.getRole_id() == 2  }" ><a href="http://localhost:8088/user/inquiry/inquiry_list_front" class="headerBtn">문의하기</a></c:if>
+			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/admin/inquiry/inquiry_list" class="headerBtn">문의하기</a></c:if>
+			<a class="headerBtn" href="">예약하기</a>
+			<c:if test="${ student.getRole_id() == 1  }" ><a class="headerBtn" href="">공지사항</a></c:if>
+			<c:if test="${ student.getRole_id() == 2  }" ><a href="http://localhost:8088/user/notice/notice_list_front" class="headerBtn">공지사항</a></c:if>
+			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/admin/notice/notice_list" class="headerBtn">공지사항</a></c:if>
+			
 		</div>
-		<a class="headerBtn" href="/logout_processing">로그아웃</a>
-		<a class="headerBtn" href="/user/mypages">마이페이지</a>
-		<a class="headerBtn" href="">문의하기</a>
-		<a class="headerBtn" href="">예약하기</a>
-		<a class="headerBtn" href="">공지사항</a>
-	</div>
 	<div class="section">
 		<div class="tabMenu">
 			<ul class="tabs">
@@ -72,10 +81,10 @@
 					<a href="">
 						<li>장비 처리하기</li>
 					</a>
-					<a href="">
+					<a href="http://localhost:8088/admin/inquiry/inquiry_list">
 						<li>문의사항 처리하기</li>
 					</a>
-					<a href="">
+					<a href="http://localhost:8088/admin/notice/notice_list">
 						<li>공지사항 쓰기</li>
 					</a>
 				</sec:authorize>

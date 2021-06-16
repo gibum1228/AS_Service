@@ -26,13 +26,13 @@ public class NoticeController {
 	@Autowired NoticeMapper noticeMapper;
 
 	/*공지사항 글쓰기 컨트롤러*/
-    @GetMapping("admin/notice_write")
+    @GetMapping("admin/notice/notice_write")
     public String notice_front(Model model) {
 
-        return "admin/notice_write";
+        return "admin/notice/notice_write";
     }
 
-    @PostMapping("admin/notice_write")
+    @PostMapping("admin/notice/notice_write")
     public String notice_front(Model model, Principal principal, String title, String body) {
     	 Notice notice = new Notice();
 
@@ -47,15 +47,15 @@ public class NoticeController {
     }
 
     /*공지사항 글쓰기 수정 컨트롤러*/
-    @GetMapping("admin/notice_edit")
+    @GetMapping("admin/notice/notice_edit")
     public String notice_edit(Model model, int no, HttpSession session) {
 
     	session.setAttribute("no", no);
     	model.addAttribute("notice_list", noticeMapper.findByNo(no));
-        return "admin/notice_edit";
+        return "admin/notice/notice_edit";
     }
 
-    @PostMapping("admin/notice_edit")
+    @PostMapping("admin/notice/notice_edit")
     public String notice_edit(Model model, Principal principal, String title, String body, HttpSession session) {
 
     	int no = (int) session.getAttribute("no");
@@ -65,7 +65,6 @@ public class NoticeController {
          notice.setSnum(principal.getName());
          notice.setTitle(title);
          notice.setBody(body);
-         System.out.print(notice.getBody());
          notice.setViews(0);
 
          noticeMapper.updateNotice(notice);
@@ -77,7 +76,7 @@ public class NoticeController {
 
     // 공지사항 글 삭제
     @RequestMapping
-    (value = "admin/notice_delete", method = RequestMethod.GET)
+    (value = "admin/notice/notice_delete", method = RequestMethod.GET)
     public String getDelete(@RequestParam("no") int no) throws Exception {
 
     Notice notice = noticeMapper.findByNo(no);
@@ -92,7 +91,7 @@ public class NoticeController {
 
 
     /*공지사항 리스트 컨트롤러*/
-    @GetMapping("admin/notice_list")
+    @GetMapping("admin/notice/notice_list")
     public String notice_list(Model model, String title, String a) {
 
     	List<Notice> list = noticeMapper.findAll();
@@ -100,10 +99,10 @@ public class NoticeController {
 
     	model.addAttribute("notice_list", list);
 
-        return "admin/notice_list";
+        return "admin/notice/notice_list";
     }
 
-    @PostMapping("admin/notice_list")
+    @PostMapping("admin/notice/notice_list")
     public String notice_list(Model model, String title) {
 
     	if (title == null) title = "";
@@ -114,11 +113,11 @@ public class NoticeController {
     	model.addAttribute("notice_list", list);
     	model.addAttribute("title", title);
 
-        return "admin/notice_list";
+        return "admin/notice/notice_list";
     }
 
     /*공지사항 리스트 회원 컨트롤러*/
-    @GetMapping("front/notice_list_front")
+    @GetMapping("user/notice/notice_list_front")
     public String notice_list_front(Model model, HttpSession session) {
 
     	List<Notice> list = noticeMapper.findAll();
@@ -128,10 +127,11 @@ public class NoticeController {
     	session.setAttribute("list_length", list.size());
 
 
-        return "front/notice_list_front";
+
+        return "user/notice/notice_list_front";
     }
 
-    @PostMapping("front/notice_list_front")
+    @PostMapping("user/notice/notice_list_front")
     public String notice_list_front2(Model model, String title) {
 
     	if (title == null) title = "";
@@ -143,11 +143,11 @@ public class NoticeController {
     	model.addAttribute("title", title);
 
 
-        return "front/notice_list_front";
+        return "user/notice/notice_list_front";
     }
 
     /*공지사항 디테일 회원 컨트롤러*/
-    @GetMapping("front/notice_details")
+    @GetMapping("user/notice/notice_details")
     public String notice_details(Model model, int no, String nextTitle, String preTitle, HttpSession session) {
 
     	int LX = noticeMapper.findLX();
@@ -212,13 +212,13 @@ public class NoticeController {
 
     	noticeMapper.updateNotice_views(notice);
 
-        return "front/notice_details";
+        return "user/notice/notice_details";
     }
 
-    @PostMapping("front/notice_details")
+    @PostMapping("user/notice/notice_details")
     public String notice_details2(Model model) {
 
-        return "front/notice_details";
+        return "user/notice/notice_details";
     }
 
 

@@ -3,26 +3,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>성공회대학교 A/S 센터</title>
+<title>성공회대학교 A/S실</title>
+<link rel="icon" href="/media/mark_SKHU.png">
 <link rel="stylesheet" href="/css/inquiry_details.css">
 <link rel="stylesheet" href="/css/main.css">
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body style="margin-bottom: 3%;">
-	<div class="navBar">
-		<a href="/index" id="homeImg"><img src="/media/마크_성공회대학교.png"
-			alt="MAIN" width="50px" height="50px"></a> <a href="">공지사항</a> <a
-			href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
-		<sec:authorize access="authenticated">
-			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
-		</sec:authorize>
-		<a href="/front/mypages" style="float: right;">마이페이지</a>
+	<div class="header" style="box-shadow: 0px 1px 20px gray;">
+		<div class="headerBtn" style="float: left; width: 350px;" onclick="location.href='/index'">
+			<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
+		</div>
+		<a class="headerBtn" href="/logout_processing">로그아웃</a>
+		<a class="headerBtn" href="/user/mypages">마이페이지</a>
+		<a class="headerBtn" href="/user/inquiry/inquiry_list_front">문의하기</a>
+		<a class="headerBtn" href="">예약하기</a>
+		<a class="headerBtn" href="/user/notice/notice_list_front">공지사항</a>
 	</div>
 
 
 	<div>
+		<div class="title_banner">
 		<h1>문의사항</h1>
+		</div>
 
 		<hr class="hr_level2">
 		<div>
@@ -76,10 +80,14 @@
 	
 				}) 
 			</script>
+			</div>
+			</div>
 			<hr class="hr_level2">
 
 			<div id="app" v-show="${inquiry_list.getState() }">
+	 			<div class="title_banner">
 				<h1>답변</h1>
+				</div>
 				
 				<div class="write_option">
 				<hr class="hr_level2">
@@ -97,6 +105,7 @@
 					}
 				})
 			</script>
+			<button class="button_back" onclick = "location.href='inquiry_list_front'">돌아가기</button>
 			
 </body>
 <footer>
