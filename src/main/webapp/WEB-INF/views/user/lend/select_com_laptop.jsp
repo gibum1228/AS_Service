@@ -40,7 +40,8 @@ function majorsetColor(btn){
         
 }
 </script>
-
+<title>성공회대학교 A/S실</title>
+<link rel="icon" href="/media/mark_SKHU.png">
 </head>
 	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a> 
