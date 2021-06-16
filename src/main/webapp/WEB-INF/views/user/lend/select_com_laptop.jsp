@@ -45,8 +45,8 @@ function majorsetColor(btn){
 </head>
 	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a> 
-		<a href="">공지사항</a>
-		<a href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
+		<a href="/user/notice/notice_list_front">공지사항</a>
+		<a href="/user/lend/select_com_laptop">장비 예약</a> <a href="/user/lend/userpage">장비 목록</a> <a href="/user/inquiry/inquiry_list_front">문의하기</a>
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
 		</sec:authorize>
@@ -59,10 +59,10 @@ function majorsetColor(btn){
 				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
 			</div>
 			<a class="headerBtn" href="/logout_processing">로그아웃</a>
-			<a class="headerBtn" href="/user/mypages">마이페이지</a>
-			<a class="headerBtn" href="">문의하기</a>
-			<a class="headerBtn" href="">예약하기</a>
-			<a class="headerBtn" href="">공지사항</a>
+		<a class="headerBtn" href="/user/mypages">마이페이지</a>
+		<a class="headerBtn" href="/user/inquiry/inquiry_list_front">문의하기</a>
+		<a class="headerBtn" href="/user/lend/select_com_laptop">예약하기</a>
+		<a class="headerBtn" href="/user/notice/notice_list_front">공지사항</a>
 		</div>
 
 <body>
@@ -72,7 +72,7 @@ function majorsetColor(btn){
 <div class="select_top_down">
 		<table class="major">
 			<tr>
-				<td><button class="major_button" id="button" value = "button" onclick="majorsetColor('button')">컴퓨터공학과</button></td>
+				<td><button class="majored_button">컴퓨터공학과</button></td>
 				<td><button class="major_button">소프트웨어공학과</button></td>
 			</tr>
 			</table>
@@ -82,11 +82,11 @@ function majorsetColor(btn){
 			
 			<table class="select">
 			<tr>
-				<td><button id="button1" value = "button1" class="select_button" onclick="setColor('button1')">노트북</button></td>
-				<td><button class="select_button">태블릿</button></td>
-				<td><button class="select_button">카메라</button></td>
-				<td><button class="select_button">삼각대</button></td>
-				<td><button class="select_button">빔프로젝터</button></td>
+			<td><a class="selected_button" id="button1" value = "button1"  onclick="setColor('button1')" href="select_com_laptop">노트북</button></td>
+				<td><a class="select_button"  href="select_com_tablet">태블릿</button></td>
+				<td><a class="select_button"  href="select_com_laptop">카메라</button></td>
+				<td><a class="select_button"  href="select_com_laptop">삼각대</button></td>
+				<td><a class="select_button"  href="select_com_laptop">빔프로젝터</button></td>
 			</tr>
 		</table>
 	</div>
@@ -215,14 +215,14 @@ function majorsetColor(btn){
        <form name="device" method="post" action="userlist">
 					 <thead>
 					 <tr>
-					 <th>#</th>
+					
 					<th>대여장비</th>
 					<th>방문날짜</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr>
-					<td></td>
+					
 					<td>LG 14Z980-GAP50ML</td>
 						<td>
 					<select class="btn btn-secondary"  name="visit_date">
@@ -247,15 +247,11 @@ function majorsetColor(btn){
 						value="1" /> <!-- 장비 타입 (노트북) 보내기 -->
       </div>
       <div class="modal-footer">
-      <table>
-      <tr>
-      <td>
+     
        <button class="btn btn-secondary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">뒤로가기</button>
-      </td>
-      <td>	<td><button type="submit" class="btn btn-primary"  data-confirm>예약신청완료</button>	</td>
+     <button type="submit" class="btn btn-primary"  data-confirm>예약신청완료</button>	
       </form>
-      </tr>
-      </table>
+     
      	
       </div>
     </div>
@@ -412,16 +408,10 @@ function majorsetColor(btn){
 						value="1" />
       </div>
       <div class="modal-footer">
-      <table>
-      <tr>
-      <td>
        <button class="btn btn-secondary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">뒤로가기</button>
-      </td>
-      <td>	<td><button type="submit" class="btn btn-primary"  data-confirm>예약신청완료</button>	</td>
-         </form>
-      </tr>
-      </table>
-     	
+     <button type="submit" class="btn btn-primary"  data-confirm>예약신청완료</button>	
+      </form>
+    
       </div>
     </div>
   </div>
@@ -604,7 +594,7 @@ function majorsetColor(btn){
   </div>
 </div>
 </td>			
-			
+	</tr><tr>		
 			 <!-- LG 14Z950-GT5BL -->
 						
 				<td>
@@ -774,7 +764,7 @@ function majorsetColor(btn){
 </td>					
       
        <!-- LG 14Z950-GT5BL -->
-       <tr>
+    
 				<td>
 					<div class="card" style="width: 18rem;" style="height: 18rem;">
 						<img src="/media/device/14Z950-GT5BL.jpg" class="card-img-top" alt="lg그램"

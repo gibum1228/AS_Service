@@ -41,24 +41,24 @@ $(document).ready(function() {
 </head>
 <div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a> 
-		<a href="">공지사항</a>
-		<a href="">장비 예약</a> <a href="">장비 목록</a> <a href="">문의하기</a>
+		<a href="/admin/notice/notice_list">공지사항</a>
+		<a href="/admin/lend/booklist">장비 관리</a> <a href="/admin/lend/list">장비 목록</a> <a href="/admin/inquiry/inquiry_list">문의하기</a>
 		<sec:authorize access="authenticated">
 			<a class="btn" style="float: right;" href="/logout_processing">로그아웃</a>
 		</sec:authorize>
 		<a href="/user/mypages" style="float: right;">마이페이지</a> 
 		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
-
+	
 		<div class="header" style="overflow: inherit;">
 			<div class="headerBtn" style="float: left; width: 350px;">
 				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
 			</div>
 			<a class="headerBtn" href="/logout_processing">로그아웃</a>
-			<a class="headerBtn" href="/user/mypages">마이페이지</a>
-			<a class="headerBtn" href="">문의하기</a>
-			<a class="headerBtn" href="">예약하기</a>
-			<a class="headerBtn" href="">공지사항</a>
+		<a class="headerBtn" href="/user/mypages">마이페이지</a>
+		<a class="headerBtn" href="/admin/inquiry/inquiry_list">문의하기</a>
+		<a class="headerBtn" href="/user/lend/select_com_laptop">예약하기</a>
+		<a class="headerBtn" href="/admin/notice/notice_list">공지사항</a>
 		</div>
 <body>
 	<div class="list_top">
