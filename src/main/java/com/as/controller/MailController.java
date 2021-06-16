@@ -81,8 +81,10 @@ public class MailController {
 		}
 
 		if(changeDomain.compareTo("gmail.com") == 0 || changeDomain.compareTo("daum.net") == 0 || changeDomain.compareTo("naver.com") == 0){
-			Member m = memberMapper.findMemberAtEmail(map.get("email"));
-			memberMapper.updateEMail(m.getSnum(), map.get("changeEMail"));
+			if(memberMapper.findEmail(map.get("changeEMail")) == null) {
+				Member m = memberMapper.findMemberAtEmail(map.get("email"));
+				memberMapper.updateEMail(m.getSnum(), map.get("changeEMail"));
+			}
 		}
 		
 		return mv;

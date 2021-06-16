@@ -9,6 +9,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>성공회대학교 A/S실</title>
+	<link rel="icon" href="/media/mark_SKHU.png">
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/css/mypages.css">
 	<link rel="stylesheet" href="/css/boxs.css">
@@ -57,26 +58,25 @@
 			<ul class="tabs">
 				<li class="current" data-tab="tab-1">프로필</li>
 				<li data-tab="tab-2">이메일 변경</li>
-				<li data-tab="tab-3">대여 기록 보기</li>
-				<li data-tab="tab-4" onClick="location.href='/user/mail/send'">이메일 인증</li>
-				<li onClick="location.href='/logout_processing'">로그아웃</li>
+				<li>대여 기록 보기</li>
+				<a href="/user/mail/send"><li>이메일 인증</li></a>
+				<a href="/logout_processing"><li>로그아웃</li></a>
 				<sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
 					<h1>ADMIN</h1>
-					<li data-tab="tab-5">장비 처리하기</li>
-					<li data-tab="tab-6">장비 처리 기록보기</li>
-					<li data-tab="tab-7">문의 처리하기</li>
+					<a href=""><li>장비 처리하기</li></a>
+					<a href=""><li>문의사항 처리하기</li></a>
+					<a href=""><li>공지사항 쓰기</li></a>
 				</sec:authorize>
 				<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
 					<h1>SUPERADMIN</h1>
+					<a href="/superadmin/"><li>학생 관리하기</li></a>
 				</sec:authorize>
 				<sec:authorize access="hasRole('ROLE_SERVER')">
 					<hr>
 					<h1>SERVER</h1>
-					<a href="/server/deviceList">
-						<li>장비관리하기</li>
-					</a>
+					<a href="/server/deviceList"><li>장비 관리하기</li></a>
 				</sec:authorize>
 			</ul>
 		</div>

@@ -10,6 +10,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>성공회대학교 A/S실</title>
+	<link rel="icon" href="/media/mark_SKHU.png">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<link rel="stylesheet" href="/css/main.css">
 	<script src="/js/main.js"></script>
 </head>
@@ -38,9 +41,14 @@
 		</div>
 		<img id='banner' src="/media/background_img/0.jpg" alt="background" width="100%" height="777px">
 	</div>
-	<div style="width: 100%; height: 100vh;">
+	<div style="width: 100%; height: 100vh;" id="app">
 		<div style="position: absolute; top: 150%; left: 50%; transform: translate(-50%, -50%);">
 			<img id='banner' src="/media/logo_ascenter_1_lower.png" alt="logo" width="700px" height="250px">
+			<div style="width: 700px; height: 50px; text-align: center; margin-top: 50px; font-size: 50px; line-height: 50px;">
+				<p>
+					반납일까지 {{ dday }}일 남았습니다.
+				</p>
+			</div>
 		</div>
 	</div>
 	<div class="footer">
@@ -52,6 +60,18 @@
 			<br>&copy; 2021 skhu4201.com
 		</p>
 	</div>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				return_date: moment("2021-08-31"),
+				dday: null
+			},
+			mounted() {
+				this.dday = Math.ceil(moment.duration(this.return_date.diff(moment())).asDays()) + 1 // 오늘(+1)부터 반납일까지 남은 일 수
+			}
+		})
+	</script>
 </body>
 
 </html>
