@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -59,24 +60,38 @@
 				<li class="current" data-tab="tab-1">프로필</li>
 				<li data-tab="tab-2">이메일 변경</li>
 				<li>대여 기록 보기</li>
-				<a href="/user/mail/send"><li>이메일 인증</li></a>
-				<a href="/logout_processing"><li>로그아웃</li></a>
+				<a href="/user/mail/send">
+					<li>이메일 인증</li>
+				</a>
+				<a href="/logout_processing">
+					<li>로그아웃</li>
+				</a>
 				<sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
 					<h1>ADMIN</h1>
-					<a href=""><li>장비 처리하기</li></a>
-					<a href=""><li>문의사항 처리하기</li></a>
-					<a href=""><li>공지사항 쓰기</li></a>
+					<a href="">
+						<li>장비 처리하기</li>
+					</a>
+					<a href="">
+						<li>문의사항 처리하기</li>
+					</a>
+					<a href="">
+						<li>공지사항 쓰기</li>
+					</a>
 				</sec:authorize>
 				<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
 					<h1>SUPERADMIN</h1>
-					<a href="/superadmin/organization"><li>학생 관리자 설정</li></a>
+					<a href="/superadmin/organization">
+						<li>학생 관리자 설정</li>
+					</a>
 				</sec:authorize>
 				<sec:authorize access="hasRole('ROLE_SERVER')">
 					<hr>
 					<h1>SERVER</h1>
-					<a href="/server/deviceList"><li>장비 관리하기</li></a>
+					<a href="/server/deviceList">
+						<li>장비 관리하기</li>
+					</a>
 				</sec:authorize>
 			</ul>
 		</div>
@@ -95,8 +110,9 @@
 					<input type="text" value="${ first }" readonly>
 					<p><b>제2전공>></b></p>
 					<input type="text" value="${ sec }" readonly>
-					<p><b>가입 날짜</p>
-					<input type="text" value="${ student.signup_date }" readonly>
+					<p><b>가입 날짜>></p>
+					<fmt:formatDate pattern="yyyy-MM-dd" value="${ student.signup_date }" />
+
 				</div>
 			</div>
 			<div id="tab-2" class="tab-content">
