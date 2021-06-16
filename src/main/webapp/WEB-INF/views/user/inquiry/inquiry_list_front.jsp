@@ -32,7 +32,9 @@
             	<option value="1" <c:if test="${select_value == 1}">selected</c:if>>답변 완료</option>
             	<option value="0" <c:if test="${select_value == 0}">selected</c:if>>답변 대기중</option>
             </select>
-            <button class="sort_button" type="submit">정렬</button>
+            <button class="sort_button" type="submit">
+				<img src="/media/search_white_24dp.svg">
+			</button>
             </form>
     </div>
    
