@@ -31,9 +31,11 @@ public interface PrintMapper {
     @Select("select me.snum snum, me.name name, me.phone phone, me.first_major_id first_major_id, de.name device_name"
     		+" from member me left join lend le on me.snum = le.snum"
     	    +" left join device_detail dd on le.detail_no = dd.detail_no"
-    	    +" left join device de on dd.device_code = de.code"
+    	    +" left join device de on dd.code = de.code"
     		+ " where me.snum = #{snum} ")
     Print findByPrint(String snum);
+
+
 
 
 }

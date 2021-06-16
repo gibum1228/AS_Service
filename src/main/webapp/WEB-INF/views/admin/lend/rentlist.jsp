@@ -49,7 +49,7 @@ $(document).ready(function() {
 		<a href="/user/mypages" style="float: right;">마이페이지</a> 
 		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
-	<div style="width: 100%; height: 50vh;">
+
 		<div class="header" style="overflow: inherit;">
 			<div class="headerBtn" style="float: left; width: 350px;">
 				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
@@ -60,7 +60,6 @@ $(document).ready(function() {
 			<a class="headerBtn" href="">예약하기</a>
 			<a class="headerBtn" href="">공지사항</a>
 		</div>
-	</div>
 <body>
 	<div class="list_top">
 		<h1>대여관리</h1>

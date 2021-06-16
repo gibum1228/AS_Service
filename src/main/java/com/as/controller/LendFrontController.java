@@ -177,4 +177,18 @@ public class LendFrontController {
 		return "/user/lend/userlist";
 	}
 
+	@RequestMapping("userpage")
+	public String Userlist(Model model, Principal principal)
+			throws ParseException {
+
+
+		//로그인 아이디에 해당하는 예약리스트 가져오기
+		List<Lend> lends = lendMapper.findBySnum(principal.getName());
+
+		model.addAttribute("lends", lends);
+
+
+		return "/user/lend/userpage";
+	}
+
 }

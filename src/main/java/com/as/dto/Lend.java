@@ -26,6 +26,13 @@ public class Lend {
 	private String snum_name;
 	// Major에서 학과이름 불러오기
 	private String major_name;
+	// Member에서 전화번호 불러오기
+	private String phone;
+	// first_major_id에서 전화번호 불러오기
+	int first_major_id;
+
+
+
 
 // ===== getter & setter =====
 	public int getNo() {
@@ -160,6 +167,23 @@ public class Lend {
 	public void setMajor_name(String major_name) {
 		this.major_name = major_name;
 	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public int getFirst_major_id() {
+		return first_major_id;
+	}
+
+	public void setFirst_major_id(int first_major_id) {
+		this.first_major_id = first_major_id;
+	}
+
 
 
 

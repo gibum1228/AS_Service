@@ -33,6 +33,7 @@ public class LendAdminController {
 	@Autowired
 	Device_logMapper device_logMapper;
 
+
 	@RequestMapping("main")
 	public String Main(Model model) {
 
@@ -154,7 +155,7 @@ public class LendAdminController {
 	}
 
 	@RequestMapping("returnlist")
-	public String Returnlist(Model model, String srchText, String order) {
+	public String Returnlist(Model model, String srchText, String order, Principal principal) {
 
 
 		if(srchText == null && order==null) {
@@ -311,5 +312,30 @@ public class LendAdminController {
 		model.addAttribute("device_logs", device_logs);
 
 		return "/admin/lend/devicelog";
+	}
+
+	@RequestMapping("print")
+	public String print(Model model, String lend_no) {
+
+		int lend_No = Integer.parseInt(lend_no);
+		Lend selectedLend = lendMapper.findByNo(lend_No);
+
+		model.addAttribute("member", selectedLend);
+
+
+		return "admin/lend/print";
+	}
+
+	@RequestMapping("print_button")
+	public String print_button(Model model, String lend_no) {
+
+		int lend_No = Integer.parseInt(lend_no);
+		Lend selectedLend = lendMapper.findByNo(lend_No);
+
+		model.addAttribute("member", selectedLend);
+		model.addAttribute("lend_no", lend_no);
+
+
+		return "admin/lend/print_button";
 	}
 }

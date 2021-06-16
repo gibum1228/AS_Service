@@ -1,11 +1,11 @@
 .select_top {
 	margin: 50px auto;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding: 5%;
 	background-color: #f2f2f2;
 }
-
+h1 {margin-top:40px;}
 .select_top_down {
 	width: 100%;
 	z-index: 100;
@@ -74,7 +74,7 @@
 
 .device_top {
 	margin: 50px auto;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding: 5%;
 	background-color: #f2f2f2;
@@ -93,7 +93,7 @@
 
 .user_top {
 	margin: 50px auto;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding: 5%;
 	background-color: #f2f2f2;
@@ -113,7 +113,7 @@
 
 .list_top {
 	margin: 50px auto;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding: 5%;
 	background-color: #f2f2f2;
@@ -156,6 +156,14 @@
 	color: #fff;
 	background-color: #5d6c8c;
 }
+
+.print{
+	width: 300px;
+	height: 200px;
+	margin: 100px 100px;
+	font-size: 50px;
+}
+
 
 .n {
 	width: 100%;

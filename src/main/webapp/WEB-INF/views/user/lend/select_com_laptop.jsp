@@ -53,7 +53,7 @@ function majorsetColor(btn){
 		<a href="/user/mypages" style="float: right;">마이페이지</a> 
 		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
-	<div style="width: 100%; height: 50vh;">
+
 		<div class="header" style="overflow: inherit;">
 			<div class="headerBtn" style="float: left; width: 350px;">
 				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
@@ -64,7 +64,7 @@ function majorsetColor(btn){
 			<a class="headerBtn" href="">예약하기</a>
 			<a class="headerBtn" href="">공지사항</a>
 		</div>
-	</div>
+
 <body>
 	<div class="select_top">
 		<h1>장비대여</h1>
@@ -96,7 +96,7 @@ function majorsetColor(btn){
 			<!-- LG 14Z980-GAP50ML -->
 				<td>
 					<div class="card" style="width: 18rem;" style="height: 18rem;">
-						<img src="/media/lg.jpg" class="card-img-top" alt="lg그램"
+						<img src="/media/device/lg.jpg" class="card-img-top" alt="lg그램"
 							data-bs-toggle="modal" href="#exampleModalToggle">
 						<div class="card-body">
 							<h5 class="card-title">LG 14Z980-GAP50ML</h5>
@@ -129,13 +129,13 @@ function majorsetColor(btn){
 										  </div>
 										  <div class="carousel-inner">
 										    <div class="carousel-item active" data-bs-interval="3000">
-										      <img src="/media/lg.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/lg_up.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg_up.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/lg_down.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg_down.jpg" class="d-block w-100" alt="...">
 										    </div>
 										  </div>
 										  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -267,7 +267,7 @@ function majorsetColor(btn){
 				
 				<td>
 					<div class="card" style="width: 18rem;" style="height: 18rem;">
-						<img src="/media/lg.jpg" class="card-img-top" alt="lg그램"
+						<img src="/media/device/lg.jpg" class="card-img-top" alt="lg그램"
 							data-bs-toggle="modal" href="#exampleModalToggle3">
 						<div class="card-body">
 							<h5 class="card-title">LG 14Z970-GA5BML</h5>
@@ -301,13 +301,13 @@ function majorsetColor(btn){
 										  </div>
 										  <div class="carousel-inner">
 										    <div class="carousel-item active" data-bs-interval="3000">
-										      <img src="/media/lg.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/lg_up.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg_up.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/lg_down.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg_down.jpg" class="d-block w-100" alt="...">
 										    </div>
 										  </div>
 										  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -435,7 +435,7 @@ function majorsetColor(btn){
 				
 				<td>
 					<div class="card" style="width: 18rem;" style="height: 18rem;">
-						<img src="/media/lg.jpg" class="card-img-top" alt="lg그램"
+						<img src="/media/device/lg.jpg" class="card-img-top" alt="lg그램"
 							data-bs-toggle="modal" href="#exampleModalToggle5">
 						<div class="card-body">
 							<h5 class="card-title">LG 15Z970</h5>
@@ -471,13 +471,13 @@ function majorsetColor(btn){
 										  </div>
 										  <div class="carousel-inner">
 										    <div class="carousel-item active" data-bs-interval="3000">
-										      <img src="/media/lg.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/lg_up.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg_up.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/lg_down.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/lg_down.jpg" class="d-block w-100" alt="...">
 										    </div>
 										  </div>
 										  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -609,7 +609,7 @@ function majorsetColor(btn){
 						
 				<td>
 					<div class="card" style="width: 18rem;" style="height: 18rem;">
-						<img src="/media/14Z950-GT5BL.jpg" class="card-img-top" alt="lg그램"
+						<img src="/media/device/14Z950-GT5BL.jpg" class="card-img-top" alt="lg그램"
 							data-bs-toggle="modal" href="#exampleModalToggle7">
 						<div class="card-body">
 							<h5 class="card-title">LG 14Z950-GT5BL</h5>
@@ -646,13 +646,13 @@ function majorsetColor(btn){
 										  </div>
 										  <div class="carousel-inner">
 										    <div class="carousel-item active" data-bs-interval="3000">
-										      <img src="/media/14Z950-GT5BL.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/14Z950-GT5BL.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/14Z950-GT5BL_up.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/14Z950-GT5BL_up.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/14Z950-GT5BL_side.png" class="d-block w-100" alt="...">
+										      <img src="/media/device/14Z950-GT5BL_side.png" class="d-block w-100" alt="...">
 										    </div>
 										  </div>
 										  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -777,7 +777,7 @@ function majorsetColor(btn){
        <tr>
 				<td>
 					<div class="card" style="width: 18rem;" style="height: 18rem;">
-						<img src="/media/14Z950-GT5BL.jpg" class="card-img-top" alt="lg그램"
+						<img src="/media/device/14Z950-GT5BL.jpg" class="card-img-top" alt="lg그램"
 							data-bs-toggle="modal" href="#exampleModalToggle9">
 						<div class="card-body">
 							<h5 class="card-title">LG 13Z950</h5>
@@ -813,13 +813,13 @@ function majorsetColor(btn){
 										  </div>
 										  <div class="carousel-inner">
 										    <div class="carousel-item active" data-bs-interval="3000">
-										      <img src="/media/14Z950-GT5BL.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/14Z950-GT5BL.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/14Z950-GT5BL_up.jpg" class="d-block w-100" alt="...">
+										      <img src="/media/device/14Z950-GT5BL_up.jpg" class="d-block w-100" alt="...">
 										    </div>
 										    <div class="carousel-item" data-bs-interval="3000">
-										      <img src="/media/14Z950-GT5BL_side.png" class="d-block w-100" alt="...">
+										      <img src="/media/device/14Z950-GT5BL_side.png" class="d-block w-100" alt="...">
 										    </div>
 										  </div>
 										  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">

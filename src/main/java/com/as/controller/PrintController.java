@@ -1,5 +1,7 @@
 package com.as.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,9 +26,9 @@ public class PrintController {
 
 
 	@RequestMapping("print")
-	public String print(Model model, String snum) {
+	public String print(Model model,  Principal principal) {
 
-		model.addAttribute("member",testMapper.findByPrint(snum));
+		model.addAttribute("member",testMapper.findByPrint(principal.getName()));
 
 
 		return "admin/print";
