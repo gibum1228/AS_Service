@@ -62,7 +62,7 @@ public class MailController {
 		mss.sendChangeEMail(m, changeEMail);
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/user/logout");
+		mv.setViewName("/user/index");
 
 		return mv;
 	}
@@ -75,7 +75,7 @@ public class MailController {
 
 		String email = map.get("email");
 		String changeDomain = map.get("changeEMail").split("@")[1];
-
+		
 		if(email == null || changeDomain == null){
 			mv.setViewName("user/mail/verify_fail");
 			return mv;
@@ -84,8 +84,9 @@ public class MailController {
 		if(changeDomain.compareTo("gmail.com") == 0 || changeDomain.compareTo("daum.net") == 0 || changeDomain.compareTo("naver.com") == 0){
 			if(memberMapper.findEmail(map.get("changeEMail")) == null) {
 				Member m = memberMapper.findMemberAtEmail(map.get("email"));
-				memberMapper.updateEMail(m.getSnum(), map.get("changeEMail"));
+				memberMapper.updateEMail(m.getSnum(), map.get("changeEMail"));	
 			}
+			
 		}
 		
 		return mv;
