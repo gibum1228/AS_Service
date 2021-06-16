@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.as.mapper.MemberMapper;
-import com.as.mapper.TestMapper;
+import com.as.mapper.PrintMapper;
 import com.as.service.MemberService;
 
 
@@ -16,7 +16,7 @@ import com.as.service.MemberService;
 public class PrintController {
 
 	@Autowired
-	TestMapper testMapper;
+	PrintMapper testMapper;
 	@Autowired
 	MemberMapper memberMapper;
 	@Autowired

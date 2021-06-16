@@ -10,7 +10,7 @@ import com.as.dto.Member;
 import com.as.dto.Print;
 
 @Mapper
-public interface TestMapper {
+public interface PrintMapper {
 
 	@Select("SELECT * FROM member WHERE snum=#{snum}")
     Member findMember(String snum);
