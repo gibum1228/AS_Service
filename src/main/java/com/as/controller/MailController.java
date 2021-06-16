@@ -48,6 +48,7 @@ public class MailController {
 			mv.setViewName("user/mail/verify_success"); // 세션 안에 있는 인증키 인증 성공
 			Member m = memberMapper.findMemberAtEmail(map.get("email"));
 			memberMapper.updateAcess(m);
+			memberMapper.updateRoleAtSnum(m.getSnum(), m.getRole_id());
 			session.invalidate(); // 세션 초기화
 		}
 
