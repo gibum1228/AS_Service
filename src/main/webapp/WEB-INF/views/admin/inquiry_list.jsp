@@ -3,14 +3,7 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>성공회대학교 A/S 센터</title>
-        <link rel="stylesheet" href="/css/inquiry_list.css">
-        <link rel="stylesheet" href="/css/main.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="js/main.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
+   
 <body style="margin-bottom: 10%;">
 	<div class="header" style="overflow: inherit;">
 		<div class="headerBtn" style="float: left; width: 350px;">
