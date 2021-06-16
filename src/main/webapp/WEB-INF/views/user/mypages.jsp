@@ -71,7 +71,7 @@
 				<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
 					<h1>SUPERADMIN</h1>
-					<a href="/superadmin/"><li>학생 관리하기</li></a>
+					<a href="/superadmin/organization"><li>학생 관리자 설정</li></a>
 				</sec:authorize>
 				<sec:authorize access="hasRole('ROLE_SERVER')">
 					<hr>
