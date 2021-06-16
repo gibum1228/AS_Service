@@ -30,7 +30,7 @@ public class MailController {
 
 		String authKey = mss.sendAuthMail(m);
 		session.setAttribute("authKey", authKey);
-		session.setMaxInactiveInterval(60 * 10); // 세션 유효 기간 600초 -> 10분
+		// session.setMaxInactiveInterval(60 * 10); // 세션 유효 기간 600초 -> 10분
 
 		ModelAndView mv = new ModelAndView(); // View 리턴
 		mv.setViewName("/user/mail/sendMail");
@@ -48,8 +48,8 @@ public class MailController {
 			mv.setViewName("user/mail/verify_success"); // 세션 안에 있는 인증키 인증 성공
 			Member m = memberMapper.findMemberAtEmail(map.get("email"));
 			memberMapper.updateAcess(m);
-			memberMapper.updateRoleAtSnum(m.getSnum(), m.getRole_id());
-			session.invalidate(); // 세션 초기화
+			memberMapper.updateRoleAtSnum(m.getSnum(), 2);
+			// session.invalidate(); // 세션 초기화
 		}
 
 		return mv;

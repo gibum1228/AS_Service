@@ -159,7 +159,7 @@ public interface LendMapper {
 
 
 		// >> Lend 데이터 삽입 <<
-		@Insert("INSERT Lend (snum,device_code,detail_no,type,wait_date,visit_date,state,start_date,end_date,return_date,extend,arrears)     "
+		@Insert("INSERT lend (snum,device_code,detail_no,type,wait_date,visit_date,state,start_date,end_date,return_date,extend,arrears)     "
 				+ "VALUES (#{snum},#{device_code},#{detail_no},#{type},#{wait_date},#{visit_date},#{state},#{start_date},#{end_date},#{return_date},#{extend},#{arrears})")
 		void InsertLend(Lend lend);
 

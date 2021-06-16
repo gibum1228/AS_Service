@@ -54,7 +54,7 @@
 				setInterval(() => {
 					this.count--;
 					if(this.count == 0){
-						location.href = "/logout_processing";
+						location.href = "/index";
 						clearInterval(this);
 					}
 				},1000)

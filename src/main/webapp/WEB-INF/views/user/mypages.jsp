@@ -37,7 +37,7 @@
 		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >공지사항</a></c:if>
 		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/notice/notice_list_front" >공지사항</a></c:if>
 		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/notice/notice_list" >공지사항</a></c:if>
-		<a href="">장비 예약</a>
+		<a href="/user/lend/select_com_laptop">장비 예약</a>
 		<a href="">장비 목록</a> 
 		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >문의하기</a></c:if>
 		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/inquiry/inquiry_list_front" >문의하기</a></c:if>
@@ -49,7 +49,7 @@
 		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
 	<div class="header" style="overflow: inherit;">
-			<div class="headerBtn" style="float: left; width: 350px;">
+			<div class="headerBtn" style="float: left; width: 350px;" onclick="location.href='/index'">
 				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
 			</div>
 			<a class="headerBtn" href="/logout_processing">로그아웃</a>
@@ -57,7 +57,7 @@
 			<c:if test="${ student.getRole_id() == 1  }" ><a class="headerBtn" href="">문의하기</a></c:if>
 			<c:if test="${ student.getRole_id() == 2  }" ><a href="http://localhost:8088/user/inquiry/inquiry_list_front" class="headerBtn">문의하기</a></c:if>
 			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/admin/inquiry/inquiry_list" class="headerBtn">문의하기</a></c:if>
-			<a class="headerBtn" href="">예약하기</a>
+			<a class="headerBtn" href="/user/lend/select_com_laptop">예약하기</a>
 			<c:if test="${ student.getRole_id() == 1  }" ><a class="headerBtn" href="">공지사항</a></c:if>
 			<c:if test="${ student.getRole_id() == 2  }" ><a href="http://localhost:8088/user/notice/notice_list_front" class="headerBtn">공지사항</a></c:if>
 			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/admin/notice/notice_list" class="headerBtn">공지사항</a></c:if>
@@ -68,7 +68,9 @@
 			<ul class="tabs">
 				<li class="current" data-tab="tab-1">프로필</li>
 				<li data-tab="tab-2">이메일 변경</li>
-				<li>대여 기록 보기</li>
+				<a href="/user/lend/userpage">
+					<li>대여 기록 보기</li>
+				</a>
 				<a href="/user/mail/send">
 					<li>이메일 인증</li>
 				</a>
