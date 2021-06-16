@@ -7,7 +7,7 @@
 <title></title>
 <meta http_quiv="content-type" content="text/html; charset=utf-8">
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="/resources/css/print_css.css">
+<link rel="stylesheet" type="text/css" href="/css/print.css">
 </head>
 <body style="width:100%;">
 
