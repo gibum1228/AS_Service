@@ -32,6 +32,7 @@
 </head>
 
 <body>
+
 	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a>
 		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >공지사항</a></c:if>
@@ -50,9 +51,10 @@
 		<a href="/user/mypages" style="float: right;">마이페이지</a>
 		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
+	
 	<div class="header" style="overflow: inherit;">
 			<div class="headerBtn" style="float: left; width: 350px;">
-				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
+				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%"  onclick="location.href='/index'">
 			</div>
 			<a class="headerBtn" href="/logout_processing">로그아웃</a>
 			<a class="headerBtn" href="/user/mypages">마이페이지</a>
@@ -70,7 +72,9 @@
 			<ul class="tabs">
 				<li class="current" data-tab="tab-1">프로필</li>
 				<li data-tab="tab-2">이메일 변경</li>
-				<li>대여 기록 보기</li>
+				<a href="/user/lend/userpage">
+					<li>대여 기록 보기</li>
+				</a>
 				<a href="/user/mail/send">
 					<li>이메일 인증</li>
 				</a>
@@ -162,7 +166,7 @@
 			<br>주소: 서울특별시 구로구 오류2동 연동로 320 (성공회대학교), 월당관 1층
 			<br>근무시간: 9:00 AM ~ 5:00 PM
 			<br>점심시간: 12:00 PM ~ 1:00 PM<br>
-			<br>&copy; 2021 skhu4201.com
+			<br>&copy; 2021 skhu4201.com</br>
 		</p>
 	</div>
 </body>
