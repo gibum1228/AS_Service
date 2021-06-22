@@ -78,7 +78,7 @@
 	
 				}) 
 			</script>
-			<button class="button_back" onclick = "location.href='notice_list_front'">돌아가기</button>
+			<button class="button_back" onclick = "location.href='notice_list'">돌아가기</button>
 			</div>
 			</div>
 </body>

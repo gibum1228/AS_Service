@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.as.dto.Inquiry;
+import com.as.dto.Member;
 import com.as.dto.Sequence;
 import com.as.mapper.InquiryMapper;
+import com.as.mapper.MemberMapper;
 
 
 
@@ -23,6 +25,7 @@ import com.as.mapper.InquiryMapper;
 public class InquiryController {
 
 	@Autowired InquiryMapper inquiryMapper;
+	@Autowired MemberMapper memberMapper;
 
 	/*문의사항 글쓰기 컨트롤러*/
     @GetMapping("user/inquiry/inquiry")
@@ -86,9 +89,10 @@ public class InquiryController {
 
     /*문의사항 모아보기 컨트롤러(front)*/
     @GetMapping("user/inquiry/inquiry_list_front")
-    public String inquiry_list_front(Model model) {
+    public String inquiry_list_front(Model model, Principal principal) {
+    	Member student = memberMapper.findMember(principal.getName());
 
-    	List<Inquiry> list = inquiryMapper.findAll();
+    	List<Inquiry> list = inquiryMapper.findBySnum(student.getSnum());
     	Collections.sort(list);
 
     	model.addAttribute("inquiry_list", list);
@@ -97,17 +101,18 @@ public class InquiryController {
     }
 
     @PostMapping("user/inquiry/inquiry_list_front")
-    public String inquiry_list_front(Model model, int select_value) {
+    public String inquiry_list_front(Model model, int select_value, Principal principal) {
+    	Member student = memberMapper.findMember(principal.getName());
 
     	if(select_value == 2) {
-    		List<Inquiry> list = inquiryMapper.findAll();
+    		List<Inquiry> list = inquiryMapper.findBySnum(student.getSnum());
         	Collections.sort(list);
 
         	model.addAttribute("inquiry_list", list);
         	model.addAttribute("select_value", select_value);
     	}
     	else {
-    		List<Inquiry> list = inquiryMapper.findByState(select_value);
+    		List<Inquiry> list = inquiryMapper.findBySnumState(student.getSnum(),select_value);
         	Collections.sort(list);
 
         	model.addAttribute("inquiry_list", list);
@@ -121,25 +126,41 @@ public class InquiryController {
     @GetMapping("admin/inquiry/inquiry_details_admin")
     public String inquiry_details_admin(Model model, int no, String nextTitle, String preTitle, HttpSession session) {
     	int LX = inquiryMapper.findLX();
+    	int FX = inquiryMapper.findFX();
 
     	Inquiry inquiry = inquiryMapper.findByNo(no);
     	Sequence list = inquiryMapper.find_ud_inquiry(no);
 
 
-    	if(no == 1) {
+    	if(FX == no) {
         	Inquiry next = inquiryMapper.findByNo(list.getNextNo());
 
-        	nextTitle = next.getTitle();
-    		preTitle = "게시글이 존재하지 않습니다";
+        	if(next != null) {
+        		nextTitle = next.getTitle();
+        		preTitle = "게시글이 존재하지 않습니다";
 
-    		model.addAttribute("nextTitle",nextTitle);
-        	model.addAttribute("preTitle",preTitle);
+        		model.addAttribute("nextTitle",nextTitle);
+            	model.addAttribute("preTitle",preTitle);
 
-        	int next_no = list.getNextNo();
-        	int pre_no = list.getPreNo();
+            	int next_no = list.getNextNo();
+            	int pre_no = list.getPreNo();
 
-        	model.addAttribute("inquiry_next",next_no);
-        	model.addAttribute("inquiry_pre", pre_no);
+            	model.addAttribute("inquiry_next",next_no);
+            	model.addAttribute("inquiry_pre", pre_no);
+        	}
+        	else {
+        		nextTitle = "게시글이 존재하지 않습니다";
+        		preTitle = "게시글이 존재하지 않습니다";
+
+        		model.addAttribute("nextTitle",nextTitle);
+            	model.addAttribute("preTitle",preTitle);
+
+            	int next_no = list.getNextNo();
+            	int pre_no = list.getPreNo();
+
+            	model.addAttribute("inquriy_next",next_no);
+            	model.addAttribute("inquriy_pre", pre_no);
+        	}
     	}
     	else if(no == LX) {
     		Inquiry previous = inquiryMapper.findByNo(list.getPreNo());
@@ -175,6 +196,7 @@ public class InquiryController {
     	}
 
     	model.addAttribute("LX", LX);
+    	model.addAttribute("FX", FX);
     	model.addAttribute("inquiry_list", inquiry);
 
 
@@ -212,26 +234,42 @@ public class InquiryController {
     @GetMapping("user/inquiry/inquiry_details_front")
     public String inquiry_details_front(Model model, int no, String nextTitle, String preTitle) {
        	int LX = inquiryMapper.findLX();
+       	int FX = inquiryMapper.findFX();
 
     	Inquiry inquiry = inquiryMapper.findByNo(no);
     	Sequence list = inquiryMapper.find_ud_inquiry(no);
 
-    	inquiry.setViews(inquiry.getViews()+1);
 
-    	if(no == 1) {
+
+    	if(FX == no) {
         	Inquiry next = inquiryMapper.findByNo(list.getNextNo());
 
-        	nextTitle = next.getTitle();
-    		preTitle = "게시글이 존재하지 않습니다";
+        	if(next != null) {
+        		nextTitle = next.getTitle();
+        		preTitle = "게시글이 존재하지 않습니다";
 
-    		model.addAttribute("nextTitle",nextTitle);
-        	model.addAttribute("preTitle",preTitle);
+        		model.addAttribute("nextTitle",nextTitle);
+            	model.addAttribute("preTitle",preTitle);
 
-        	int next_no = list.getNextNo();
-        	int pre_no = list.getPreNo();
+            	int next_no = list.getNextNo();
+            	int pre_no = list.getPreNo();
 
-        	model.addAttribute("inquiry_next",next_no);
-        	model.addAttribute("inquiry_pre", pre_no);
+            	model.addAttribute("inquiry_next",next_no);
+            	model.addAttribute("inquiry_pre", pre_no);
+        	}
+        	else {
+        		nextTitle = "게시글이 존재하지 않습니다";
+        		preTitle = "게시글이 존재하지 않습니다";
+
+        		model.addAttribute("nextTitle",nextTitle);
+            	model.addAttribute("preTitle",preTitle);
+
+            	int next_no = list.getNextNo();
+            	int pre_no = list.getPreNo();
+
+            	model.addAttribute("inquriy_next",next_no);
+            	model.addAttribute("inquriy_pre", pre_no);
+        	}
     	}
     	else if(no == LX) {
     		Inquiry previous = inquiryMapper.findByNo(list.getPreNo());
@@ -268,9 +306,9 @@ public class InquiryController {
 
 
     	model.addAttribute("LX", LX);
+    	model.addAttribute("FX", FX);
     	model.addAttribute("inquiry_list", inquiry);
 
-    	inquiryMapper.updateInquiry_views(inquiry);
 
 
         return "user/inquiry/inquiry_details_front";

@@ -41,10 +41,10 @@
         <hr style="width: 90%;">
 
          <table class="inquiry">
-            <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>타입</th><th>상태</th></tr>
+            <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>타입</th><th>상태</th></tr>
             <c:forEach var="inquiry_list" items="${ inquiry_list }">
             <tr data-url="inquiry_details_front?no=${ inquiry_list.getNo() }"><td>${ inquiry_list.getNo() }</td><td>${ inquiry_list.getTitle() }</td><td>${ inquiry_list.getSnum() }</td>
-            <td>${ inquiry_list.getWrite_date() }</td><td>${ inquiry_list.getViews() }</td><td><c:if test = "${ inquiry_list.getType() ==1 }">장비 장애</c:if><c:if test = "${ inquiry_list.getType() == 2}">버그 신고</c:if><c:if test = "${ inquiry_list.getType() == 3}">기타</c:if></td><td><c:if test ="${ inquiry_list.getState() == 0}">답변 대기중</c:if><c:if test ="${ inquiry_list.getState() == 1}">답변 완료</c:if></td></tr>
+            <td>${ inquiry_list.getWrite_date() }</td><td><c:if test = "${ inquiry_list.getType() ==1 }">장비 장애</c:if><c:if test = "${ inquiry_list.getType() == 2}">버그 신고</c:if><c:if test = "${ inquiry_list.getType() == 3}">기타</c:if></td><td><c:if test ="${ inquiry_list.getState() == 0}">답변 대기중</c:if><c:if test ="${ inquiry_list.getState() == 1}">답변 완료</c:if></td></tr>
             </c:forEach>
         </table>
         

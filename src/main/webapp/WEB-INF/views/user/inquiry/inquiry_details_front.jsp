@@ -42,46 +42,8 @@
 			<div class="notice_body">
 				<p>${inquiry_list.getBody()}</p>
 			</div>
-			<hr class="hr_level2">
-			<div id = "aee">
-			<div class="next" v-on:click="next_list"><span>다음글</span><span class="next_text">${nextTitle}</span></div>
-			<hr class="hr_level1">
-			<div class="next" v-on:click="pre_list"><span>이전글</span><span class="next_text">${preTitle}</span></div>
-			</div>
-			<script type="text/javascript">
-				var LX = "${LX}";
-				var no = "${inquiry_list.getNo()}";
-				var next_no = "${inquiry_next}";
-				var pre_no = "${inquiry_pre}";
-				
-				var app = new Vue({
-					el: '#aee',
-					data: { 
-						
-						},
-					methods: {
-						next_list() {
-							if(LX == no) {
-								confirm("게시글이 없습니다");
-							}
-							else{
-								location.href='inquiry_details_front?no='+next_no;
-							}
-						},
-						pre_list() {
-							if(no == 1) {
-								confirm("게시글이 없습니다");
-							}
-							else{
-								location.href='inquiry_details_front?no='+pre_no;
-							}
-						}
-					}
-	
-				}) 
-			</script>
-			</div>
-			</div>
+			
+			
 			<hr class="hr_level2">
 
 			<div id="app" v-show="${inquiry_list.getState() }">

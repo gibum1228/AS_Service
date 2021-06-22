@@ -146,11 +146,12 @@ public class NoticeController {
         return "user/notice/notice_list_front";
     }
 
-    /*공지사항 디테일 회원 컨트롤러*/
+    /*공지사항 디테일 유저 컨트롤러*/
     @GetMapping("user/notice/notice_details")
     public String notice_details(Model model, int no, String nextTitle, String preTitle, HttpSession session) {
 
     	int LX = noticeMapper.findLX();
+    	int FX = noticeMapper.findFX();
 
     	Notice notice = noticeMapper.findByNo(no);
     	Sequence list = noticeMapper.find_ud_notice(no);
@@ -159,20 +160,37 @@ public class NoticeController {
 
     	notice.setViews(notice.getViews()+1);
 
-    	if(no == 1) {
+    	if(FX == no) {
         	Notice next = noticeMapper.findByNo(list.getNextNo());
 
-        	nextTitle = next.getTitle();
-    		preTitle = "게시글이 존재하지 않습니다";
+        	if(next != null) {
+        		nextTitle = next.getTitle();
+        		preTitle = "게시글이 존재하지 않습니다";
 
-    		model.addAttribute("nextTitle",nextTitle);
-        	model.addAttribute("preTitle",preTitle);
+        		model.addAttribute("nextTitle",nextTitle);
+            	model.addAttribute("preTitle",preTitle);
 
-        	int next_no = list.getNextNo();
-        	int pre_no = list.getPreNo();
+            	int next_no = list.getNextNo();
+            	int pre_no = list.getPreNo();
 
-        	model.addAttribute("notice_next",next_no);
-        	model.addAttribute("notice_pre", pre_no);
+            	model.addAttribute("notice_next",next_no);
+            	model.addAttribute("notice_pre", pre_no);
+        	}
+        	else {
+        		nextTitle = "게시글이 존재하지 않습니다";
+        		preTitle = "게시글이 존재하지 않습니다";
+
+        		model.addAttribute("nextTitle",nextTitle);
+            	model.addAttribute("preTitle",preTitle);
+
+            	int next_no = list.getNextNo();
+            	int pre_no = list.getPreNo();
+
+            	model.addAttribute("notice_next",next_no);
+            	model.addAttribute("notice_pre", pre_no);
+        	}
+
+
     	}
     	else if(no == LX) {
     		Notice previous = noticeMapper.findByNo(list.getPreNo());
@@ -208,6 +226,7 @@ public class NoticeController {
     	}
 
     	model.addAttribute("LX", LX);
+    	model.addAttribute("FX", FX);
     	model.addAttribute("notice_list", notice);
 
     	noticeMapper.updateNotice_views(notice);
@@ -221,5 +240,99 @@ public class NoticeController {
         return "user/notice/notice_details";
     }
 
+
+    /*공지사항 디테일 어드민 컨트롤러*/
+    @GetMapping("admin/notice/notice_details")
+    public String admin_notice_details(Model model, int no, String nextTitle, String preTitle, HttpSession session) {
+
+    	int LX = noticeMapper.findLX();
+    	int FX = noticeMapper.findFX();
+
+    	Notice notice = noticeMapper.findByNo(no);
+    	Sequence list = noticeMapper.find_ud_notice(no);
+
+
+
+    	notice.setViews(notice.getViews()+1);
+
+    	if(no == FX) {
+        	Notice next = noticeMapper.findByNo(list.getNextNo());
+
+        	if(next != null) {
+        		nextTitle = next.getTitle();
+        		preTitle = "게시글이 존재하지 않습니다";
+
+        		model.addAttribute("nextTitle",nextTitle);
+            	model.addAttribute("preTitle",preTitle);
+
+            	int next_no = list.getNextNo();
+            	int pre_no = list.getPreNo();
+
+            	model.addAttribute("notice_next",next_no);
+            	model.addAttribute("notice_pre", pre_no);
+        	}
+        	else {
+        		nextTitle = "게시글이 존재하지 않습니다";
+        		preTitle = "게시글이 존재하지 않습니다";
+
+        		model.addAttribute("nextTitle",nextTitle);
+            	model.addAttribute("preTitle",preTitle);
+
+            	int next_no = list.getNextNo();
+            	int pre_no = list.getPreNo();
+
+            	model.addAttribute("notice_next",next_no);
+            	model.addAttribute("notice_pre", pre_no);
+        	}
+
+
+    	}
+    	else if(no == LX) {
+    		Notice previous = noticeMapper.findByNo(list.getPreNo());
+
+        	preTitle = previous.getTitle();
+    		nextTitle = "게시글이 존재하지 않습니다";
+
+    		model.addAttribute("nextTitle",nextTitle);
+        	model.addAttribute("preTitle",preTitle);
+
+        	int pre_no = list.getPreNo();
+        	int next_no = list.getNextNo();
+
+        	model.addAttribute("notice_next",next_no);
+        	model.addAttribute("notice_pre", pre_no);
+    	}
+    	else {
+        	Notice next = noticeMapper.findByNo(list.getNextNo());
+        	Notice previous = noticeMapper.findByNo(list.getPreNo());
+
+        	nextTitle = next.getTitle();
+        	preTitle = previous.getTitle();
+
+        	model.addAttribute("nextTitle",nextTitle);
+        	model.addAttribute("preTitle",preTitle);
+
+        	int next_no = list.getNextNo();
+        	int pre_no = list.getPreNo();
+
+        	model.addAttribute("notice_next",next_no);
+        	model.addAttribute("notice_pre", pre_no);
+
+    	}
+
+    	model.addAttribute("LX", LX);
+    	model.addAttribute("FX", FX);
+    	model.addAttribute("notice_list", notice);
+
+    	noticeMapper.updateNotice_views(notice);
+
+        return "admin/notice/notice_details";
+    }
+
+    @PostMapping("admin/notice/notice_details")
+    public String admin_notice_details2(Model model) {
+
+        return "admin/notice/notice_details";
+    }
 
 }

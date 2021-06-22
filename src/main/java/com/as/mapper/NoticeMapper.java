@@ -36,6 +36,11 @@ public interface NoticeMapper {
 	("SELECT MAX(no) FROM notice;")
 	int findLX();
 
+	// 공지사항 리스트 no 최솟값
+	@Select
+	("SELECT MIN(no) FROM notice;")
+	int findFX();
+
 	// 공지사항 리스트 이전 이후값
 		@Select
 		("SELECT no, preNo, nextNo"

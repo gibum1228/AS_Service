@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/css/main.css">
         <script src="js/main.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
     </head>
     <body style="margin-bottom: 7%;">
 	<div class="header" style="box-shadow: 0px 1px 20px gray;">
@@ -35,11 +36,11 @@
     </div>
 
         <table class="notice">
-            <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>수정/삭제</th></tr>
+            <tr ><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>수정/삭제</th></tr>
             <c:forEach var="notice_list" items="${ notice_list }">
-            <tr><td>${ notice_list.getNo() }</td><td>${ notice_list.getTitle() }</td><td>${ notice_list.getSnum() }</td><td>${ notice_list.getWrite_date() }</td><td>${ notice_list.getViews() }</td>
-            <td><button class="edit" onclick="location.href='notice_edit?no=${notice_list.getNo()}'"><img src="/media/edit.svg"></button>
-            <button class="delete" onclick="location.href='notice_delete?no=${notice_list.getNo()}'"><img src="/media/trash.svg"></button></td></tr>
+            <tr data-url="notice_details?no=${ notice_list.getNo() }"><td>${ notice_list.getNo() }</td><td>${ notice_list.getTitle() }</td><td>${ notice_list.getSnum() }</td><td>${ notice_list.getWrite_date() }</td><td>${ notice_list.getViews() }</td>
+            <td><button class="edit" onclick="location.href='notice_edit?no=${notice_list.getNo()}'; event.stopPropagation();"><img src="/media/edit.svg"></button>
+            <button class="delete" onclick="location.href='notice_delete?no=${notice_list.getNo()}'; event.stopPropagation();" ><img src="/media/trash.svg"></button></td></tr>
             </c:forEach>
         </table>
 		
@@ -47,6 +48,11 @@
         	function notice_delete() {
         		alert("삭제 기능 실행");
         	}
+        	
+        	$("[data-url]").click(function() {
+            	var url = $(this).attr("data-url");
+            	location.href = url; 
+            	}) 
         </script>
 
         <button class="button write" style="background-color:#2E64FE;" onclick = "location.href='notice_write'">글쓰기</button>
