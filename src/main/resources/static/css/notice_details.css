@@ -21,7 +21,7 @@ input[type=text]:focus,
 
 .title_banner {
 	background-color: #DDDDDD;
-	width: 780px; 
+	width: 50%; 
 	margin: auto; 
 	border-radius: 10px;
 }

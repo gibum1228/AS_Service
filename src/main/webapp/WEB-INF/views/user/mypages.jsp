@@ -32,13 +32,16 @@
 </head>
 
 <body>
+
 	<div id="navBar">
 		<a href="/index" id="homeImg"><img src="/media/mark_SKHU.png" alt="MAIN" width="100%" height="100%"></a>
 		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >공지사항</a></c:if>
 		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/notice/notice_list_front" >공지사항</a></c:if>
 		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/notice/notice_list" >공지사항</a></c:if>
-		<a href="/user/lend/select_com_laptop">장비 예약</a>
-		<a href="">장비 목록</a> 
+		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/lend/select_com_laptop" >장비 예약</a></c:if>
+		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/lend/booklist" >장비 관리</a></c:if>
+		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/lend/userpage" >예약 목록</a></c:if>
+		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/lend/list" >장비 목록</a></c:if>
 		<c:if test="${ student.getRole_id() == 1  }" > <a href="" >문의하기</a></c:if>
 		<c:if test="${ student.getRole_id() == 2  }" > <a href="http://localhost:8088/user/inquiry/inquiry_list_front" >문의하기</a></c:if>
 		<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" > <a href="http://localhost:8088/admin/inquiry/inquiry_list" >문의하기</a></c:if>
@@ -48,16 +51,17 @@
 		<a href="/user/mypages" style="float: right;">마이페이지</a>
 		<a style="float: right; pointer-events: none;">${ student.name }님</a>
 	</div>
+	
 	<div class="header" style="overflow: inherit;">
-			<div class="headerBtn" style="float: left; width: 350px;" onclick="location.href='/index'">
-				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%">
+			<div class="headerBtn" style="float: left; width: 350px;">
+				<img src="/media/logo_mark_mr_sin.jpg" alt="logo_AS" width="100%" height="100%"  onclick="location.href='/index'">
 			</div>
 			<a class="headerBtn" href="/logout_processing">로그아웃</a>
 			<a class="headerBtn" href="/user/mypages">마이페이지</a>
 			<c:if test="${ student.getRole_id() == 1  }" ><a class="headerBtn" href="">문의하기</a></c:if>
 			<c:if test="${ student.getRole_id() == 2  }" ><a href="http://localhost:8088/user/inquiry/inquiry_list_front" class="headerBtn">문의하기</a></c:if>
 			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/admin/inquiry/inquiry_list" class="headerBtn">문의하기</a></c:if>
-			<a class="headerBtn" href="/user/lend/select_com_laptop">예약하기</a>
+			<c:if test="${  student.getRole_id() == 2  || student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/user/lend/select_com_laptop" class="headerBtn">예약하기</a></c:if>
 			<c:if test="${ student.getRole_id() == 1  }" ><a class="headerBtn" href="">공지사항</a></c:if>
 			<c:if test="${ student.getRole_id() == 2  }" ><a href="http://localhost:8088/user/notice/notice_list_front" class="headerBtn">공지사항</a></c:if>
 			<c:if test="${ student.getRole_id() == 99 || student.getRole_id() == 98 || student.getRole_id() == 97 }" ><a href="http://localhost:8088/admin/notice/notice_list" class="headerBtn">공지사항</a></c:if>
@@ -80,7 +84,7 @@
 				<sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_SUPERADMIN, ROLE_SERVER')">
 					<hr>
 					<h1>ADMIN</h1>
-					<a href="">
+					<a href="http://localhost:8088/admin/lend/booklist">
 						<li>장비 처리하기</li>
 					</a>
 					<a href="http://localhost:8088/admin/inquiry/inquiry_list">
@@ -162,7 +166,7 @@
 			<br>주소: 서울특별시 구로구 오류2동 연동로 320 (성공회대학교), 월당관 1층
 			<br>근무시간: 9:00 AM ~ 5:00 PM
 			<br>점심시간: 12:00 PM ~ 1:00 PM<br>
-			<br>&copy; 2021 skhu4201.com
+			<br>&copy; 2021 skhu4201.com</br>
 		</p>
 	</div>
 </body>

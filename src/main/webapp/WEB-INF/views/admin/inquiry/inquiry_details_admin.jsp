@@ -62,6 +62,7 @@
 			</div>
 			<script type="text/javascript">
 				var LX = "${LX}";
+				var FX = "${FX}";
 				var no = "${inquiry_list.getNo()}";
 				var next_no = "${inquiry_next}";
 				var pre_no = "${inquiry_pre}";
@@ -74,15 +75,15 @@
 					methods: {
 						next_list() {
 							if(LX == no) {
-								confirm("게시글이 없습니다");
+								alert("게시글이 없습니다");
 							}
 							else{
 								location.href='inquiry_details_admin?no='+next_no;
 							}
 						},
 						pre_list() {
-							if(no == 1) {
-								confirm("게시글이 없습니다");
+							if(FX == no) {
+								alert("게시글이 없습니다");
 							}
 							else{
 								location.href='inquiry_details_admin?no='+pre_no;

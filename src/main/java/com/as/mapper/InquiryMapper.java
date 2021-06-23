@@ -27,9 +27,23 @@ public interface InquiryMapper {
 	("SELECT MAX(no) FROM inquiry;")
 	int findLX();
 
+	// 문의사항 리스트 no 최대값
+	@Select
+	("SELECT MIN(no) FROM inquiry;")
+	int findFX();
+
 	// 문의사항 no로 찾기
 	@Select("SELECT * from inquiry WHERE inquiry.no = #{no}")
 	Inquiry findByNo(int no);
+
+	// 문의사항 학번으로 찾기
+	@Select("SELECT * from inquiry WHERE inquiry.snum = #{snum}")
+	List<Inquiry> findBySnum(String snum);
+
+	// 문의사항 학번별 처리상태로 정렬
+	@Select
+	("SELECT * from inquiry WHERE inquiry.snum = #{snum} and inquiry.state = #{state};")
+	List<Inquiry> findBySnumState(String snum, int state);
 
 	// 문의사항 리스트 이전 이후값
 	@Select
